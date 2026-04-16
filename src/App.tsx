@@ -181,6 +181,8 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
   const [viewMode, setViewMode] = useState<'photo' | 'map'>('photo');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
 
   useEffect(() => {
     if (selectedId) {
@@ -195,6 +197,14 @@ export default function App() {
     if (sortOrder === 'desc') return b.name.localeCompare(a.name);
     return 0;
   });
+
+  const totalPages = Math.ceil(sortedBodiesOfWater.length / itemsPerPage);
+  const paginatedBodiesOfWater = sortedBodiesOfWater.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  // Reset to first page when sort order changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [sortOrder]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-blue-500/30">
@@ -235,7 +245,7 @@ export default function App() {
         </motion.header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0">
-          {sortedBodiesOfWater.map((item, index) => (
+          {paginatedBodiesOfWater.map((item, index) => (
             <motion.div
               key={item.id}
               layoutId={`card-${item.id}`}
@@ -272,6 +282,40 @@ export default function App() {
             </motion.div>
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <div className="mt-12 flex items-center justify-center gap-2">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/50 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Previous
+            </button>
+            <div className="flex gap-2 mx-4">
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                    currentPage === i + 1 
+                      ? 'bg-blue-500/20 text-blue-400 border border-blue-500/50' 
+                      : 'bg-slate-900/50 border border-slate-800 text-slate-400 hover:bg-slate-800/50'
+                  }`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/50 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
