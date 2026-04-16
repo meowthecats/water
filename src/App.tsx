@@ -1,0 +1,383 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon } from 'lucide-react';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Fix for Leaflet default icon issues in React
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+const bodiesOfWater = [
+  {
+    id: 'wildcat_branch',
+    type: 'Stream',
+    name: 'Wildcat Branch',
+    description: 'A scenic stream flowing through Germantown, Maryland. It is a tributary of Great Seneca Creek and runs through the Wildcat Branch Stream Valley Park, providing a natural habitat for local wildlife.',
+    image: 'https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/wildcatbranch/1200/800',
+    color: 'from-emerald-500/20 to-green-700/20',
+    accent: 'text-emerald-400',
+    stats: { location: 'Germantown, MD', basin: 'Great Seneca', type: 'Tributary' },
+    coordinates: [39.2037, -77.2283] as [number, number]
+  },
+  {
+    id: 'river',
+    type: 'Creek',
+    name: 'Seneca Creek',
+    description: 'A 27.4-mile-long free-flowing tributary of the Potomac River located in Montgomery County, Maryland. It flows through Seneca Creek State Park in Germantown, offering scenic views, historic mill ruins, and extensive hiking trails.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Wea02110_-_Flickr_-_NOAA_Photo_Library.jpg',
+    fallbackImage: 'https://picsum.photos/seed/senecacreek/1200/800',
+    color: 'from-emerald-500/20 to-teal-700/20',
+    accent: 'text-emerald-400',
+    stats: { length: '27.4 miles', basin: '129 sq mi', location: 'Germantown, MD' },
+    coordinates: [39.1200, -77.3400] as [number, number]
+  },
+  {
+    id: 'lake',
+    type: 'Lake',
+    name: 'Little Seneca Lake',
+    description: 'A 505-acre reservoir located in Black Hill Regional Park in Germantown, Maryland. It was constructed to provide an emergency water supply for the Washington, D.C. metropolitan area and offers excellent recreational boating and fishing.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Little_Seneca_Lake_2008.jpg',
+    fallbackImage: 'https://picsum.photos/seed/littlesenecalake/1200/800',
+    color: 'from-blue-400/20 to-indigo-600/20',
+    accent: 'text-blue-400',
+    stats: { area: '505 acres', depth: '68 ft', location: 'Germantown, MD' },
+    coordinates: [39.1914, -77.2911] as [number, number]
+  },
+  {
+    id: 'gunner_lake',
+    type: 'Lake',
+    name: 'Gunner Lake',
+    description: 'A scenic man-made lake located in Germantown, Maryland. Surrounded by a paved walking trail, it is a popular local spot for jogging, fishing, and observing waterfowl and wildlife.',
+    image: 'https://live.staticflickr.com/65535/55119901626_74ec927981_b.jpg',
+    fallbackImage: 'https://picsum.photos/seed/gunnerlake/1200/800',
+    color: 'from-teal-400/20 to-emerald-600/20',
+    accent: 'text-teal-400',
+    stats: { area: '~14 acres', trail: '1.5 miles', location: 'Germantown, MD' },
+    coordinates: [39.1601, -77.2650] as [number, number]
+  },
+  {
+    id: 'great_seneca_stream',
+    type: 'Stream',
+    name: 'Great Seneca Stream',
+    description: 'A major stream in Montgomery County, Maryland, flowing through Germantown. It forms the backbone of Seneca Creek State Park and eventually empties into the Potomac River.',
+    image: 'https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/greatseneca/1200/800',
+    color: 'from-green-500/20 to-emerald-900/20',
+    accent: 'text-green-400',
+    stats: { location: 'Germantown, MD', basin: 'Potomac River', length: '21.4 miles' },
+    coordinates: [39.1500, -77.3000] as [number, number]
+  },
+  {
+    id: 'bucklodge_branch',
+    type: 'Stream',
+    name: 'Bucklodge Branch',
+    description: 'A scenic tributary of Little Seneca Creek located in Germantown, Maryland. It flows through the Bucklodge Conservation Park, providing important habitat and contributing to the local watershed.',
+    image: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/bucklodgebranch/1200/800',
+    color: 'from-lime-500/20 to-green-800/40',
+    accent: 'text-lime-400',
+    stats: { location: 'Germantown, MD', basin: 'Little Seneca Creek', type: 'Tributary' },
+    coordinates: [39.1800, -77.3200] as [number, number]
+  },
+  {
+    id: 'long_draught_creek',
+    type: 'Creek',
+    name: 'Long Draught Creek',
+    description: 'A picturesque stream in Germantown, Maryland, that acts as a tributary to Great Seneca Creek. It flows prominently into Clopper Lake within Seneca Creek State Park, offering a serene environment for local wildlife and park visitors.',
+    image: 'https://images.unsplash.com/photo-1444021465936-c6ca81d39b84?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/longdraughtcreek/1200/800',
+    color: 'from-emerald-600/20 to-teal-900/40',
+    accent: 'text-emerald-400',
+    stats: { location: 'Germantown, MD', basin: 'Great Seneca', flows_into: 'Clopper Lake' },
+    coordinates: [39.1400, -77.2300] as [number, number]
+  },
+  {
+    id: 'kentlands_lakes',
+    type: 'Lakes',
+    name: 'Kentlands Lakes',
+    description: 'A series of scenic, interconnected lakes in the Kentlands neighborhood of Gaithersburg, Maryland. They provide a beautiful backdrop for walking trails, community events, and local wildlife.',
+    image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/kentlandslakes/1200/800',
+    color: 'from-cyan-500/20 to-blue-900/40',
+    accent: 'text-cyan-400',
+    stats: { location: 'Gaithersburg, MD', type: 'Community Lakes', features: 'Walking Paths' },
+    coordinates: [39.1230, -77.2380] as [number, number]
+  },
+  {
+    id: 'clopper_lake',
+    type: 'Lake',
+    name: 'Clopper Lake',
+    description: 'A beautiful 90-acre man-made lake situated in Seneca Creek State Park in Gaithersburg, Maryland. It is surrounded by forests and trails, offering excellent opportunities for boating, fishing, and picnicking.',
+    image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/clopperlake/1200/800',
+    color: 'from-blue-500/20 to-cyan-900/40',
+    accent: 'text-blue-400',
+    stats: { area: '90 acres', location: 'Gaithersburg, MD', park: 'Seneca Creek State Park' },
+    coordinates: [39.1450, -77.2520] as [number, number]
+  },
+  {
+    id: 'lake_churchill',
+    type: 'Lake',
+    name: 'Lake Churchill',
+    description: 'A picturesque man-made lake located in the Churchill Village community of Germantown, Maryland. It features a paved walking path, scenic views, and is a peaceful spot for residents and wildlife.',
+    image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/lakechurchill/1200/800',
+    color: 'from-indigo-500/20 to-blue-900/40',
+    accent: 'text-indigo-400',
+    stats: { location: 'Germantown, MD', trail: '1.2 miles', type: 'Community Lake' },
+    coordinates: [39.1850, -77.2580] as [number, number]
+  },
+  {
+    id: 'dead_sea',
+    type: 'Salt Lake',
+    name: 'Dead Sea',
+    description: 'A salt lake bordered by Jordan to the east and Israel and the West Bank to the west. Its hypersaline water makes floating easy, and its mineral-rich mud is used for therapeutic treatments.',
+    image: 'https://images.unsplash.com/photo-1544473244-f6895e69ad8b?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/deadsea/1200/800',
+    color: 'from-teal-600/20 to-cyan-900/40',
+    accent: 'text-teal-400',
+    stats: { elevation: '-430.5 m', salinity: '34.2%', location: 'Middle East' },
+    coordinates: [31.5000, 35.5000] as [number, number]
+  },
+  {
+    id: 'inspiration_lake',
+    type: 'Lake',
+    name: 'Inspiration Lake',
+    description: 'A beautiful community lake situated in the Kentlands neighborhood of Gaithersburg, Maryland. It offers a serene environment with walking paths, scenic views, and is a popular spot for local residents to relax and enjoy nature.',
+    image: 'https://images.unsplash.com/photo-1584852954848-6a1005721151?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/inspirationlake/1200/800',
+    color: 'from-emerald-500/20 to-teal-900/40',
+    accent: 'text-emerald-400',
+    stats: { location: 'Gaithersburg, MD', type: 'Community Lake', features: 'Walking Paths' },
+    coordinates: [39.1250, -77.2400] as [number, number]
+  },
+  {
+    id: 'rio_washingtonian_lake',
+    type: 'Lake',
+    name: 'Rio Washingtonian Center Lake',
+    description: 'A vibrant man-made lake located at the heart of the Rio Washingtonian Center in Gaithersburg, Maryland. It features a scenic boardwalk, paddleboats, and is surrounded by a bustling shopping and dining district.',
+    image: 'https://images.unsplash.com/photo-1518182170546-076616fdacaf?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/riowashingtonian/1200/800',
+    color: 'from-blue-500/20 to-cyan-800/40',
+    accent: 'text-blue-400',
+    stats: { location: 'Gaithersburg, MD', features: 'Boardwalk, Paddleboats', type: 'Man-made Lake' },
+    coordinates: [39.1170, -77.1980] as [number, number]
+  }
+];
+
+export default function App() {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
+  const [viewMode, setViewMode] = useState<'photo' | 'map'>('photo');
+
+  useEffect(() => {
+    if (selectedId) {
+      setViewMode('photo');
+    }
+  }, [selectedId]);
+
+  const selectedItem = bodiesOfWater.find(item => item.id === selectedId);
+
+  const sortedBodiesOfWater = [...bodiesOfWater].sort((a, b) => {
+    if (sortOrder === 'asc') return a.name.localeCompare(b.name);
+    if (sortOrder === 'desc') return b.name.localeCompare(a.name);
+    return 0;
+  });
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-blue-500/30">
+      {/* Background ambient gradient */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(30,58,138,0.15),_transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,_rgba(15,118,110,0.1),_transparent_50%)]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24 min-h-screen flex flex-col">
+        <motion.header 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-12 md:mb-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+        >
+          <div>
+            <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-tight mb-4">
+              Bodies of Water
+            </h1>
+            <p className="text-slate-400 max-w-xl text-lg font-light leading-relaxed">
+              Explore the diverse aquatic ecosystems that shape our planet, from the deepest oceans to serene glacial lakes.
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setSortOrder(prev => prev === 'default' ? 'asc' : prev === 'asc' ? 'desc' : 'default')}
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/50 transition-colors text-slate-300"
+            >
+              {sortOrder === 'default' && <><ArrowUpDown className="w-4 h-4" /><span className="text-sm">Sort</span></>}
+              {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" /><span className="text-sm">A-Z</span></>}
+              {sortOrder === 'desc' && <><ArrowUpZA className="w-4 h-4" /><span className="text-sm">Z-A</span></>}
+            </button>
+            <div className="hidden md:flex h-16 w-16 rounded-full border border-slate-800 items-center justify-center bg-slate-900/50 backdrop-blur-sm">
+              <Droplets className="w-6 h-6 text-blue-400" />
+            </div>
+          </div>
+        </motion.header>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0">
+          {sortedBodiesOfWater.map((item, index) => (
+            <motion.div
+              key={item.id}
+              layoutId={`card-${item.id}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onClick={() => setSelectedId(item.id)}
+              className="group relative rounded-3xl overflow-hidden cursor-pointer h-[300px] md:h-[350px] lg:h-[400px]"
+            >
+              <motion.img
+                layoutId={`image-${item.id}`}
+                src={item.image}
+                alt={item.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = item.fallbackImage;
+                }}
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+              
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <motion.div layoutId={`type-${item.id}`} className={`text-xs font-bold tracking-widest uppercase mb-2 ${item.accent}`}>
+                  {item.type}
+                </motion.div>
+                <motion.h2 layoutId={`title-${item.id}`} className="text-3xl font-serif font-medium text-white mb-2">
+                  {item.name}
+                </motion.h2>
+                <div className="h-0 overflow-hidden transition-all duration-500 group-hover:h-6 opacity-0 group-hover:opacity-100 flex items-center text-sm text-slate-300">
+                  <span>Explore</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {selectedItem && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedId(null)}
+              className="fixed inset-0 z-40 bg-slate-950/80 backdrop-blur-md"
+            />
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none">
+              <motion.div
+                layoutId={`card-${selectedItem.id}`}
+                className="bg-slate-900 w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row pointer-events-auto max-h-[90vh]"
+              >
+                <div className="relative w-full md:w-1/2 h-64 md:h-auto shrink-0">
+                  <motion.img
+                    layoutId={`image-${selectedItem.id}`}
+                    src={selectedItem.image}
+                    alt={selectedItem.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = selectedItem.fallbackImage;
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${selectedItem.color} mix-blend-overlay pointer-events-none transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-0' : 'opacity-100'}`} />
+                  
+                  <div className={`absolute inset-0 z-10 transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+                    {viewMode === 'map' && (
+                      <MapContainer center={selectedItem.coordinates} zoom={13} scrollWheelZoom={true} className="w-full h-full">
+                        <TileLayer
+                          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <Marker position={selectedItem.coordinates} />
+                      </MapContainer>
+                    )}
+                  </div>
+
+                  <div className="absolute bottom-4 left-4 z-20 flex gap-2">
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); setViewMode('photo'); }}
+                      className={`p-2 rounded-full backdrop-blur-md transition-colors shadow-lg ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/50 text-white hover:bg-slate-800/80'}`}
+                      title="View Photo"
+                    >
+                      <ImageIcon className="w-5 h-5" />
+                    </button>
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); setViewMode('map'); }}
+                      className={`p-2 rounded-full backdrop-blur-md transition-colors shadow-lg ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/50 text-white hover:bg-slate-800/80'}`}
+                      title="View Map"
+                    >
+                      <MapIcon className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col overflow-y-auto">
+                  <div className="flex justify-between items-start mb-8">
+                    <div>
+                      <motion.div layoutId={`type-${selectedItem.id}`} className={`text-sm font-bold tracking-widest uppercase mb-2 ${selectedItem.accent}`}>
+                        {selectedItem.type}
+                      </motion.div>
+                      <motion.h2 layoutId={`title-${selectedItem.id}`} className="text-4xl md:text-5xl font-serif font-medium text-white">
+                        {selectedItem.name}
+                      </motion.h2>
+                    </div>
+                    <button 
+                      onClick={() => setSelectedId(null)}
+                      className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors shrink-0 ml-4"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
+                  </div>
+
+                  <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-slate-300 text-lg leading-relaxed mb-10"
+                  >
+                    {selectedItem.description}
+                  </motion.p>
+
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="mt-auto grid grid-cols-2 gap-6"
+                  >
+                    {Object.entries(selectedItem.stats).map(([key, value]) => (
+                      <div key={key} className="border-t border-slate-800 pt-4">
+                        <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">{key}</div>
+                        <div className="text-xl font-medium text-slate-200">{value}</div>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
