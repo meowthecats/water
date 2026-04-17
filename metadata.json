@@ -1,5 +1,6 @@
 {
-  "name": "Remix: Bodies of Water!",
+  "name": "Hefty the Heifer's Bodies of Water!",
   "description": "An interactive gallery showcasing different bodies of water in Maryland",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": []
 }
