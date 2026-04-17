@@ -156,7 +156,7 @@ const bodiesOfWater = [
     type: 'Lake',
     name: 'Inspiration Lake',
     description: 'A beautiful community lake situated in the Kentlands neighborhood of Gaithersburg, Maryland. It offers a serene environment with walking paths, scenic views, and is a popular spot for local residents to relax and enjoy nature.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Kentlands%2C_Maryland%2C_March_2015.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/KentlandsCauseway.jpg',
     fallbackImage: 'https://picsum.photos/seed/inspirationlake/1200/800',
     color: 'from-emerald-500/20 to-teal-900/40',
     accent: 'text-emerald-400',
@@ -186,6 +186,78 @@ const bodiesOfWater = [
     accent: 'text-teal-400',
     stats: { area: '75 acres', location: 'Derwood, MD', park: 'Rock Creek Regional' },
     coordinates: [39.1170, -77.1240] as [number, number]
+  },
+  {
+    id: 'north_creek_lake_park',
+    type: 'Lake',
+    name: 'North Creek Lake Park',
+    description: 'A peaceful park setup featuring a small lake in Montgomery Village, Maryland. The park offers walking paths around the water, picnic areas, and provides an excellent spot to observe local flora and fauna.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/17/North_Branch_Connector_Trail.jpg',
+    fallbackImage: 'https://picsum.photos/seed/northcreeklake/1200/800',
+    color: 'from-sky-500/20 to-blue-800/40',
+    accent: 'text-sky-400',
+    stats: { location: 'Montgomery Village, MD', type: 'Park Lake', features: 'Paved Paths' },
+    coordinates: [39.1830, -77.2025] as [number, number]
+  },
+  {
+    id: 'lake_whetstone',
+    type: 'Lake',
+    name: 'Lake Whetstone',
+    description: 'A scenic man-made lake serving as a central feature of Montgomery Village, Maryland. It offers boating, fishing, and a paved walking trail right in the heart of the community.',
+    image: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/lakewhetstone/1200/800',
+    color: 'from-blue-500/20 to-indigo-800/40',
+    accent: 'text-blue-400',
+    stats: { location: 'Montgomery Village, MD', type: 'Community Lake', boating: 'Yes' },
+    coordinates: [39.1670, -77.2030] as [number, number]
+  },
+  {
+    id: 'lake_bernard_frank',
+    type: 'Lake',
+    name: 'Lake Bernard Frank',
+    description: 'A serene 54-acre reservoir nestled quietly within the sprawling Rock Creek Regional Park near Derwood, Maryland. It is isolated from significant paved developments, providing a pristine habitat for hikers and naturalists.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Lake_Bernard_Frank_view_from_Dam.jpg',
+    fallbackImage: 'https://picsum.photos/seed/lakebernardfrank/1200/800',
+    color: 'from-emerald-500/20 to-green-900/40',
+    accent: 'text-emerald-400',
+    stats: { area: '54 acres', location: 'Derwood, MD', park: 'Rock Creek Regional' },
+    coordinates: [39.1240, -77.1060] as [number, number]
+  },
+  {
+    id: 'lake_nirvana',
+    type: 'Lake',
+    name: 'Lake Nirvana',
+    description: 'A quaint, quiet community lake tucked away within Gaithersburg, Maryland. Though modest in size, it serves as a peaceful water feature for the surrounding local neighborhoods.',
+    image: 'https://images.unsplash.com/photo-1543881478-f4cb55e37f8b?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/lakenirvana/1200/800',
+    color: 'from-teal-400/20 to-cyan-800/40',
+    accent: 'text-teal-400',
+    stats: { location: 'Gaithersburg, MD', type: 'Pond', environment: 'Suburban' },
+    coordinates: [39.1200, -77.2200] as [number, number]
+  },
+  {
+    id: 'maple_lake',
+    type: 'Lake',
+    name: 'Maple Lake',
+    description: 'A historic small lake nestled inside the tranquil town of Washington Grove, Maryland. Heavily wooded and scenic, it has long been a private gem for the town\'s residents.',
+    image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1200',
+    fallbackImage: 'https://picsum.photos/seed/maplelake/1200/800',
+    color: 'from-orange-500/20 to-amber-900/40',
+    accent: 'text-orange-400',
+    stats: { location: 'Washington Grove, MD', type: 'Woodland Lake', historic_town: 'Yes' },
+    coordinates: [39.1410, -77.1700] as [number, number]
+  },
+  {
+    id: 'rock_creek_regional_park',
+    type: 'Park',
+    name: 'Rock Creek Regional Park',
+    description: 'A massive 1,800-acre park stretching across Gaithersburg, Derwood, and Rockville. It encompasses both Lake Needwood and Lake Bernard Frank, providing dense forests, an extensive trail network, and boating.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Lake_Needwood_Rock_Creek_Regional_Park_13.jpg',
+    fallbackImage: 'https://picsum.photos/seed/rockcreek/1200/800',
+    color: 'from-green-600/20 to-emerald-900/40',
+    accent: 'text-green-400',
+    stats: { area: '1,800 acres', location: 'Montgomery County, MD', trails: 'Extensive' },
+    coordinates: [39.1200, -77.1150] as [number, number]
   }
 ];
 
