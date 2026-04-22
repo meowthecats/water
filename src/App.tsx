@@ -460,13 +460,13 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSortOrder(prev => prev === 'default' ? 'asc' : prev === 'asc' ? 'desc' : 'default')}
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/50 transition-colors text-slate-300"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300"
             >
               {sortOrder === 'default' && <><ArrowUpDown className="w-4 h-4" /><span className="text-sm">Sort</span></>}
               {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" /><span className="text-sm">A-Z</span></>}
               {sortOrder === 'desc' && <><ArrowUpZA className="w-4 h-4" /><span className="text-sm">Z-A</span></>}
             </button>
-            <div className="hidden md:flex h-16 w-16 rounded-full border border-slate-800 items-center justify-center bg-slate-900/50 backdrop-blur-sm">
+            <div className="hidden md:flex h-16 w-16 rounded-full border border-slate-800 items-center justify-center bg-slate-900/80">
               <Droplets className="w-6 h-6 text-blue-400" />
             </div>
           </div>
@@ -487,6 +487,8 @@ export default function App() {
                 layoutId={`image-${item.id}`}
                 src={item.image}
                 alt={item.name}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = item.fallbackImage;
@@ -516,7 +518,7 @@ export default function App() {
             <button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/50 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Previous
             </button>
@@ -538,7 +540,7 @@ export default function App() {
             <button
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm hover:bg-slate-800/50 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Next
             </button>
@@ -554,7 +556,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedId(null)}
-              className="fixed inset-0 z-40 bg-slate-950/80 backdrop-blur-md"
+              className="fixed inset-0 z-40 bg-slate-950/95"
             />
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none">
               <motion.div
@@ -566,13 +568,15 @@ export default function App() {
                     layoutId={`image-${selectedItem.id}`}
                     src={selectedItem.image}
                     alt={selectedItem.name}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = selectedItem.fallbackImage;
                     }}
                     referrerPolicy="no-referrer"
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${selectedItem.color} mix-blend-overlay pointer-events-none transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-0' : 'opacity-100'}`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${selectedItem.color} opacity-40 pointer-events-none transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-0' : 'opacity-40'}`} />
                   
                   <div className={`absolute inset-0 z-10 transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                     {viewMode === 'map' && (
@@ -589,14 +593,14 @@ export default function App() {
                   <div className="absolute bottom-4 left-4 z-20 flex gap-2">
                     <button 
                       onClick={(e) => { e.stopPropagation(); setViewMode('photo'); }}
-                      className={`p-2 rounded-full backdrop-blur-md transition-colors shadow-lg ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/50 text-white hover:bg-slate-800/80'}`}
+                      className={`p-2 rounded-full transition-colors shadow-lg ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
                       title="View Photo"
                     >
                       <ImageIcon className="w-5 h-5" />
                     </button>
                     <button 
                       onClick={(e) => { e.stopPropagation(); setViewMode('map'); }}
-                      className={`p-2 rounded-full backdrop-blur-md transition-colors shadow-lg ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/50 text-white hover:bg-slate-800/80'}`}
+                      className={`p-2 rounded-full transition-colors shadow-lg ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
                       title="View Map"
                     >
                       <MapIcon className="w-5 h-5" />
