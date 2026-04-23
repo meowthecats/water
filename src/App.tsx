@@ -447,6 +447,105 @@ const bodiesOfWater = [
     accent: 'text-cyan-400',
     stats: { location: 'Bethesda, MD', type: 'Stream Valley', trails: 'Capital Crescent' },
     coordinates: [38.9660, -77.1000] as [number, number]
+  },
+  {
+    id: 'northwest_branch_anacostia_river',
+    type: 'River',
+    name: 'Northwest Branch Anacostia River',
+    description: 'A major tributary of the Anacostia River, featuring a prominent scenic trail system. The river courses through picturesque, rocky gorge sections and provides extensive recreational greenway access.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Anacostia_Trail_NW_Branch_crossing_2021.jpg',
+    color: 'from-blue-500/20 to-indigo-800/40',
+    accent: 'text-blue-400',
+    stats: { location: 'Montgomery County, MD', type: 'Tributary River', basin: 'Anacostia' },
+    coordinates: [39.0200, -77.0160] as [number, number]
+  },
+  {
+    id: 'sligo_creek',
+    type: 'Creek',
+    name: 'Sligo Creek',
+    description: 'A free-flowing tributary of the Northwest Branch of the Anacostia River. The surrounding Sligo Creek Stream Valley Park offers heavily used, paved hiker-biker trails connecting communities like Silver Spring and Takoma Park.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Sligo_creek_trail_bridge_20200913_133931_1.jpg',
+    color: 'from-teal-500/20 to-emerald-800/40',
+    accent: 'text-teal-400',
+    stats: { location: 'Silver Spring, MD', type: 'Urban Creek', trails: 'Sligo Creek Trail' },
+    coordinates: [38.9910, -77.0180] as [number, number]
+  },
+  {
+    id: 'co_canal_montgomery',
+    type: 'Canal',
+    name: 'C&O Canal',
+    description: 'The historic Chesapeake and Ohio Canal stretches along the Potomac River in Montgomery County. It features numerous historic locks, aqueducts, and the beloved unpaved towpath used heavily by cyclists and hikers.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/44/SenecaAqueduct.JPG',
+    color: 'from-stone-500/20 to-amber-900/40',
+    accent: 'text-stone-400',
+    stats: { location: 'Montgomery County, MD', type: 'Historic Canal', features: 'Towpath, Locks' },
+    coordinates: [39.0680, -77.3400] as [number, number]
+  },
+  {
+    id: 'little_bennett_creek',
+    type: 'Creek',
+    name: 'Little Bennett Creek',
+    description: 'A tributary of the Monocacy River flowing gently through Little Bennett Regional Park, known for beautiful forested trails and excellent local nature immersion.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Hiking_the_Whitetail_Trail_in_Little_Bennett_Regional_Park_%2827832343467%29.jpg',
+    color: 'from-green-500/20 to-emerald-800/40',
+    accent: 'text-green-400',
+    stats: { location: 'Clarksburg, MD', type: 'Creek', features: 'Woodland Trails' },
+    coordinates: [39.2610, -77.3370] as [number, number]
+  },
+  {
+    id: 'tenmile_creek',
+    type: 'Creek',
+    name: 'Ten Mile Creek',
+    description: 'A vital reference stream serving as the main tributary to Little Seneca Lake, flowing near Clarksburg. It boasts some of the cleanest water quality in the region.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Ten_Mile_Creek_2015a.jpg',
+    color: 'from-blue-500/20 to-sky-800/40',
+    accent: 'text-blue-400',
+    stats: { location: 'Clarksburg, MD', type: 'Tributary Creek', water_quality: 'High' },
+    coordinates: [39.2150, -77.3090] as [number, number]
+  },
+  {
+    id: 'paint_branch',
+    type: 'Stream',
+    name: 'Paint Branch',
+    description: 'A major tributary of the Anacostia River flowing southeastwards through Montgomery County. The Paint Branch Stream Valley Park preserves its lush riparian zone for hikers.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/7/73/Paint_branch_montgomery_county_md_20201024_095736_1.jpg',
+    color: 'from-amber-600/20 to-stone-800/40',
+    accent: 'text-amber-500',
+    stats: { location: 'White Oak, MD', type: 'Stream Valley', trails: 'Paint Branch Trail' },
+    coordinates: [39.0550, -76.9930] as [number, number]
+  },
+  {
+    id: 'cabin_john_creek',
+    type: 'Creek',
+    name: 'Cabin John Creek',
+    description: 'A significant tributary of the Potomac River that runs through a deeply forested stream valley park, offering long uninterrupted walking and hiking routes through the suburban canopy.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Cabin_John_Creek_near_Rockville_MD.jpg',
+    color: 'from-teal-500/20 to-green-800/40',
+    accent: 'text-teal-400',
+    stats: { location: 'Bethesda/Potomac, MD', type: 'Tributary Creek', trails: 'Cabin John Trail' },
+    coordinates: [39.0060, -77.1470] as [number, number]
+  },
+  {
+    id: 'rock_creek',
+    type: 'River',
+    name: 'Rock Creek',
+    description: 'Perhaps the most well-known tributary stream in the region, carving its way from northern Montgomery County all the way down into the heart of Washington D.C.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Rock_Creek_Trail_1st_crossing_2021a.jpg',
+    color: 'from-cyan-500/20 to-blue-800/40',
+    accent: 'text-cyan-400',
+    stats: { location: 'Rockville/Bethesda, MD', type: 'Major Stream', trails: 'Rock Creek Trail' },
+    coordinates: [39.0830, -77.1160] as [number, number]
+  },
+  {
+    id: 'broad_run',
+    type: 'Stream',
+    name: 'Broad Run',
+    description: 'A scenic tributary running through Montgomery County’s Agricultural Reserve, finally meeting the Potomac River and passing under the historic C&O Canal aqueduct.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Broad_Run_MD1.jpg',
+    color: 'from-lime-500/20 to-emerald-800/40',
+    accent: 'text-lime-400',
+    stats: { location: 'Poolesville, MD', type: 'Rural Stream', features: 'Agricultural Reserve' },
+    coordinates: [39.1170, -77.4580] as [number, number]
   }
 ];
 
