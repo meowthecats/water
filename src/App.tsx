@@ -555,6 +555,11 @@ export default function App() {
   const [viewMode, setViewMode] = useState<'photo' | 'map'>('photo');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
+  const [weatherData, setWeatherData] = useState<{
+    temperature: number;
+    windspeed: number;
+  } | null>(null);
+  const [weatherLoading, setWeatherLoading] = useState(false);
 
   useEffect(() => {
     if (selectedId) {
@@ -563,6 +568,30 @@ export default function App() {
   }, [selectedId]);
 
   const selectedItem = bodiesOfWater.find(item => item.id === selectedId);
+
+  useEffect(() => {
+    if (selectedItem) {
+      const [lat, lon] = selectedItem.coordinates;
+      setWeatherLoading(true);
+      setWeatherData(null);
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.current_weather) {
+            setWeatherData({
+              temperature: data.current_weather.temperature,
+              windspeed: data.current_weather.windspeed,
+            });
+          }
+        })
+        .catch(err => {
+          console.error("Failed to fetch weather data", err);
+        })
+        .finally(() => {
+          setWeatherLoading(false);
+        });
+    }
+  }, [selectedItem?.coordinates[0], selectedItem?.coordinates[1]]);
 
   const sortedBodiesOfWater = [...bodiesOfWater].sort((a, b) => {
     if (sortOrder === 'asc') return a.name.localeCompare(b.name);
@@ -594,13 +623,13 @@ export default function App() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-12 md:mb-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+          className="mb-12 md:mb-20 flex flex-col items-center justify-center gap-8 text-center"
         >
           <div>
             <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-tight mb-4">
               Bodies of Water
             </h1>
-            <p className="text-slate-400 max-w-xl text-lg font-light leading-relaxed">
+            <p className="text-slate-400 max-w-xl text-lg font-light leading-relaxed mx-auto">
               Explore the diverse aquatic ecosystems that shape our planet, from the deepest oceans to serene glacial lakes.
             </p>
           </div>
@@ -613,8 +642,8 @@ export default function App() {
               {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" /><span className="text-sm">A-Z</span></>}
               {sortOrder === 'desc' && <><ArrowUpZA className="w-4 h-4" /><span className="text-sm">Z-A</span></>}
             </button>
-            <div className="hidden md:flex h-16 w-16 rounded-full border border-slate-800 items-center justify-center bg-slate-900/80">
-              <Droplets className="w-6 h-6 text-blue-400" />
+            <div className="hidden md:flex h-12 w-12 rounded-full border border-slate-800 items-center justify-center bg-slate-900/80">
+              <Droplets className="w-5 h-5 text-blue-400" />
             </div>
           </div>
         </motion.header>
@@ -780,7 +809,7 @@ export default function App() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="mt-auto grid grid-cols-2 gap-6"
+                    className="mt-auto grid grid-cols-2 gap-6 mb-8"
                   >
                     {Object.entries(selectedItem.stats).map(([key, value]) => (
                       <div key={key} className="border-t border-slate-800 pt-4">
@@ -788,6 +817,31 @@ export default function App() {
                         <div className="text-xl font-medium text-slate-200">{value}</div>
                       </div>
                     ))}
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="border-t border-slate-800 pt-6"
+                  >
+                    <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Current Weather</div>
+                    {weatherLoading ? (
+                      <div className="text-slate-400">Loading...</div>
+                    ) : weatherData ? (
+                      <div className="flex gap-8">
+                        <div>
+                          <div className="text-3xl font-medium text-slate-200">{weatherData.temperature}°F</div>
+                          <div className="text-sm text-slate-400">Temperature</div>
+                        </div>
+                        <div>
+                          <div className="text-3xl font-medium text-slate-200">{weatherData.windspeed} mph</div>
+                          <div className="text-sm text-slate-400">Wind</div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="text-slate-400">Weather data unavailable</div>
+                    )}
                   </motion.div>
                 </div>
               </motion.div>
