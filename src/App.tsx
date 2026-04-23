@@ -403,6 +403,50 @@ const bodiesOfWater = [
     accent: 'text-blue-400',
     stats: { location: 'Bethesda, MD', type: 'Urban Tributary', flows_into: 'Little Falls Branch' },
     coordinates: [38.9702, -77.0917] as [number, number]
+  },
+  {
+    id: 'tilden_woods_stream_valley_park',
+    type: 'Park',
+    name: 'Tilden Woods Stream Valley Park',
+    description: 'A beautiful stream valley park located in Rockville/Bethesda, Maryland, featuring scenic woodland trails, a gentle stream valley, and neighborhood community spaces, popular for local hiking and nature observation.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Tilden_Wood_-_geograph.org.uk_-_6590571.jpg',
+    color: 'from-green-500/20 to-teal-800/40',
+    accent: 'text-green-400',
+    stats: { location: 'Rockville, MD', type: 'Stream Valley', features: 'Trails, Woodland' },
+    coordinates: [39.0435, -77.1444] as [number, number]
+  },
+  {
+    id: 'soapstone_valley_park',
+    type: 'Park',
+    name: 'Soapstone Valley Park',
+    description: 'A heavily wooded park in Washington, DC, that forms a tributary valley extending into Rock Creek Park. It offers rugged trails tracing the Soapstone Creek amid an urban canopy.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/53/SoapstoneValleyDC-November.JPG',
+    color: 'from-stone-500/20 to-green-900/40',
+    accent: 'text-stone-400',
+    stats: { location: 'Washington, DC', type: 'Stream Valley', features: 'Wooded Trails' },
+    coordinates: [38.9480, -77.0620] as [number, number]
+  },
+  {
+    id: 'watts_branch_stream_valley_park',
+    type: 'Park',
+    name: 'Watts Branch Stream Valley Park',
+    description: 'A verdant park protecting the Watts Branch tributary located in Montgomery County. It provides expansive greenways, meandering trails, and natural stream conservation right up to the Potomac River.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Watts_Branch_Park.jpg',
+    color: 'from-lime-500/20 to-green-800/40',
+    accent: 'text-lime-400',
+    stats: { location: 'Potomac/Rockville, MD', type: 'Stream Valley', basin: 'Watts Branch' },
+    coordinates: [39.0760, -77.1930] as [number, number]
+  },
+  {
+    id: 'little_falls_stream_valley_park',
+    type: 'Park',
+    name: 'Little Falls Stream Valley Park',
+    description: 'A lush natural area in Bethesda, Maryland, following the course of Little Falls Branch. It runs parallel to the deeply popular Capital Crescent Trail and features cascading waters amidst quiet suburban neighborhoods.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Little_Falls_Branch%2C_Bethesda_MD_2022a.jpg',
+    color: 'from-cyan-500/20 to-blue-800/40',
+    accent: 'text-cyan-400',
+    stats: { location: 'Bethesda, MD', type: 'Stream Valley', trails: 'Capital Crescent' },
+    coordinates: [38.9660, -77.1000] as [number, number]
   }
 ];
 
@@ -436,16 +480,14 @@ export default function App() {
   }, [sortOrder]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-blue-500/30">
       {/* Background image and ambient gradient */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 mix-blend-luminosity md:fixed"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 md:fixed"
           style={{ backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg")' }}
         />
-        <div className="absolute inset-0 bg-slate-950/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(30,58,138,0.25),_transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,_rgba(15,118,110,0.15),_transparent_50%)]" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24 min-h-screen flex flex-col">
