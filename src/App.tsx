@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon } from 'lucide-react';
+import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link } from 'lucide-react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -1005,6 +1005,15 @@ export default function App() {
   }, [selectedId, lastSelectedId]);
 
   const selectedItem = bodiesOfWater.find(item => item.id === selectedId);
+  const relatedItems = selectedItem 
+    ? bodiesOfWater.filter(item => item.id !== selectedItem.id && item.type === selectedItem.type).slice(0, 3) 
+    : [];
+  // If we don't have enough related items of the same type, pad with other random items
+  if (selectedItem && relatedItems.length < 3) {
+    const extraItems = bodiesOfWater.filter(item => item.id !== selectedItem.id && !relatedItems.includes(item));
+    extraItems.sort(() => 0.5 - Math.random());
+    relatedItems.push(...extraItems.slice(0, 3 - relatedItems.length));
+  }
 
   useEffect(() => {
     if (selectedItem) {
@@ -1242,14 +1251,43 @@ export default function App() {
                         {selectedItem.name}
                       </motion.h2>
                     </div>
-                    <button 
-                      ref={closeBtnRef}
-                      onClick={() => setSelectedId(null)}
-                      aria-label="Close details"
-                      className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors shrink-0 ml-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <X className="w-6 h-6" />
-                    </button>
+                    <div className="flex flex-col md:flex-row items-end md:items-center gap-2 shrink-0 ml-4">
+                      <div className="flex items-center gap-2 mb-2 md:mb-0 mr-0 md:mr-2">
+                        <button
+                          onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(`Check out ${selectedItem.name}!`)}`, '_blank')}
+                          aria-label="Share on Twitter"
+                          title="Share on Twitter"
+                          className="p-2 rounded-full bg-slate-800/50 hover:bg-[#1DA1F2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
+                        >
+                          <Twitter className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')}
+                          aria-label="Share on Facebook"
+                          title="Share on Facebook"
+                          className="p-2 rounded-full bg-slate-800/50 hover:bg-[#4267B2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
+                        >
+                          <Facebook className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={() => navigator.clipboard.writeText(window.location.href)}
+                          aria-label="Copy link"
+                          title="Copy link"
+                          className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
+                        >
+                          <Link className="w-5 h-5" />
+                        </button>
+                      </div>
+                      <button 
+                        ref={closeBtnRef}
+                        onClick={() => setSelectedId(null)}
+                        aria-label="Close details"
+                        title="Close"
+                        className="p-2 rounded-full bg-slate-800/50 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                      >
+                        <X className="w-6 h-6" />
+                      </button>
+                    </div>
                   </div>
 
                   <motion.p 
@@ -1321,6 +1359,32 @@ export default function App() {
                       <div className="text-slate-400">Weather data unavailable</div>
                     )}
                   </motion.div>
+
+                  {relatedItems.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                      className="border-t border-slate-800 pt-6 mt-8"
+                    >
+                      <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Similar Waterbodies</div>
+                      <div className="grid grid-cols-1 gap-4">
+                        {relatedItems.map(item => (
+                          <button
+                            key={item.id}
+                            onClick={() => setSelectedId(item.id)}
+                            className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/20 hover:bg-slate-800/50 border border-slate-700/30 hover:border-slate-600 transition-all text-left group"
+                          >
+                            <img src={item.image} alt={item.name} className="w-16 h-16 rounded-lg object-cover" />
+                            <div>
+                              <div className="text-sm font-medium text-slate-200 group-hover:text-blue-400 transition-colors">{item.name}</div>
+                              <div className="text-xs text-slate-400 uppercase tracking-wider">{item.type}</div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
               </motion.div>
             </div>
