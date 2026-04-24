@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon } from 'lucide-react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
@@ -930,8 +930,46 @@ const bodiesOfWater = [
   }
 ];
 
+function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...props }: any) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div className={`relative overflow-hidden bg-slate-800 ${containerClassName || ''}`}>
+      <AnimatePresence>
+        {!isLoaded && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 z-0 bg-slate-800"
+          >
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: "100%" }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/20 to-transparent"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.img
+        {...props}
+        layoutId={layoutId}
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName || ''}`}
+        referrerPolicy="no-referrer"
+      />
+    </div>
+  );
+}
+
 export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
   const [viewMode, setViewMode] = useState<'photo' | 'map'>('photo');
   const [currentPage, setCurrentPage] = useState(1);
@@ -942,11 +980,29 @@ export default function App() {
   } | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(false);
 
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const itemsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
   useEffect(() => {
     if (selectedId) {
       setViewMode('photo');
+      setLastSelectedId(selectedId);
+      // Small delay to ensure the modal is rendered before focusing
+      setTimeout(() => closeBtnRef.current?.focus(), 100);
+    } else if (lastSelectedId) {
+      // Focus back to the card when modal closes
+      setTimeout(() => itemsRef.current[lastSelectedId]?.focus(), 100);
     }
-  }, [selectedId]);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedId) {
+        setSelectedId(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedId, lastSelectedId]);
 
   const selectedItem = bodiesOfWater.find(item => item.id === selectedId);
 
@@ -1017,6 +1073,7 @@ export default function App() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSortOrder(prev => prev === 'default' ? 'asc' : prev === 'asc' ? 'desc' : 'default')}
+              aria-label="Toggle sorting order"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300"
             >
               {sortOrder === 'default' && <><ArrowUpDown className="w-4 h-4" /><span className="text-sm">Sort</span></>}
@@ -1029,29 +1086,39 @@ export default function App() {
           </div>
         </motion.header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0" role="list" aria-label="Bodies of water gallery">
           {paginatedBodiesOfWater.map((item, index) => (
             <motion.div
               key={item.id}
+              ref={(el) => {
+                if (el) itemsRef.current[item.id] = el;
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View details for ${item.name}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedId(item.id);
+                }
+              }}
               layoutId={`card-${item.id}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onClick={() => setSelectedId(item.id)}
-              className="group relative rounded-3xl overflow-hidden cursor-pointer h-[300px] md:h-[350px] lg:h-[400px]"
+              className="group relative rounded-3xl overflow-hidden cursor-pointer h-[300px] md:h-[350px] lg:h-[400px] focus:outline-none focus:ring-4 focus:ring-blue-500/50"
             >
-              <motion.img
+              <LazyImage
                 layoutId={`image-${item.id}`}
                 src={item.image}
                 alt={item.name}
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
+                containerClassName="absolute inset-0 w-full h-full"
+                imgClassName="transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent z-20 pointer-events-none" />
               
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <div className="absolute inset-0 p-8 flex flex-col justify-end z-30">
                 <motion.div layoutId={`type-${item.id}`} className={`text-xs font-bold tracking-widest uppercase mb-2 ${item.accent}`}>
                   {item.type}
                 </motion.div>
@@ -1072,16 +1139,19 @@ export default function App() {
             <button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Previous page"
+              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Previous
             </button>
-            <div className="flex gap-2 mx-4">
+            <div className="flex gap-2 mx-4" role="navigation" aria-label="Pagination">
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentPage(i + 1)}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                  aria-label={`Go to page ${i + 1}`}
+                  aria-current={currentPage === i + 1 ? "page" : undefined}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     currentPage === i + 1 
                       ? 'bg-blue-500/20 text-blue-400 border border-blue-500/50' 
                       : 'bg-slate-900/50 border border-slate-800 text-slate-400 hover:bg-slate-800/50'
@@ -1094,7 +1164,8 @@ export default function App() {
             <button
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Next page"
+              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Next
             </button>
@@ -1112,24 +1183,27 @@ export default function App() {
               onClick={() => setSelectedId(null)}
               className="fixed inset-0 z-40 bg-slate-950/95"
             />
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none">
+            <div 
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={`title-${selectedItem.id}`}
+            >
               <motion.div
                 layoutId={`card-${selectedItem.id}`}
                 className="bg-slate-900 w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row pointer-events-auto max-h-[90vh]"
               >
                 <div className="relative w-full md:w-1/2 h-64 md:h-auto shrink-0">
-                  <motion.img
+                  <LazyImage
                     layoutId={`image-${selectedItem.id}`}
                     src={selectedItem.image}
                     alt={selectedItem.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    containerClassName="absolute inset-0 w-full h-full"
+                    imgClassName=""
                   />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${selectedItem.color} opacity-40 pointer-events-none transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-0' : 'opacity-40'}`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${selectedItem.color} pointer-events-none transition-opacity duration-500 z-20 ${viewMode === 'map' ? 'opacity-0' : 'opacity-40'}`} />
                   
-                  <div className={`absolute inset-0 z-10 transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+                  <div className={`absolute inset-0 z-30 transition-opacity duration-500 ${viewMode === 'map' ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                     {viewMode === 'map' && (
                       <MapContainer center={selectedItem.coordinates} zoom={13} scrollWheelZoom={true} className="w-full h-full">
                         <TileLayer
@@ -1141,17 +1215,19 @@ export default function App() {
                     )}
                   </div>
 
-                  <div className="absolute bottom-4 left-4 z-20 flex gap-2">
+                  <div className="absolute bottom-4 left-4 z-40 flex gap-2">
                     <button 
                       onClick={(e) => { e.stopPropagation(); setViewMode('photo'); }}
-                      className={`p-2 rounded-full transition-colors shadow-lg ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
+                      aria-label="View Photo"
+                      className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
                       title="View Photo"
                     >
                       <ImageIcon className="w-5 h-5" />
                     </button>
                     <button 
                       onClick={(e) => { e.stopPropagation(); setViewMode('map'); }}
-                      className={`p-2 rounded-full transition-colors shadow-lg ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
+                      aria-label="View Map"
+                      className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
                       title="View Map"
                     >
                       <MapIcon className="w-5 h-5" />
@@ -1170,8 +1246,10 @@ export default function App() {
                       </motion.h2>
                     </div>
                     <button 
+                      ref={closeBtnRef}
                       onClick={() => setSelectedId(null)}
-                      className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors shrink-0 ml-4"
+                      aria-label="Close details"
+                      className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors shrink-0 ml-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <X className="w-6 h-6" />
                     </button>
