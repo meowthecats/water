@@ -1080,9 +1080,6 @@ export default function App() {
               {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" /><span className="text-sm">A-Z</span></>}
               {sortOrder === 'desc' && <><ArrowUpZA className="w-4 h-4" /><span className="text-sm">Z-A</span></>}
             </button>
-            <div className="hidden md:flex h-12 w-12 rounded-full border border-slate-800 items-center justify-center bg-slate-900/80">
-              <Droplets className="w-5 h-5 text-blue-400" />
-            </div>
           </div>
         </motion.header>
 
@@ -1330,6 +1327,23 @@ export default function App() {
           </>
         )}
       </AnimatePresence>
+
+      <motion.button
+        className="fixed right-6 bottom-6 md:right-8 md:bottom-8 z-30 h-14 w-14 md:h-16 md:w-16 rounded-full border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.3)] bg-slate-900/90 flex items-center justify-center text-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 group"
+        whileHover={{ scale: 1.1, rotate: 15 }}
+        whileTap={{ scale: 0.9, rotate: -15 }}
+        onClick={() => {
+          const randomIndex = Math.floor(Math.random() * bodiesOfWater.length);
+          setSelectedId(bodiesOfWater[randomIndex].id);
+        }}
+        aria-label="Surprise Me! Pick a random body of water"
+      >
+        <Droplets className="w-6 h-6 md:w-8 md:h-8 group-hover:text-blue-300 transition-colors" />
+        
+        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-slate-800 text-slate-200 text-sm rounded-lg opacity-0 min-w-max group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-700 font-medium">
+          Surprise Me!
+        </span>
+      </motion.button>
     </div>
   );
 }
