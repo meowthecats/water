@@ -5,7 +5,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link } from 'lucide-react';
+import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link as LinkIcon, Info, Home } from 'lucide-react';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -975,7 +976,7 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...pr
   );
 }
 
-export default function App() {
+function Gallery() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
@@ -1284,7 +1285,7 @@ export default function App() {
                           title="Copy link"
                           className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
                         >
-                          <Link className="w-5 h-5" />
+                          <LinkIcon className="w-5 h-5" />
                         </button>
                       </div>
                       <button 
@@ -1418,5 +1419,95 @@ export default function App() {
         </span>
       </motion.button>
     </div>
+  );
+}
+
+function Navigation() {
+  const location = useLocation();
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-4 flex justify-center pointer-events-none">
+      <div className="bg-slate-900/80 backdrop-blur-md px-2 py-2 rounded-full border border-slate-700/50 flex gap-2 pointer-events-auto shadow-lg">
+        <Link
+          to="/"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <Home className="w-4 h-4" />
+          Gallery
+        </Link>
+        <Link
+          to="/about"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/about' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <Info className="w-4 h-4" />
+          About
+        </Link>
+      </div>
+    </nav>
+  );
+}
+
+function About() {
+  return (
+    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-blue-500/30 pt-32 pb-12 px-6">
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <LazyImage 
+          src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
+          alt="Ambient Background"
+          containerClassName="absolute inset-0 opacity-20"
+        />
+        <div className="absolute inset-0 bg-black/80" />
+      </div>
+      
+      <div className="relative z-10 max-w-3xl mx-auto space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-sm"
+        >
+          <h1 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-6">About the Montgomery County Waterways Gallery</h1>
+          <p className="text-slate-300 leading-relaxed mb-4 text-lg">
+            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Montgomery County, Maryland.
+          </p>
+          <p className="text-slate-300 leading-relaxed mb-4 text-lg">
+            Our goal is to highlight the natural beauty of the area's aquatic ecosystems, encouraging local residents and visitors to explore, appreciate, and conserve these vital natural resources.
+          </p>
+          <h2 className="text-2xl font-light tracking-tight text-white mt-12 mb-4">Features</h2>
+          <ul className="list-disc list-inside text-slate-300 leading-relaxed space-y-2 mb-8">
+            <li>Interactive Gallery view with robust sorting.</li>
+            <li>Map view to visually navigate to different water bodies.</li>
+            <li>Real-time weather data contextualizing the locations.</li>
+            <li>Detailed information on ecology and history.</li>
+          </ul>
+          
+          <div className="bg-blue-900/20 p-6 rounded-2xl border border-blue-500/20 mt-8">
+            <h3 className="text-xl font-medium text-blue-400 mb-2">Conservation Note</h3>
+            <p className="text-slate-300">
+              Please treat all local waterways with respect. Follow the "Leave No Trace" principles, stay on marked trails, and help protect our area's delicate aquatic ecosystems.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Gallery />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
