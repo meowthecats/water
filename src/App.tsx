@@ -963,12 +963,13 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...pr
       <motion.img
         {...props}
         ref={imgRef}
-        layoutId={layoutId}
+        {...(layoutId ? { layoutId } : {})}
         src={src}
         alt={alt}
         loading="lazy"
         decoding="async"
         onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName || ''}`}
         referrerPolicy="no-referrer"
       />
@@ -1069,7 +1070,7 @@ function Gallery() {
         <LazyImage 
           src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
           alt="Ambient Background"
-          containerClassName="absolute inset-0 opacity-40"
+          containerClassName="absolute inset-0 opacity-40 w-full h-full"
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -1462,7 +1463,7 @@ function About() {
         <LazyImage 
           src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
           alt="Ambient Background"
-          containerClassName="absolute inset-0 opacity-20"
+          containerClassName="absolute inset-0 opacity-20 w-full h-full"
         />
         <div className="absolute inset-0 bg-black/80" />
       </div>
