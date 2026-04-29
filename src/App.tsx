@@ -932,6 +932,13 @@ const bodiesOfWater = [
 
 function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...props }: any) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      setIsLoaded(true);
+    }
+  }, [src]);
 
   return (
     <div className={`relative overflow-hidden bg-slate-800 ${containerClassName || ''}`}>
@@ -954,6 +961,7 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...pr
 
       <motion.img
         {...props}
+        ref={imgRef}
         layoutId={layoutId}
         src={src}
         alt={alt}
@@ -1057,9 +1065,10 @@ export default function App() {
     <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-blue-500/30">
       {/* Background image and ambient gradient */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 md:fixed"
-          style={{ backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg")' }}
+        <LazyImage 
+          src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
+          alt="Ambient Background"
+          containerClassName="absolute inset-0 opacity-40"
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -1375,7 +1384,7 @@ export default function App() {
                             onClick={() => setSelectedId(item.id)}
                             className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/20 hover:bg-slate-800/50 border border-slate-700/30 hover:border-slate-600 transition-all text-left group"
                           >
-                            <img src={item.image} alt={item.name} className="w-16 h-16 rounded-lg object-cover" />
+                            <LazyImage src={item.image} alt={item.name} containerClassName="w-16 h-16 rounded-lg shrink-0" imgClassName="rounded-lg" />
                             <div>
                               <div className="text-sm font-medium text-slate-200 group-hover:text-blue-400 transition-colors">{item.name}</div>
                               <div className="text-xs text-slate-400 uppercase tracking-wider">{item.type}</div>
