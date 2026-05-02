@@ -131,5 +131,62 @@ export const frederickBodiesOfWater = [
       "history": "Maintained by the Maryland Department of Natural Resources to promote accessible public fishing.",
       "ecology": "Regularly stocked with rainbow trout and also contains a healthy population of largemouth bass and bluegill."
     }
+  },
+  {
+    "id": "potomac_river",
+    "type": "River",
+    "name": "Potomac River",
+    "description": "Forming the southern border of Frederick County, this major mid-Atlantic river is a hub for kayaking, fishing, and taking in breathtaking scenery.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Great_Falls_of_the_Potomac_River_-_NPS.jpg",
+    "color": "from-sky-600/20 to-blue-800/20",
+    "accent": "text-sky-400",
+    "stats": {
+      "location": "Point of Rocks, MD",
+      "basin": "Potomac River Basin",
+      "type": "River"
+    },
+    "coordinates": [39.2736, -77.5350] as [number, number],
+    "details": {
+      "history": "Acted as a historic boundary and crucial transportation corridor, notably paralleled by the C&O Canal.",
+      "ecology": "Provides a crucial habitat for smallmouth bass, walleye, and serves as a major flyway for migratory birds."
+    }
+  },
+  {
+    "id": "owens_creek",
+    "type": "Stream",
+    "name": "Owens Creek",
+    "description": "A picturesque rocky stream that flows through the forests of Catoctin Mountain Park, easily accessible via scenic drives and hiking trails.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Owens_Creek%2C_Catoctin_Park_%2849046790192%29.jpg",
+    "color": "from-stone-500/20 to-green-800/20",
+    "accent": "text-stone-400",
+    "stats": {
+      "location": "Thurmont, MD",
+      "basin": "Monocacy River",
+      "type": "Mountain Stream"
+    },
+    "coordinates": [39.6385, -77.4475] as [number, number],
+    "details": {
+      "history": "Lined with historic mills and homesteads from early settlers taking advantage of the water's flow.",
+      "ecology": "Its cold, clear mountain waters support native brook trout and various aquatic insects."
+    }
+  },
+  {
+    "id": "linganore_creek",
+    "type": "Stream",
+    "name": "Linganore Creek",
+    "description": "A significant tributary of the Monocacy River winding through the eastern part of Frederick County. It feeds into Lake Linganore and offers great views along its course.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/2016-08-21_14_40_08_The_Talbot_Branch_of_Linganore_Creek_along_Maryland_State_Route_850_%28Old_Liberty_Road%29_in_Franklinville%2C_Carroll_County%2C_Maryland.jpg",
+    "color": "from-indigo-500/20 to-blue-700/20",
+    "accent": "text-indigo-400",
+    "stats": {
+      "location": "Frederick County, MD",
+      "basin": "Monocacy River",
+      "type": "Tributary"
+    },
+    "coordinates": [39.4140, -77.3468] as [number, number],
+    "details": {
+      "history": "Provided hydropower for grist mills in the 18th and 19th centuries before the construction of Lake Linganore.",
+      "ecology": "Hosts diverse environments ranging from shaded wooded banks to open agricultural runoff zones."
+    }
   }
 ];
