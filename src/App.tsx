@@ -934,13 +934,21 @@ const bodiesOfWater = [
 
 function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...props }: any) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    setIsLoaded(false);
+    setHasError(false);
     if (imgRef.current && imgRef.current.complete) {
+      if (imgRef.current.naturalHeight === 0) {
+        setHasError(true);
+      }
       setIsLoaded(true);
     }
   }, [src]);
+
+  const placeHolderSrc = `https://placehold.co/600x400/1e293b/334155?text=${encodeURIComponent(alt || 'Image Error')}`;
 
   return (
     <div className={`relative overflow-hidden bg-slate-800 ${containerClassName || ''}`}>
@@ -965,12 +973,18 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...pr
         {...props}
         ref={imgRef}
         {...(layoutId ? { layoutId } : {})}
-        src={src}
+        src={hasError ? placeHolderSrc : src}
         alt={alt}
         loading="lazy"
         decoding="async"
         onLoad={() => setIsLoaded(true)}
-        onError={() => setIsLoaded(true)}
+        onError={() => {
+          if (!hasError) {
+            setHasError(true);
+          } else {
+            setIsLoaded(true);
+          }
+        }}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName || ''}`}
         referrerPolicy="no-referrer"
       />
