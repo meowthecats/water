@@ -2,7 +2,7 @@ import https from 'https';
 
 const searchCommons = (query) => {
   const url = `https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&srnamespace=6&utf8=&format=json&srlimit=1`;
-  https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' } }, (res) => {
+  https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
     let data = '';
     res.on('data', chunk => data += chunk);
     res.on('end', () => {
@@ -28,12 +28,27 @@ const searchCommons = (query) => {
           console.log(query, ': No image found');
         }
       } catch(e) {
-        console.log(query, 'Error', e);
+        console.log(query, 'Error parsing');
       }
     });
   });
 };
 
-searchCommons("Fishing Creek Frederick");
-searchCommons("Point of Rocks Potomac");
-searchCommons("Double Pipe Creek bridge");
+searchCommons('Fishing Creek Maryland');
+searchCommons('Bennett Creek Maryland');
+searchCommons('Bush Creek Maryland');
+searchCommons('Tuscarora Creek Maryland');
+searchCommons('Ballenger Creek Maryland');
+searchCommons('Israel Creek Maryland');
+searchCommons('Glade Creek Maryland');
+searchCommons('Rainbow Lake Emmitsburg');
+searchCommons('Middletown Maryland Creek');
+searchCommons('Point of Rocks Potomac');
+searchCommons('Brunswick Maryland Potomac');
+searchCommons('Thurmont Maryland creek');
+searchCommons('High Run creek maryland');
+searchCommons('Little Catoctin Creek');
+searchCommons('Rock Creek Frederick Maryland');
+searchCommons('Big Pipe Creek');
+searchCommons('Middletown Springs Maryland');
+
