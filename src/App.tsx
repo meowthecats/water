@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link as LinkIcon, Info, Home } from 'lucide-react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { frederickBodiesOfWater } from './frederickData';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -977,7 +978,7 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...pr
   );
 }
 
-function Gallery() {
+function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
@@ -1014,13 +1015,13 @@ function Gallery() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedId, lastSelectedId]);
 
-  const selectedItem = bodiesOfWater.find(item => item.id === selectedId);
+  const selectedItem = items.find(item => item.id === selectedId);
   const relatedItems = selectedItem 
-    ? bodiesOfWater.filter(item => item.id !== selectedItem.id && item.type === selectedItem.type).slice(0, 3) 
+    ? items.filter(item => item.id !== selectedItem.id && item.type === selectedItem.type).slice(0, 3) 
     : [];
   // If we don't have enough related items of the same type, pad with other random items
   if (selectedItem && relatedItems.length < 3) {
-    const extraItems = bodiesOfWater.filter(item => item.id !== selectedItem.id && !relatedItems.includes(item));
+    const extraItems = items.filter(item => item.id !== selectedItem.id && !relatedItems.includes(item));
     extraItems.sort(() => 0.5 - Math.random());
     relatedItems.push(...extraItems.slice(0, 3 - relatedItems.length));
   }
@@ -1049,7 +1050,7 @@ function Gallery() {
     }
   }, [selectedItem?.coordinates[0], selectedItem?.coordinates[1]]);
 
-  const sortedBodiesOfWater = [...bodiesOfWater].sort((a, b) => {
+  const sortedBodiesOfWater = [...items].sort((a, b) => {
     if (sortOrder === 'asc') return a.name.localeCompare(b.name);
     if (sortOrder === 'desc') return b.name.localeCompare(a.name);
     return 0;
@@ -1084,7 +1085,7 @@ function Gallery() {
         >
           <div>
             <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-tight mb-4">
-              Bodies of Water
+              {title || "Bodies of Water"}
             </h1>
             <p className="text-slate-400 max-w-xl text-lg font-light leading-relaxed mx-auto">
               Explore the diverse aquatic ecosystems that shape our planet, from the deepest oceans to serene glacial lakes.
@@ -1408,8 +1409,8 @@ function Gallery() {
         whileHover={{ scale: 1.1, rotate: 15 }}
         whileTap={{ scale: 0.9, rotate: -15 }}
         onClick={() => {
-          const randomIndex = Math.floor(Math.random() * bodiesOfWater.length);
-          setSelectedId(bodiesOfWater[randomIndex].id);
+          const randomIndex = Math.floor(Math.random() * items.length);
+          setSelectedId(items[randomIndex].id);
         }}
         aria-label="Surprise Me! Pick a random body of water"
       >
@@ -1438,7 +1439,18 @@ function Navigation() {
           }`}
         >
           <Home className="w-4 h-4" />
-          Gallery
+          Montgomery
+        </Link>
+        <Link
+          to="/frederick"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/frederick' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <MapIcon className="w-4 h-4" />
+          Frederick
         </Link>
         <Link
           to="/about"
@@ -1474,9 +1486,9 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           className="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-sm"
         >
-          <h1 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-6">About the Montgomery County Waterways Gallery</h1>
+          <h1 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-6">About the Waterways Gallery</h1>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
-            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Montgomery County, Maryland.
+            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties.
           </p>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
             Our goal is to highlight the natural beauty of the area's aquatic ecosystems, encouraging local residents and visitors to explore, appreciate, and conserve these vital natural resources.
@@ -1506,7 +1518,8 @@ export default function App() {
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Gallery />} />
+        <Route path="/" element={<Gallery title="Montgomery County Waterways" items={bodiesOfWater} />} />
+        <Route path="/frederick" element={<Gallery title="Frederick County Waterways" items={frederickBodiesOfWater} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
