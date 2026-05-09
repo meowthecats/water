@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link as LinkIcon, Info, Home } from 'lucide-react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { frederickBodiesOfWater } from './frederickData';
+import { montgomeryBodiesOfWaterPart2 } from './montgomeryDataPart2';
+import { frederickBodiesOfWaterPart2 } from './frederickDataPart2';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -19,6 +21,23 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
+
+function deg2rad(deg: number) {
+  return deg * (Math.PI / 180);
+}
+
+function getDistanceFromLatLonInMiles(lat1: number, lon1: number, lat2: number, lon2: number) {
+  const R = 3958.8; // Radius of the earth in miles
+  const dLat = deg2rad(lat2 - lat1);
+  const dLon = deg2rad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const d = R * c; 
+  return d;
+}
 
 const bodiesOfWater = [
   {
@@ -1018,14 +1037,19 @@ function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater 
 
   const selectedItem = items.find(item => item.id === selectedId);
   const relatedItems = selectedItem 
-    ? items.filter(item => item.id !== selectedItem.id && item.type === selectedItem.type).slice(0, 3) 
+    ? items
+        .filter(item => item.id !== selectedItem.id)
+        .map(item => ({
+          ...item,
+          distance: getDistanceFromLatLonInMiles(
+            selectedItem.coordinates[0], selectedItem.coordinates[1],
+            item.coordinates[0], item.coordinates[1]
+          )
+        }))
+        .filter(item => item.distance <= 10)
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 3)
     : [];
-  // If we don't have enough related items of the same type, pad with other random items
-  if (selectedItem && relatedItems.length < 3) {
-    const extraItems = items.filter(item => item.id !== selectedItem.id && !relatedItems.includes(item));
-    extraItems.sort(() => 0.5 - Math.random());
-    relatedItems.push(...extraItems.slice(0, 3 - relatedItems.length));
-  }
 
   useEffect(() => {
     if (selectedItem) {
@@ -1380,7 +1404,7 @@ function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater 
                       transition={{ delay: 0.5 }}
                       className="border-t border-slate-800 pt-6 mt-8"
                     >
-                      <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Similar Waterbodies</div>
+                      <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Nearby Waterbodies</div>
                       <div className="grid grid-cols-1 gap-4">
                         {relatedItems.map(item => (
                           <button
@@ -1389,9 +1413,12 @@ function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater 
                             className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/20 hover:bg-slate-800/50 border border-slate-700/30 hover:border-slate-600 transition-all text-left group"
                           >
                             <LazyImage src={item.image} alt={item.name} containerClassName="w-16 h-16 rounded-lg shrink-0" imgClassName="rounded-lg" />
-                            <div>
+                            <div className="flex-1">
                               <div className="text-sm font-medium text-slate-200 group-hover:text-blue-400 transition-colors">{item.name}</div>
-                              <div className="text-xs text-slate-400 uppercase tracking-wider">{item.type}</div>
+                              <div className="text-xs text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                                <span>{item.type}</span>
+                                <span>{item.distance?.toFixed(1)} mi</span>
+                              </div>
                             </div>
                           </button>
                         ))}
@@ -1519,8 +1546,8 @@ export default function App() {
     <BrowserRouter>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Gallery title="Montgomery County Waterways" items={bodiesOfWater} />} />
-        <Route path="/frederick" element={<Gallery title="Frederick County Waterways" items={frederickBodiesOfWater} />} />
+        <Route path="/" element={<Gallery title="Montgomery County Waterways" items={[...bodiesOfWater, ...montgomeryBodiesOfWaterPart2]} />} />
+        <Route path="/frederick" element={<Gallery title="Frederick County Waterways" items={[...frederickBodiesOfWater, ...frederickBodiesOfWaterPart2]} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
