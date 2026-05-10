@@ -963,20 +963,33 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, ...pr
   }, [src]);
 
   return (
-    <div className={`relative overflow-hidden bg-slate-800 ${containerClassName || ''}`}>
+    <div className={`relative overflow-hidden bg-slate-900 ${containerClassName || ''}`}>
       <AnimatePresence>
         {!isLoaded && (
           <motion.div
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 z-0 bg-slate-800"
+            className="absolute inset-0 z-0 bg-slate-800/80 flex items-center justify-center overflow-hidden backdrop-blur-md"
           >
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.5, 0.2] 
+              }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 2.5, 
+                ease: "easeInOut" 
+              }}
+              className="absolute w-32 h-32 rounded-full bg-blue-500/20 blur-2xl"
+            />
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: "100%" }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/20 to-transparent"
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
             />
+            <ImageIcon className="w-8 h-8 text-slate-500/50 relative z-10" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -1291,17 +1304,17 @@ function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater 
                     <div className="flex flex-col md:flex-row items-end md:items-center gap-2 shrink-0 ml-4">
                       <div className="flex items-center gap-2 mb-2 md:mb-0 mr-0 md:mr-2">
                         <button
-                          onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(`Check out ${selectedItem.name}!`)}`, '_blank')}
-                          aria-label="Share on Twitter"
-                          title="Share on Twitter"
+                          onClick={() => window.open('https://www.x.com/theheftyheifer', '_blank')}
+                          aria-label="Visit Twitter profile"
+                          title="Visit Twitter profile"
                           className="p-2 rounded-full bg-slate-800/50 hover:bg-[#1DA1F2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
                         >
                           <Twitter className="w-5 h-5" />
                         </button>
                         <button
-                          onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank')}
-                          aria-label="Share on Facebook"
-                          title="Share on Facebook"
+                          onClick={() => window.open('https://www.facebook.com/heftytheheifer', '_blank')}
+                          aria-label="Visit Facebook profile"
+                          title="Visit Facebook profile"
                           className="p-2 rounded-full bg-slate-800/50 hover:bg-[#4267B2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
                         >
                           <Facebook className="w-5 h-5" />
