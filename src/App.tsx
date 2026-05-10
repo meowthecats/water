@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import { frederickBodiesOfWater } from './frederickData';
 import { montgomeryBodiesOfWaterPart2 } from './montgomeryDataPart2';
 import { frederickBodiesOfWaterPart2 } from './frederickDataPart2';
+import { baltimoreBodiesOfWater } from './baltimoreData';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -1494,6 +1495,17 @@ function Navigation() {
           Frederick
         </Link>
         <Link
+          to="/baltimore"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/baltimore' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <MapIcon className="w-4 h-4" />
+          Baltimore
+        </Link>
+        <Link
           to="/about"
           className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
@@ -1561,6 +1573,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Gallery title="Montgomery County Waterways" items={[...bodiesOfWater, ...montgomeryBodiesOfWaterPart2]} />} />
         <Route path="/frederick" element={<Gallery title="Frederick County Waterways" items={[...frederickBodiesOfWater, ...frederickBodiesOfWaterPart2]} />} />
+        <Route path="/baltimore" element={<Gallery title="Baltimore City Waterways" items={baltimoreBodiesOfWater} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
