@@ -4,7 +4,7 @@ export const frederickBodiesOfWater = [
     "type": "Lake",
     "name": "Lake Linganore",
     "description": "A private, 210-acre reservoir near New Market, Maryland. It is primarily used for recreation including boating, swimming, and fishing by the surrounding Lake Linganore Association communities.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/New_Market_HD_MD1.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Cypress_Creek_Bridge_%2821636296301%29.jpg",
     "color": "from-blue-500/20 to-sky-700/20",
     "accent": "text-blue-400",
     "stats": {
@@ -23,7 +23,7 @@ export const frederickBodiesOfWater = [
     "type": "Lake",
     "name": "Hunting Creek Lake",
     "description": "A 43-acre man-made lake located within Cunningham Falls State Park. It offers swimming beaches, boat rentals, and fishing surrounded by the scenic Catoctin Mountains.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/92/Cunningham_Falls_State_Park_-_lower_falls_-_4.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bynum_Run.jpg",
     "color": "from-teal-500/20 to-green-700/20",
     "accent": "text-teal-400",
     "stats": {
@@ -42,7 +42,7 @@ export const frederickBodiesOfWater = [
     "type": "River",
     "name": "Monocacy River",
     "description": "A 58-mile-long free-flowing river that serves as the largest Maryland tributary to the Potomac River. It passes through historic battlefields and is a popular destination for canoeing, kayaking, and fishing.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Monocacy_River.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Blackwater_National_Wildlife_Refuge_after_Hurricane_Sandy_%28MD%29_%288141597336%29.jpg",
     "color": "from-blue-600/20 to-indigo-800/20",
     "accent": "text-indigo-400",
     "stats": {
@@ -61,7 +61,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Catoctin Creek",
     "description": "A tributary of the Potomac River that runs roughly 28 miles through the Middletown Valley. It provides a scenic waterway characterized by historic bridges and rural landscapes.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Bennies_Hill_Road_Bridge1.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Invasive_Wavyleaf_Basketgrass_%287508036864%29.jpg",
     "color": "from-emerald-500/20 to-teal-700/20",
     "accent": "text-emerald-400",
     "stats": {
@@ -80,7 +80,7 @@ export const frederickBodiesOfWater = [
     "type": "Lake",
     "name": "Culler Lake",
     "description": "A historic urban lake located within Baker Park in the heart of downtown Frederick. It is a scenic centerpiece for the park, featuring fountains, a walking path, and a popular spot for ice skating in the winter.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Frederick_City_Hall_Aerial.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Maryland_-_Marshyhope_Creek_-_NARA_-_23941135.jpg",
     "color": "from-cyan-500/20 to-blue-700/20",
     "accent": "text-cyan-400",
     "stats": {
@@ -99,7 +99,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Carroll Creek",
     "description": "A historic stream flowing through downtown Frederick, now famous for the Carroll Creek Linear Park. The creek is beautifully channeled with stone walls, brick pathways, and pedestrian bridges.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/2008_03_28_-_Frederick_-_Carroll_Creek_at_MD_355_%28N_Bentz_St%29_1.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Maryland_-_Marshyhope_Creek_-_NARA_-_23941137.jpg",
     "color": "from-blue-400/20 to-emerald-600/20",
     "accent": "text-blue-400",
     "stats": {
@@ -118,7 +118,7 @@ export const frederickBodiesOfWater = [
     "type": "Pond",
     "name": "Frank Bentz Pond",
     "description": "A small, tranquil pond spanning approximately 4 acres, located near Thurmont, Maryland. It is a popular and accessible spot for recreational fishing.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Thurmont_MD_Corner_of_Main_and_Water.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Maryland_-_St._Jerome_Creek_through_Wicomico_River_-_NARA_-_23941231.jpg",
     "color": "from-lime-500/20 to-green-700/20",
     "accent": "text-lime-400",
     "stats": {
@@ -137,7 +137,7 @@ export const frederickBodiesOfWater = [
     "type": "River",
     "name": "Potomac River",
     "description": "Forming the southern border of Frederick County, this major mid-Atlantic river is a hub for kayaking, fishing, and taking in breathtaking scenery.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Great_Falls_of_the_Potomac_River_-_NPS.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Religious_Freedom_Byway_-_View_from_Friendship_Farm_Park_-_NARA_-_7721250.jpg",
     "color": "from-sky-600/20 to-blue-800/20",
     "accent": "text-sky-400",
     "stats": {
@@ -156,7 +156,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Owens Creek",
     "description": "A picturesque rocky stream that flows through the forests of Catoctin Mountain Park, easily accessible via scenic drives and hiking trails.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Owens_Creek%2C_Catoctin_Park_%2849046790192%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/North_East_River_from_North_East_Community_Park.jpeg",
     "color": "from-stone-500/20 to-green-800/20",
     "accent": "text-stone-400",
     "stats": {
@@ -175,7 +175,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Linganore Creek",
     "description": "A significant tributary of the Monocacy River winding through the eastern part of Frederick County. It feeds into Lake Linganore and offers great views along its course.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/2016-08-21_14_40_08_The_Talbot_Branch_of_Linganore_Creek_along_Maryland_State_Route_850_%28Old_Liberty_Road%29_in_Franklinville%2C_Carroll_County%2C_Maryland.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Traffic_on_the_Sassafras.JPG",
     "color": "from-indigo-500/20 to-blue-700/20",
     "accent": "text-indigo-400",
     "stats": {
@@ -194,7 +194,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Fishing Creek",
     "description": "A picturesque mountain stream renowned for its excellent fly fishing, flowing through the Frederick City Cooperative Wildlife Management Area.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Frederick_City_Hall_Aerial.jpg", // Couldn't find a direct photo of Fishing Creek easily, use fall back or general Frederick
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/Morgan_run_large_rocks.jpg", // Couldn't find a direct photo of Fishing Creek easily, use fall back or general Frederick
     "color": "from-blue-500/20 to-cyan-700/20",
     "accent": "text-blue-400",
     "stats": {
@@ -213,7 +213,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Double Pipe Creek",
     "description": "Formed by the confluence of Big Pipe Creek and Little Pipe Creek, this stream forms part of the boundary between Frederick and Carroll counties.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Monocacy.png", // River map overlay
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Thomas_Viaduct_LOC_082103pu.jpg", // River map overlay
     "color": "from-teal-500/20 to-blue-700/20",
     "accent": "text-teal-400",
     "stats": {
@@ -232,7 +232,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Tuscarora Creek",
     "description": "A minor but scenic tributary of the Potomac River that runs near numerous parks and residential areas near Frederick city.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/MD_Tuscarora.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Muscovite2.jpg",
     "color": "from-indigo-500/20 to-purple-700/20",
     "accent": "text-indigo-400",
     "stats": {
@@ -251,7 +251,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Ballenger Creek",
     "description": "A stream that winds through the Ballenger Creek community, offering nearby trails and parks for residents.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/2008_03_28_-_Frederick_-_Carroll_Creek_at_MD_355_%28N_Bentz_St%29_1.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/NOAA-smartbuoy2.jpg",
     "color": "from-emerald-500/20 to-green-700/20",
     "accent": "text-emerald-400",
     "stats": {
@@ -270,7 +270,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Bennett Creek",
     "description": "A quiet tributary that feeds into the Monocacy River near the southern end of the county, characterized by farm fields and wooden bankside foliage.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Monocacy_River.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7b/BETHLEHEM_STEEL_PLANT_AT_SPARROWS_POINT%2C_ON_A_HAZY_DAY_-_NARA_-_546769.jpg",
     "color": "from-stone-500/20 to-yellow-700/20",
     "accent": "text-yellow-400",
     "stats": {
@@ -289,7 +289,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Toms Creek",
     "description": "A waterway flowing near the Pennsylvania border down towards the Monocacy River in the northern parts of Frederick County.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Frederick_County_Maryland_Incorporated_and_Unincorporated_areas_Emmitsburg_Highlighted.svg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/BETHLEHEM_STEEL_PLANT_AT_SPARROWS_POINT_-_NARA_-_546808.jpg",
     "color": "from-red-500/20 to-orange-700/20",
     "accent": "text-red-400",
     "stats": {
@@ -308,7 +308,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Israel Creek",
     "description": "A waterway flowing near the town of Walkersville before eventually meeting the Monocacy River.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Frederick_City_Hall_Aerial.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/THE_LAUNCHING_OF_THE_NEW_TANKER%2C_%22CHEVRON_HAWAII%22_FROM_THE_SPARROWS_POINT_SHIPYARD._THE_CONSTRUCTION_OF_OIL_TANKERS..._-_NARA_-_546843.jpg",
     "color": "from-blue-400/20 to-indigo-600/20",
     "accent": "text-blue-400",
     "stats": {
@@ -327,7 +327,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Glade Creek",
     "description": "Also winding through the Walkersville area, Glade Creek is central to local parklands and natural spaces.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Frederick_County_Maryland_Incorporated_and_Unincorporated_areas_Emmitsburg_Highlighted.svg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/THE_LAUNCHING_OF_THE_NEW_TANKER%2C_%22CHEVRON_HAWAII%22_FROM_THE_SPARROWS_POINT_SHIPYARD._CONSTRUCTION_OF_OIL_TANKERS_IS_A..._-_NARA_-_546845.jpg",
     "color": "from-teal-400/20 to-emerald-600/20",
     "accent": "text-teal-400",
     "stats": {
@@ -346,7 +346,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Bush Creek",
     "description": "Flowing through the southern portion of Frederick County, Bush Creek runs near Ijamsville before meeting the Monocacy.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/New_Market_HD_MD1.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/SHIPS_DOCKED_AT_SPARROWS_POINT_-_NARA_-_546864.jpg",
     "color": "from-cyan-500/20 to-blue-700/20",
     "accent": "text-cyan-400",
     "stats": {
@@ -365,7 +365,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Little Pipe Creek",
     "description": "A stream that forms part of the boundary between Frederick and Carroll counties, joining Big Pipe Creek to form Double Pipe Creek.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Monocacy.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/BETHLEHEM_STEEL_PLANT_AT_SPARROWS_POINT_-_NARA_-_546882.jpg",
     "color": "from-lime-500/20 to-green-700/20",
     "accent": "text-lime-400",
     "stats": {
@@ -384,7 +384,7 @@ export const frederickBodiesOfWater = [
     "type": "Stream",
     "name": "Big Pipe Creek",
     "description": "A larger tributary that combines with Little Pipe Creek. It runs near the town of Union Bridge into Frederick County.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Owens_Creek%2C_Catoctin_Park_%2849046790192%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6e/BETHLEHEM_STEEL_PLANT_AT_SPARROWS_POINT_-_NARA_-_546884.jpg",
     "color": "from-orange-500/20 to-amber-700/20",
     "accent": "text-orange-400",
     "stats": {
