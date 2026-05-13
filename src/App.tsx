@@ -46,7 +46,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Wildcat Branch",
     "description": "A scenic stream flowing through Germantown, Maryland. It is a tributary of Great Seneca Creek and runs through the Wildcat Branch Stream Valley Park, providing a natural habitat for local wildlife.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Lake_Habeeb.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Sligo_Creek_Maryland.jpg",
     "color": "from-emerald-500/20 to-green-700/20",
     "accent": "text-emerald-400",
     "stats": {
@@ -65,7 +65,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Seneca Creek",
     "description": "A 27.4-mile-long free-flowing tributary of the Potomac River located in Montgomery County, Maryland. It flows through Seneca Creek State Park in Germantown, offering scenic views, historic mill ruins, and extensive hiking trails.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/2008_04_23_-_Columbia_-_Wilde_Lake.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Rock_Creek_%2848377537672%29.jpg",
     "color": "from-emerald-500/20 to-teal-700/20",
     "accent": "text-emerald-400",
     "stats": {
@@ -84,7 +84,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Little Seneca Lake",
     "description": "A 505-acre reservoir located in Black Hill Regional Park in Germantown, Maryland. It was constructed to provide an emergency water supply for the Washington, D.C. metropolitan area and offers excellent recreational boating and fishing.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Hagerstown_City_Park_Lake.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Cabin_John_Creek_near_Rockville_MD.jpg",
     "color": "from-blue-400/20 to-indigo-600/20",
     "accent": "text-blue-400",
     "stats": {
@@ -103,7 +103,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Gunner Lake",
     "description": "A scenic man-made lake located in Germantown, Maryland. Surrounded by a paved walking trail, it is a popular local spot for jogging, fishing, and observing waterfowl and wildlife.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Walkway_around_Hagerstown_City_Park_Lake.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ten_Mile_Creek_Gardens_in_Holbrook.jpg",
     "color": "from-teal-400/20 to-emerald-600/20",
     "accent": "text-teal-400",
     "stats": {
@@ -122,7 +122,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Great Seneca Stream",
     "description": "A major stream in Montgomery County, Maryland, flowing through Germantown. It forms the backbone of Seneca Creek State Park and eventually empties into the Potomac River.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Centennial_Lake.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Wildcat_branch_backbay.jpg",
     "color": "from-green-500/20 to-emerald-900/20",
     "accent": "text-green-400",
     "stats": {
@@ -141,7 +141,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Bucklodge Branch",
     "description": "A scenic tributary of Little Seneca Creek located in Germantown, Maryland. It flows through the Bucklodge Conservation Park, providing important habitat and contributing to the local watershed.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Hagerstown_City_Park_Lake_and_Wash_Co_Mus_Fine_Arts.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Little_Seneca_Lake_2008.jpg",
     "color": "from-lime-500/20 to-green-800/40",
     "accent": "text-lime-400",
     "stats": {
@@ -160,7 +160,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Long Draught Creek",
     "description": "A picturesque stream in Germantown, Maryland, that acts as a tributary to Great Seneca Creek. It flows prominently into Clopper Lake within Seneca Creek State Park, offering a serene environment for local wildlife and park visitors.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/KentlandsCauseway.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Monocacy_River.jpg",
     "color": "from-emerald-600/20 to-teal-900/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -179,7 +179,7 @@ const bodiesOfWater = [
     "type": "Lakes",
     "name": "Kentlands Lakes",
     "description": "A series of scenic, interconnected lakes in the Kentlands neighborhood of Gaithersburg, Maryland. They provide a beautiful backdrop for walking trails, community events, and local wildlife.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Lake_Habeeb2.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/Monocacy_River_-_panoramio.jpg",
     "color": "from-cyan-500/20 to-blue-900/40",
     "accent": "text-cyan-400",
     "stats": {
@@ -198,7 +198,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Clopper Lake",
     "description": "A beautiful 90-acre man-made lake situated in Seneca Creek State Park in Gaithersburg, Maryland. It is surrounded by forests and trails, offering excellent opportunities for boating, fishing, and picnicking.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Little_Seneca_Lake_MD.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Greenbrier-state-park.jpg",
     "color": "from-blue-500/20 to-cyan-900/40",
     "accent": "text-blue-400",
     "stats": {
@@ -217,7 +217,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Churchill",
     "description": "A picturesque man-made lake located in the Churchill Village community of Germantown, Maryland. It features a paved walking path, scenic views, and is a peaceful spot for residents and wildlife.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Wea02110_-_Flickr_-_NOAA_Photo_Library.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Big_Run_River.JPG",
     "color": "from-indigo-500/20 to-blue-900/40",
     "accent": "text-indigo-400",
     "stats": {
@@ -236,7 +236,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Potomac River",
     "description": "A major river flowing into the Chesapeake Bay, forming the border between Maryland and Virginia. It is known for its historic significance, scenic beauty like Great Falls, and diverse recreational opportunities.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Cedarville_State_Forest_Pond_in_Waldorf%2C_Maryland.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Oxon_Run_trail_%288733086554%29.jpg",
     "color": "from-blue-600/20 to-teal-900/40",
     "accent": "text-blue-400",
     "stats": {
@@ -255,7 +255,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Inspiration Lake",
     "description": "A beautiful community lake situated in the Kentlands neighborhood of Gaithersburg, Maryland. It offers a serene environment with walking paths, scenic views, and is a popular spot for local residents to relax and enjoy nature.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Greenbrier-state-park.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Dusk_on_the_lake_%28521357962%29.jpg",
     "color": "from-emerald-500/20 to-teal-900/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -274,7 +274,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Rio Washingtonian Center Lake",
     "description": "A vibrant man-made lake located at the heart of the Rio Washingtonian Center in Gaithersburg, Maryland. It features a scenic boardwalk, paddleboats, and is surrounded by a bustling shopping and dining district.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Wye_Mills_Lake_%283769249404%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Minnows_%28521365748%29.jpg",
     "color": "from-blue-500/20 to-cyan-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -293,7 +293,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Needwood",
     "description": "A 75-acre man-made reservoir situated in Rock Creek Regional Park near Gaithersburg/Derwood, Maryland. It is a popular destination offering a scenic natural surface trail, boating rentals, and sweeping sunset views.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Waterlog_%283769251290%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Swallow_Falls_State_Park_-_Maryland_%2814612548037%29.jpg",
     "color": "from-teal-500/20 to-emerald-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -312,7 +312,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "North Creek Lake Park",
     "description": "A peaceful park setup featuring a small lake. The park offers walking paths around the water, picnic areas, and serves as an inspiring aesthetic water feature akin to local Inspiration Lake attractions.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Dusk_on_the_lake_%28521357962%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Lake_Hashawha.JPG",
     "color": "from-sky-500/20 to-blue-800/40",
     "accent": "text-sky-400",
     "stats": {
@@ -331,7 +331,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Whetstone",
     "description": "A scenic man-made lake serving as a central feature of Montgomery Village, Maryland. It offers boating, fishing, and a paved walking trail right in the heart of the community.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Minnows_%28521365748%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Licking_Creek%2C_intersecting_U._S._40_between_Hagerstown_and_Cumberland%2C_Md_%2860235%29.jpg",
     "color": "from-blue-500/20 to-indigo-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -350,7 +350,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Bernard Frank",
     "description": "A serene 54-acre reservoir nestled quietly within the sprawling Rock Creek Regional Park near Derwood, Maryland. It is isolated from significant paved developments, providing a pristine habitat for hikers and naturalists.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Lake_Hashawha.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/TuckahoeCreek.JPG",
     "color": "from-emerald-500/20 to-green-900/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -369,7 +369,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Nirvana",
     "description": "A quaint, quiet community lake tucked away within Gaithersburg, Maryland. Though modest in size, it serves as a peaceful water feature for the surrounding local neighborhoods.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/QuarryLake.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/A_full_moon_reflecting_off_the_river_-_NOAA.jpg",
     "color": "from-teal-400/20 to-cyan-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -388,7 +388,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Maple Lake",
     "description": "A historic small lake nestled inside the tranquil town of Washington Grove, Maryland. Heavily wooded and scenic, it has long been a private gem for the town's residents.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/76/Lake_Roland_Plate_II_WBClark_1898.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Arnold_marina_storm.jpg",
     "color": "from-orange-500/20 to-amber-900/40",
     "accent": "text-orange-400",
     "stats": {
@@ -407,7 +407,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Rock Creek Regional Park",
     "description": "A massive 1,800-acre park stretching across Gaithersburg, Derwood, and Rockville. It encompasses both Lake Needwood and Lake Bernard Frank, providing dense forests, an extensive trail network, and boating.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Dog_Near_Deep_Creek_Lake_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/2008_04_23_-_Columbia_-_Wilde_Lake.jpg",
     "color": "from-green-600/20 to-emerald-900/40",
     "accent": "text-green-400",
     "stats": {
@@ -426,7 +426,7 @@ const bodiesOfWater = [
     "type": "Reservoir",
     "name": "Triadelphia Lake Recreation",
     "description": "A beautiful 800-acre reservoir created by the Brighton Dam on the Patuxent River. It offers recreational boating, fishing, and scenic picnic areas just outside Gaithersburg, Maryland.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Swimming_at_Lake_Habeeb_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Hagerstown_City_Park_Lake.jpg",
     "color": "from-blue-500/20 to-sky-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -445,7 +445,7 @@ const bodiesOfWater = [
     "type": "Park & Stream",
     "name": "Great Seneca Stream Valley Park",
     "description": "A sprawling linear park tracing the main branch of Great Seneca Creek. The park preserves vital stream habitats and features miles of natural surface trails following the flowing water.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/97/Urieville_Community_Lake_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Centennial_Lake.jpg",
     "color": "from-teal-500/20 to-green-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -464,7 +464,7 @@ const bodiesOfWater = [
     "type": "Park & Stream",
     "name": "Cabin Branch Stream Valley Park",
     "description": "A dedicated conservation park built to protect the Cabin Branch tributary before it joins the larger Seneca Creek watershed. Thickly forested and secluded, it safeguards a sparkling stream.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Cherry_Blossoms_at_Culler_Lake_-_panoramio.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Hagerstown_City_Park_Lake_and_Wash_Co_Mus_Fine_Arts.JPG",
     "color": "from-emerald-500/20 to-lime-800/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -483,7 +483,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Patuxent River",
     "description": "The longest river entirely within Maryland, passing closely to Montgomery County's borders. It serves as a vital drinking water source via its reservoirs and flows through stunning wooded landscapes.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Lake_Waterford_Reflections.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/KentlandsCauseway.jpg",
     "color": "from-indigo-500/20 to-blue-900/40",
     "accent": "text-indigo-400",
     "stats": {
@@ -502,7 +502,7 @@ const bodiesOfWater = [
     "type": "Stream Valley",
     "name": "Hawlings River Stream Valley",
     "description": "A beautiful stream valley winding through Montgomery County, featuring the rocky, cascading Hawlings River. It offers lush forested banks and peaceful spots to observe the rushing water.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/LakeWaterfd_Fallen_Tree.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Little_Seneca_Lake_MD.jpg",
     "color": "from-cyan-500/20 to-teal-800/40",
     "accent": "text-cyan-400",
     "stats": {
@@ -520,7 +520,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Muddy Branch",
     "description": "A major tributary of the Potomac River that runs through Gaithersburg. Muddy Branch features diverse aquatic habitats and is flanked by an extensive stream valley park network.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Lakeside_Boat_%28Maryland%29_.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Loch_Raven_air_photo_Aug2010.jpg",
     "color": "from-amber-600/20 to-orange-900/40",
     "accent": "text-amber-500",
     "stats": {
@@ -539,7 +539,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Ingram Creek",
     "description": "A small, lively creek located in the Gaithersburg and Montgomery County area. It trickles through suburban neighborhoods and wooded patches, providing a vital micro-habitat for local amphibians.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/21%2C_Gross%2C_MD%2C_USA_-_panoramio_%287%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Sligo_Creek_Maryland.jpg",
     "color": "from-emerald-400/20 to-lime-800/40",
     "accent": "text-emerald-300",
     "stats": {
@@ -557,7 +557,7 @@ const bodiesOfWater = [
     "type": "Aqueduct",
     "name": "Seneca Creek Aqueduct",
     "description": "A historic sandstone aqueduct where the Chesapeake and Ohio Canal crosses Seneca Creek. The structure allows one body of water to flow directly over another, showcasing 19th-century engineering.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Lake_Elkhorn_Sunrise.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Rock_Creek_%2848377537672%29.jpg",
     "color": "from-stone-500/20 to-blue-800/40",
     "accent": "text-stone-400",
     "stats": {
@@ -576,7 +576,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Foxkit Creek",
     "description": "A meandering stream in Gaithersburg, Maryland. Known to locals winding through neighborhood greenways, Foxkit Creek features gentle riffles and is surrounded by dense suburban tree canopy.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Lake_Largo_.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Cabin_John_Creek_near_Rockville_MD.jpg",
     "color": "from-orange-500/20 to-red-800/40",
     "accent": "text-orange-400",
     "stats": {
@@ -594,7 +594,7 @@ const bodiesOfWater = [
     "type": "Aqueduct",
     "name": "Monocacy Aqueduct",
     "description": "The largest aqueduct on the Chesapeake and Ohio Canal, spanning the Monocacy River right near the Montgomery County border. This magnificent 19th-century stone structure channels water elegantly across the river below.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Rocky_Gap_State_Park_banner_Lake_Habeeb.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ten_Mile_Creek_Gardens_in_Holbrook.jpg",
     "color": "from-slate-500/20 to-blue-800/40",
     "accent": "text-slate-400",
     "stats": {
@@ -613,7 +613,7 @@ const bodiesOfWater = [
     "type": "Historic Lake / Stream",
     "name": "Chevy Chase Lake",
     "description": "Historically a popular man-made lake and trolley destination in Chevy Chase, Maryland. While the original lake was drained, the pristine waters of Coquelin Run still flow through the valley today as a beautiful stream memory.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/26/Beverly_Lake.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Wildcat_branch_backbay.jpg",
     "color": "from-sky-400/20 to-cyan-800/40",
     "accent": "text-sky-400",
     "stats": {
@@ -632,7 +632,7 @@ const bodiesOfWater = [
     "type": "Quarry Lake",
     "name": "Stone Lake",
     "description": "A strikingly clear and deep lake formed within a historic rock quarry near the Montgomery County footprint. The sheer stone cliffs slope directly into vividly colored, refreshing waters.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Lighting_of_an_88_Percent_Eclipsed_Sun_%2853640626727%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Little_Seneca_Lake_2008.jpg",
     "color": "from-blue-600/20 to-indigo-900/40",
     "accent": "text-blue-500",
     "stats": {
@@ -651,7 +651,7 @@ const bodiesOfWater = [
     "type": "Branch",
     "name": "Little Falls Branch",
     "description": "A prominent urban stream (branch) flowing directly through Bethesda and Chevy Chase, Maryland before emptying into the Potomac. Closely paralleled by the popular Capital Crescent Trail.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Blairs_Valley_Lake_frozen_edge_Washington_County_MD_2026-02-13_15-14-23_1.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Monocacy_River.jpg",
     "color": "from-emerald-500/20 to-teal-800/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -670,7 +670,7 @@ const bodiesOfWater = [
     "type": "Scenic Waterside Bench",
     "name": "The Trail Bench",
     "description": "A peaceful resting bench located along the waters of the Capital Crescent Trail in the Bethesda/Chevy Chase area. A perfect tranquil spot to listen to the rushing stream waters of Little Falls Branch.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Blairs_Valley_Lake_frozen_Washington_County_MD_2026-02-13_09-49-17_1.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/Monocacy_River_-_panoramio.jpg",
     "color": "from-amber-600/20 to-stone-800/40",
     "accent": "text-amber-500",
     "stats": {
@@ -689,7 +689,7 @@ const bodiesOfWater = [
     "type": "Branch",
     "name": "Willett Branch",
     "description": "A tributary of Little Falls Branch, Willett Branch flows through the heart of Bethesda, Maryland. It notably passes close to the Norwood Local Park and is subject to local restoration and community park efforts.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/A_full_moon_reflecting_off_the_river_-_NOAA.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Greenbrier-state-park.jpg",
     "color": "from-blue-500/20 to-teal-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -708,7 +708,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Tilden Woods Stream Valley Park",
     "description": "A beautiful stream valley park located in Rockville/Bethesda, Maryland, featuring scenic woodland trails, a gentle stream valley, and neighborhood community spaces, popular for local hiking and nature observation.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/Monon_YoughioghenyRiver.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Big_Run_River.JPG",
     "color": "from-green-500/20 to-teal-800/40",
     "accent": "text-green-400",
     "stats": {
@@ -727,7 +727,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Soapstone Valley Park",
     "description": "A heavily wooded park in Washington, DC, that forms a tributary valley extending into Rock Creek Park. It offers rugged trails tracing the Soapstone Creek amid an urban canopy.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Arnold_marina_storm.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Oxon_Run_trail_%288733086554%29.jpg",
     "color": "from-stone-500/20 to-green-900/40",
     "accent": "text-stone-400",
     "stats": {
@@ -746,7 +746,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Watts Branch Stream Valley Park",
     "description": "A verdant park protecting the Watts Branch tributary located in Montgomery County. It provides expansive greenways, meandering trails, and natural stream conservation right up to the Potomac River.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Miles_River_from_MD_33_Oak_Creek_bridge.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/Dusk_on_the_lake_%28521357962%29.jpg",
     "color": "from-lime-500/20 to-green-800/40",
     "accent": "text-lime-400",
     "stats": {
@@ -765,7 +765,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Little Falls Stream Valley Park",
     "description": "A lush natural area in Bethesda, Maryland, following the course of Little Falls Branch. It runs parallel to the deeply popular Capital Crescent Trail and features cascading waters amidst quiet suburban neighborhoods.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Loch_Raven_air_photo_Aug2010.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Minnows_%28521365748%29.jpg",
     "color": "from-cyan-500/20 to-blue-800/40",
     "accent": "text-cyan-400",
     "stats": {
@@ -784,7 +784,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Northwest Branch Anacostia River",
     "description": "A major tributary of the Anacostia River, featuring a prominent scenic trail system. The river courses through picturesque, rocky gorge sections and provides extensive recreational greenway access.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Big_Run_River.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Swallow_Falls_State_Park_-_Maryland_%2814612548037%29.jpg",
     "color": "from-blue-500/20 to-indigo-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -803,7 +803,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Sligo Creek",
     "description": "A free-flowing tributary of the Northwest Branch of the Anacostia River. The surrounding Sligo Creek Stream Valley Park offers heavily used, paved hiker-biker trails connecting communities like Silver Spring and Takoma Park.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Oxon_Run_trail_%288733086554%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Lake_Hashawha.JPG",
     "color": "from-teal-500/20 to-emerald-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -822,7 +822,7 @@ const bodiesOfWater = [
     "type": "Canal",
     "name": "C&O Canal",
     "description": "The historic Chesapeake and Ohio Canal stretches along the Potomac River in Montgomery County. It features numerous historic locks, aqueducts, and the beloved unpaved towpath used heavily by cyclists and hikers.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Swallow_Falls_State_Park_-_Maryland_%2814612548037%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Licking_Creek%2C_intersecting_U._S._40_between_Hagerstown_and_Cumberland%2C_Md_%2860235%29.jpg",
     "color": "from-stone-500/20 to-amber-900/40",
     "accent": "text-stone-400",
     "stats": {
@@ -841,7 +841,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Little Bennett Creek",
     "description": "A tributary of the Monocacy River flowing gently through Little Bennett Regional Park, known for beautiful forested trails and excellent local nature immersion.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Licking_Creek%2C_intersecting_U._S._40_between_Hagerstown_and_Cumberland%2C_Md_%2860235%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/TuckahoeCreek.JPG",
     "color": "from-green-500/20 to-emerald-800/40",
     "accent": "text-green-400",
     "stats": {
@@ -860,7 +860,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Ten Mile Creek",
     "description": "A vital reference stream serving as the main tributary to Little Seneca Lake, flowing near Clarksburg. It boasts some of the cleanest water quality in the region.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/TuckahoeCreek.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/69/A_full_moon_reflecting_off_the_river_-_NOAA.jpg",
     "color": "from-blue-500/20 to-sky-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -879,7 +879,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Paint Branch",
     "description": "A major tributary of the Anacostia River flowing southeastwards through Montgomery County. The Paint Branch Stream Valley Park preserves its lush riparian zone for hikers.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Folded_Gneiss_PlateXXVII_Keyes_1895.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Arnold_marina_storm.jpg",
     "color": "from-amber-600/20 to-stone-800/40",
     "accent": "text-amber-500",
     "stats": {
@@ -898,7 +898,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Cabin John Creek",
     "description": "A significant tributary of the Potomac River that runs through a deeply forested stream valley park, offering long uninterrupted walking and hiking routes through the suburban canopy.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Swanson_Creek_Bridge_%2821415317720%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/2008_04_23_-_Columbia_-_Wilde_Lake.jpg",
     "color": "from-teal-500/20 to-green-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -917,7 +917,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Rock Creek",
     "description": "Perhaps the most well-known tributary stream in the region, carving its way from northern Montgomery County all the way down into the heart of Washington D.C.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Mataponi_Creek_Bridge_%2821440078678%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/28/Hagerstown_City_Park_Lake.jpg",
     "color": "from-cyan-500/20 to-blue-800/40",
     "accent": "text-cyan-400",
     "stats": {
@@ -936,7 +936,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Broad Run",
     "description": "A scenic tributary running through Montgomery County’s Agricultural Reserve, finally meeting the Potomac River and passing under the historic C&O Canal aqueduct.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Shade_Run_Bridge_%2821593223842%29.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Centennial_Lake.jpg",
     "color": "from-lime-500/20 to-emerald-800/40",
     "accent": "text-lime-400",
     "stats": {
