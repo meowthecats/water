@@ -1,0 +1,515 @@
+src/baltimoreData.ts-    "type": "Harbor",
+src/baltimoreData.ts:    "name": "Inner Harbor",
+src/baltimoreData.ts-    "description": "A historic seaport, tourist attraction, and landmark of the city of Baltimore.",
+--
+src/baltimoreData.ts-    "type": "River",
+src/baltimoreData.ts:    "name": "Patapsco River",
+src/baltimoreData.ts-    "description": "The main river flowing through central Maryland into the Chesapeake Bay, forming the Baltimore harbor.",
+--
+src/baltimoreData.ts-    "type": "Stream",
+src/baltimoreData.ts:    "name": "Gwynns Falls",
+src/baltimoreData.ts-    "description": "A 24.9-mile stream running through the western and southwestern parts of Baltimore City.",
+--
+src/baltimoreData.ts-    "type": "Stream",
+src/baltimoreData.ts:    "name": "Jones Falls",
+src/baltimoreData.ts-    "description": "A major stream that cuts through the center of Baltimore, historically defining the city's geography.",
+--
+src/baltimoreData.ts-    "type": "Stream",
+src/baltimoreData.ts:    "name": "Herring Run",
+src/baltimoreData.ts-    "description": "A prominent stream flowing through northeast Baltimore City before emptying into the Back River.",
+--
+src/baltimoreData.ts-    "type": "Reservoir",
+src/baltimoreData.ts:    "name": "Lake Montebello",
+src/baltimoreData.ts-    "description": "A picturesque reservoir located in northeast Baltimore, popular for walking and cycling around its perimeter.",
+--
+src/baltimoreData.ts-    "type": "Reservoir",
+src/baltimoreData.ts:    "name": "Druid Lake",
+src/baltimoreData.ts-    "description": "A large focal point within Druid Hill Park, historically the first major architectural lake in the US.",
+--
+src/baltimoreData.ts-    "type": "Reservoir",
+src/baltimoreData.ts:    "name": "Ashburton Reservoir",
+src/baltimoreData.ts-    "description": "A reservoir located in Hanlon Park in northwest Baltimore.",
+--
+src/baltimoreData.ts-    "type": "Estuary",
+src/baltimoreData.ts:    "name": "Middle Branch Patapsco River",
+src/baltimoreData.ts-    "description": "A section of the Patapsco River south of the Inner Harbor, featuring rowing clubs and parks.",
+--
+src/baltimoreData.ts-    "type": "Run",
+src/baltimoreData.ts:    "name": "Stony Run",
+src/baltimoreData.ts-    "description": "A small stream flowing through the northern neighborhoods of Baltimore, including Roland Park and Johns Hopkins.",
+--
+src/baltimoreData.ts-    "type": "Run",
+src/baltimoreData.ts:    "name": "Dead Run",
+src/baltimoreData.ts-    "description": "A tributary of Gwynns Falls passing near Franklintown and Leakin Park.",
+--
+src/baltimoreData.ts-    "type": "Run",
+src/baltimoreData.ts:    "name": "Moores Run",
+src/baltimoreData.ts-    "description": "A tributary to Herring Run in eastern Baltimore.",
+--
+src/baltimoreData.ts-    "type": "Run",
+src/baltimoreData.ts:    "name": "Chinquapin Run",
+src/baltimoreData.ts-    "description": "A stream in north Baltimore that flows into Herring Run.",
+--
+src/baltimoreData.ts-    "type": "Run",
+src/baltimoreData.ts:    "name": "Western Run",
+src/baltimoreData.ts-    "description": "A tributary of Jones Falls flowing through the Mt. Washington area.",
+--
+src/baltimoreData.ts-    "type": "Creek",
+src/baltimoreData.ts:    "name": "Curtis Creek",
+src/baltimoreData.ts-    "description": "A tidal tributary of the Patapsco River on the southern edge of the city.",
+--
+src/baltimoreData.ts-    "type": "Creek",
+src/baltimoreData.ts:    "name": "Colgate Creek",
+src/baltimoreData.ts-    "description": "A small tidal creek near the Dundalk Marine Terminal.",
+--
+src/baltimoreData.ts-    "type": "Reservoir",
+src/baltimoreData.ts:    "name": "Guilford Reservoir",
+src/baltimoreData.ts-    "description": "A covered reservoir in the Guilford neighborhood of northern Baltimore.",
+--
+src/frederickData.ts-    "type": "Lake",
+src/frederickData.ts:    "name": "Lake Linganore",
+src/frederickData.ts-    "description": "A private, 210-acre reservoir near New Market, Maryland. It is primarily used for recreation including boating, swimming, and fishing by the surrounding Lake Linganore Association communities.",
+--
+src/frederickData.ts-    "type": "Lake",
+src/frederickData.ts:    "name": "Hunting Creek Lake",
+src/frederickData.ts-    "description": "A 43-acre man-made lake located within Cunningham Falls State Park. It offers swimming beaches, boat rentals, and fishing surrounded by the scenic Catoctin Mountains.",
+--
+src/frederickData.ts-    "type": "River",
+src/frederickData.ts:    "name": "Monocacy River",
+src/frederickData.ts-    "description": "A 58-mile-long free-flowing river that serves as the largest Maryland tributary to the Potomac River. It passes through historic battlefields and is a popular destination for canoeing, kayaking, and fishing.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Catoctin Creek",
+src/frederickData.ts-    "description": "A tributary of the Potomac River that runs roughly 28 miles through the Middletown Valley. It provides a scenic waterway characterized by historic bridges and rural landscapes.",
+--
+src/frederickData.ts-    "type": "Lake",
+src/frederickData.ts:    "name": "Culler Lake",
+src/frederickData.ts-    "description": "A historic urban lake located within Baker Park in the heart of downtown Frederick. It is a scenic centerpiece for the park, featuring fountains, a walking path, and a popular spot for ice skating in the winter.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Carroll Creek",
+src/frederickData.ts-    "description": "A historic stream flowing through downtown Frederick, now famous for the Carroll Creek Linear Park. The creek is beautifully channeled with stone walls, brick pathways, and pedestrian bridges.",
+--
+src/frederickData.ts-    "type": "Pond",
+src/frederickData.ts:    "name": "Frank Bentz Pond",
+src/frederickData.ts-    "description": "A small, tranquil pond spanning approximately 4 acres, located near Thurmont, Maryland. It is a popular and accessible spot for recreational fishing.",
+--
+src/frederickData.ts-    "type": "River",
+src/frederickData.ts:    "name": "Potomac River",
+src/frederickData.ts-    "description": "Forming the southern border of Frederick County, this major mid-Atlantic river is a hub for kayaking, fishing, and taking in breathtaking scenery.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Owens Creek",
+src/frederickData.ts-    "description": "A picturesque rocky stream that flows through the forests of Catoctin Mountain Park, easily accessible via scenic drives and hiking trails.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Linganore Creek",
+src/frederickData.ts-    "description": "A significant tributary of the Monocacy River winding through the eastern part of Frederick County. It feeds into Lake Linganore and offers great views along its course.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Fishing Creek",
+src/frederickData.ts-    "description": "A picturesque mountain stream renowned for its excellent fly fishing, flowing through the Frederick City Cooperative Wildlife Management Area.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Double Pipe Creek",
+src/frederickData.ts-    "description": "Formed by the confluence of Big Pipe Creek and Little Pipe Creek, this stream forms part of the boundary between Frederick and Carroll counties.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Tuscarora Creek",
+src/frederickData.ts-    "description": "A minor but scenic tributary of the Potomac River that runs near numerous parks and residential areas near Frederick city.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Ballenger Creek",
+src/frederickData.ts-    "description": "A stream that winds through the Ballenger Creek community, offering nearby trails and parks for residents.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Bennett Creek",
+src/frederickData.ts-    "description": "A quiet tributary that feeds into the Monocacy River near the southern end of the county, characterized by farm fields and wooden bankside foliage.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Toms Creek",
+src/frederickData.ts-    "description": "A waterway flowing near the Pennsylvania border down towards the Monocacy River in the northern parts of Frederick County.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Israel Creek",
+src/frederickData.ts-    "description": "A waterway flowing near the town of Walkersville before eventually meeting the Monocacy River.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Glade Creek",
+src/frederickData.ts-    "description": "Also winding through the Walkersville area, Glade Creek is central to local parklands and natural spaces.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Bush Creek",
+src/frederickData.ts-    "description": "Flowing through the southern portion of Frederick County, Bush Creek runs near Ijamsville before meeting the Monocacy.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Little Pipe Creek",
+src/frederickData.ts-    "description": "A stream that forms part of the boundary between Frederick and Carroll counties, joining Big Pipe Creek to form Double Pipe Creek.",
+--
+src/frederickData.ts-    "type": "Stream",
+src/frederickData.ts:    "name": "Big Pipe Creek",
+src/frederickData.ts-    "description": "A larger tributary that combines with Little Pipe Creek. It runs near the town of Union Bridge into Frederick County.",
+--
+src/frederickDataPart2.ts-    "type": "Lake",
+src/frederickDataPart2.ts:    "name": "Lake Merle",
+src/frederickDataPart2.ts-    "description": "A beautiful private lake located in the communities around Linganore.",
+--
+src/frederickDataPart2.ts-    "type": "Reservoir",
+src/frederickDataPart2.ts:    "name": "Rainbow Lake",
+src/frederickDataPart2.ts-    "description": "A vital reservoir nestled in the mountains serving Emmitsburg.",
+--
+src/frederickDataPart2.ts-    "type": "Lake",
+src/frederickDataPart2.ts:    "name": "Hunting Creek Lake",
+src/frederickDataPart2.ts-    "description": "The official name of the large recreational lake located at Cunningham Falls State Park.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Hollow Creek",
+src/frederickDataPart2.ts-    "description": "A quiet, meandering creek winding through the picturesque Middletown Valley.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Middle Creek",
+src/frederickDataPart2.ts-    "description": "A strong-flowing stream slicing through the northern Catoctin range.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Whiskey Creek",
+src/frederickDataPart2.ts-    "description": "A stream located near Urbana, lending its name to a prominent local golf club.",
+--
+src/frederickDataPart2.ts-    "type": "Springs",
+src/frederickDataPart2.ts:    "name": "Fountain Rock Springs",
+src/frederickDataPart2.ts-    "description": "A natural spring-fed body of water located near historic lime kilns in Walkersville.",
+--
+src/frederickDataPart2.ts-    "type": "Branch",
+src/frederickDataPart2.ts:    "name": "Bear Branch",
+src/frederickDataPart2.ts-    "description": "A pastoral stream bordering Woodsboro.",
+--
+src/frederickDataPart2.ts-    "type": "Branch",
+src/frederickDataPart2.ts:    "name": "Beaver Branch",
+src/frederickDataPart2.ts-    "description": "A winding tributary near Libertytown known for its wetland character.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Piney Creek",
+src/frederickDataPart2.ts-    "description": "A scenic stream draining the eastern slopes of the mountains near Emmitsburg.",
+--
+src/frederickDataPart2.ts-    "type": "Branch",
+src/frederickDataPart2.ts:    "name": "Furnace Branch",
+src/frederickDataPart2.ts-    "description": "A small stream intimately tied to the historic Catoctin Iron Furnace.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "High Run",
+src/frederickDataPart2.ts-    "description": "A high-elevation creek near Burkittsville descending from South Mountain.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Little Catoctin Creek",
+src/frederickDataPart2.ts-    "description": "A major branch of the larger Catoctin Creek flowing near Brunswick.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Broad Run",
+src/frederickDataPart2.ts-    "description": "A beautiful rural stream intersecting the border of Jefferson and Burkittsville.",
+--
+src/frederickDataPart2.ts-    "type": "Run",
+src/frederickDataPart2.ts:    "name": "Manor Run",
+src/frederickDataPart2.ts-    "description": "A stream located near Buckeystown passing through sweeping farmlands.",
+--
+src/frederickDataPart2.ts-    "type": "Run",
+src/frederickDataPart2.ts:    "name": "Rocky Fountain Run",
+src/frederickDataPart2.ts-    "description": "A small, heavily rock-lined run near the limits of Frederick City.",
+--
+src/frederickDataPart2.ts-    "type": "Reservoir",
+src/frederickDataPart2.ts:    "name": "Fishing Creek Reservoir",
+src/frederickDataPart2.ts-    "description": "A highly protected remote reservoir deep in the Catoctin Mountains.",
+--
+src/frederickDataPart2.ts-    "type": "Run",
+src/frederickDataPart2.ts:    "name": "Addison Run",
+src/frederickDataPart2.ts-    "description": "A gentle stream flowing out of the New Market area.",
+--
+src/frederickDataPart2.ts-    "type": "Branch",
+src/frederickDataPart2.ts:    "name": "Glade Branch",
+src/frederickDataPart2.ts-    "description": "An offshoot of the main Glade Creek system intersecting Walkersville's parks.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Hunting Creek",
+src/frederickDataPart2.ts-    "description": "A famously clean, cascading stream slicing directly through Thurmont.",
+--
+src/frederickDataPart2.ts-    "type": "Creek",
+src/frederickDataPart2.ts:    "name": "Hamburg Creek",
+src/frederickDataPart2.ts-    "description": "A remote, rugged mountain creek originating in Gambrill State Park.",
+--
+src/montgomeryDataPart2.ts-    "type": "Reservoir",
+src/montgomeryDataPart2.ts:    "name": "Rocky Gorge Reservoir",
+src/montgomeryDataPart2.ts-    "description": "A massive reservoir extending across the county line, providing beautiful secluded waterfronts.",
+--
+src/montgomeryDataPart2.ts-    "type": "Creek",
+src/montgomeryDataPart2.ts:    "name": "Dry Seneca Creek",
+src/montgomeryDataPart2.ts-    "description": "A tributary of Seneca Creek traversing western Montgomery County's agricultural reserve.",
+--
+src/montgomeryDataPart2.ts-    "type": "River",
+src/montgomeryDataPart2.ts:    "name": "Little Monocacy River",
+src/montgomeryDataPart2.ts-    "description": "A rural stream in the northern corner of the county near the Potomac.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Reddy Branch",
+src/montgomeryDataPart2.ts-    "description": "A prominent stream traversing Brookeville and Olney, forming beautiful residential stream valleys.",
+--
+src/montgomeryDataPart2.ts-    "type": "Run",
+src/montgomeryDataPart2.ts:    "name": "Whetstone Run",
+src/montgomeryDataPart2.ts-    "description": "A stream feeding into Lake Whetstone in Montgomery Village.",
+--
+src/montgomeryDataPart2.ts-    "type": "Lake",
+src/montgomeryDataPart2.ts:    "name": "Pine Lake",
+src/montgomeryDataPart2.ts-    "description": "A peaceful five-acre lake situated in the heart of Wheaton Regional Park.",
+--
+src/montgomeryDataPart2.ts-    "type": "River",
+src/montgomeryDataPart2.ts:    "name": "Plummers Island Channel",
+src/montgomeryDataPart2.ts-    "description": "A side channel of the Potomac River surrounding the historic Plummers Island.",
+--
+src/montgomeryDataPart2.ts-    "type": "Stream",
+src/montgomeryDataPart2.ts:    "name": "Lois Y. Green Stream",
+src/montgomeryDataPart2.ts-    "description": "A serene stream running through the Lois Y. Green Conservation Park in Gaithersburg.",
+--
+src/montgomeryDataPart2.ts-    "type": "Creek",
+src/montgomeryDataPart2.ts:    "name": "Sycamore Creek",
+src/montgomeryDataPart2.ts-    "description": "A modest stream winding through Rockville neighborhoods and parks.",
+--
+src/montgomeryDataPart2.ts-    "type": "Run",
+src/montgomeryDataPart2.ts:    "name": "Rock Run",
+src/montgomeryDataPart2.ts-    "description": "A steep, rocky tributary flowing directly into the Potomac River near Potomac, MD.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Dark Branch",
+src/montgomeryDataPart2.ts-    "description": "A heavily forested, shaded tributary located near Clarksburg.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Minnehaha Branch",
+src/montgomeryDataPart2.ts-    "description": "A small, cascading stream near Glen Echo characterized by steep rocky drops.",
+--
+src/montgomeryDataPart2.ts-    "type": "Creek",
+src/montgomeryDataPart2.ts:    "name": "Booze Creek",
+src/montgomeryDataPart2.ts-    "description": "A scenic creek in Bethesda that flows into the Cabin John watershed.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Fenwick Branch",
+src/montgomeryDataPart2.ts-    "description": "An urban stream valley originating in Silver Spring and feeding Rock Creek.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Turkey Branch",
+src/montgomeryDataPart2.ts-    "description": "A pleasant stream that runs parallel to the Rock Creek Trail in Aspen Hill.",
+--
+src/montgomeryDataPart2.ts-    "type": "Creek",
+src/montgomeryDataPart2.ts:    "name": "Stoney Creek",
+src/montgomeryDataPart2.ts-    "description": "A rocky urban waterway that feeds into Rock Creek near Kensington.",
+--
+src/montgomeryDataPart2.ts-    "type": "Run",
+src/montgomeryDataPart2.ts:    "name": "Batchellors Run",
+src/montgomeryDataPart2.ts-    "description": "A serene, meandering tributary of the Northwest Branch located in Olney.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Folly Branch",
+src/montgomeryDataPart2.ts-    "description": "A leafy green branch located in natural areas around Potomac.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Greenbrier Branch",
+src/montgomeryDataPart2.ts-    "description": "A lush, thicket-lined stream contributing to the Watts Branch system.",
+--
+src/montgomeryDataPart2.ts-    "type": "Branch",
+src/montgomeryDataPart2.ts:    "name": "Buck Branch",
+src/montgomeryDataPart2.ts-    "description": "A stream flowing swiftly over small rock shelves down to the Potomac.",
+--
+src/montgomeryDataPart2.ts-    "type": "Creek",
+src/montgomeryDataPart2.ts:    "name": "Old Farm Creek",
+src/montgomeryDataPart2.ts-    "description": "A restored stream valley tucked neatly into North Bethesda's neighborhoods.",
+--
+src/montgomeryDataPart2.ts-    "type": "River",
+src/montgomeryDataPart2.ts:    "name": "Little River Channel",
+src/montgomeryDataPart2.ts-    "description": "A tranquil backchannel of the Potomac River near the GW Parkway.",
+--
+src/App.tsx-    "type": "Stream",
+src/App.tsx:    "name": "Wildcat Branch",
+src/App.tsx-    "description": "A scenic stream flowing through Germantown, Maryland. It is a tributary of Great Seneca Creek and runs through the Wildcat Branch Stream Valley Park, providing a natural habitat for local wildlife.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Seneca Creek",
+src/App.tsx-    "description": "A 27.4-mile-long free-flowing tributary of the Potomac River located in Montgomery County, Maryland. It flows through Seneca Creek State Park in Germantown, offering scenic views, historic mill ruins, and extensive hiking trails.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Little Seneca Lake",
+src/App.tsx-    "description": "A 505-acre reservoir located in Black Hill Regional Park in Germantown, Maryland. It was constructed to provide an emergency water supply for the Washington, D.C. metropolitan area and offers excellent recreational boating and fishing.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Gunner Lake",
+src/App.tsx-    "description": "A scenic man-made lake located in Germantown, Maryland. Surrounded by a paved walking trail, it is a popular local spot for jogging, fishing, and observing waterfowl and wildlife.",
+--
+src/App.tsx-    "type": "Stream",
+src/App.tsx:    "name": "Great Seneca Stream",
+src/App.tsx-    "description": "A major stream in Montgomery County, Maryland, flowing through Germantown. It forms the backbone of Seneca Creek State Park and eventually empties into the Potomac River.",
+--
+src/App.tsx-    "type": "Stream",
+src/App.tsx:    "name": "Bucklodge Branch",
+src/App.tsx-    "description": "A scenic tributary of Little Seneca Creek located in Germantown, Maryland. It flows through the Bucklodge Conservation Park, providing important habitat and contributing to the local watershed.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Long Draught Creek",
+src/App.tsx-    "description": "A picturesque stream in Germantown, Maryland, that acts as a tributary to Great Seneca Creek. It flows prominently into Clopper Lake within Seneca Creek State Park, offering a serene environment for local wildlife and park visitors.",
+--
+src/App.tsx-    "type": "Lakes",
+src/App.tsx:    "name": "Kentlands Lakes",
+src/App.tsx-    "description": "A series of scenic, interconnected lakes in the Kentlands neighborhood of Gaithersburg, Maryland. They provide a beautiful backdrop for walking trails, community events, and local wildlife.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Clopper Lake",
+src/App.tsx-    "description": "A beautiful 90-acre man-made lake situated in Seneca Creek State Park in Gaithersburg, Maryland. It is surrounded by forests and trails, offering excellent opportunities for boating, fishing, and picnicking.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Lake Churchill",
+src/App.tsx-    "description": "A picturesque man-made lake located in the Churchill Village community of Germantown, Maryland. It features a paved walking path, scenic views, and is a peaceful spot for residents and wildlife.",
+--
+src/App.tsx-    "type": "River",
+src/App.tsx:    "name": "Potomac River",
+src/App.tsx-    "description": "A major river flowing into the Chesapeake Bay, forming the border between Maryland and Virginia. It is known for its historic significance, scenic beauty like Great Falls, and diverse recreational opportunities.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Inspiration Lake",
+src/App.tsx-    "description": "A beautiful community lake situated in the Kentlands neighborhood of Gaithersburg, Maryland. It offers a serene environment with walking paths, scenic views, and is a popular spot for local residents to relax and enjoy nature.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Rio Washingtonian Center Lake",
+src/App.tsx-    "description": "A vibrant man-made lake located at the heart of the Rio Washingtonian Center in Gaithersburg, Maryland. It features a scenic boardwalk, paddleboats, and is surrounded by a bustling shopping and dining district.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Lake Needwood",
+src/App.tsx-    "description": "A 75-acre man-made reservoir situated in Rock Creek Regional Park near Gaithersburg/Derwood, Maryland. It is a popular destination offering a scenic natural surface trail, boating rentals, and sweeping sunset views.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "North Creek Lake Park",
+src/App.tsx-    "description": "A peaceful park setup featuring a small lake. The park offers walking paths around the water, picnic areas, and serves as an inspiring aesthetic water feature akin to local Inspiration Lake attractions.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Lake Whetstone",
+src/App.tsx-    "description": "A scenic man-made lake serving as a central feature of Montgomery Village, Maryland. It offers boating, fishing, and a paved walking trail right in the heart of the community.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Lake Bernard Frank",
+src/App.tsx-    "description": "A serene 54-acre reservoir nestled quietly within the sprawling Rock Creek Regional Park near Derwood, Maryland. It is isolated from significant paved developments, providing a pristine habitat for hikers and naturalists.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Lake Nirvana",
+src/App.tsx-    "description": "A quaint, quiet community lake tucked away within Gaithersburg, Maryland. Though modest in size, it serves as a peaceful water feature for the surrounding local neighborhoods.",
+--
+src/App.tsx-    "type": "Lake",
+src/App.tsx:    "name": "Maple Lake",
+src/App.tsx-    "description": "A historic small lake nestled inside the tranquil town of Washington Grove, Maryland. Heavily wooded and scenic, it has long been a private gem for the town's residents.",
+--
+src/App.tsx-    "type": "Park",
+src/App.tsx:    "name": "Rock Creek Regional Park",
+src/App.tsx-    "description": "A massive 1,800-acre park stretching across Gaithersburg, Derwood, and Rockville. It encompasses both Lake Needwood and Lake Bernard Frank, providing dense forests, an extensive trail network, and boating.",
+--
+src/App.tsx-    "type": "Reservoir",
+src/App.tsx:    "name": "Triadelphia Lake Recreation",
+src/App.tsx-    "description": "A beautiful 800-acre reservoir created by the Brighton Dam on the Patuxent River. It offers recreational boating, fishing, and scenic picnic areas just outside Gaithersburg, Maryland.",
+--
+src/App.tsx-    "type": "Park & Stream",
+src/App.tsx:    "name": "Great Seneca Stream Valley Park",
+src/App.tsx-    "description": "A sprawling linear park tracing the main branch of Great Seneca Creek. The park preserves vital stream habitats and features miles of natural surface trails following the flowing water.",
+--
+src/App.tsx-    "type": "Park & Stream",
+src/App.tsx:    "name": "Cabin Branch Stream Valley Park",
+src/App.tsx-    "description": "A dedicated conservation park built to protect the Cabin Branch tributary before it joins the larger Seneca Creek watershed. Thickly forested and secluded, it safeguards a sparkling stream.",
+--
+src/App.tsx-    "type": "River",
+src/App.tsx:    "name": "Patuxent River",
+src/App.tsx-    "description": "The longest river entirely within Maryland, passing closely to Montgomery County's borders. It serves as a vital drinking water source via its reservoirs and flows through stunning wooded landscapes.",
+--
+src/App.tsx-    "type": "Stream Valley",
+src/App.tsx:    "name": "Hawlings River Stream Valley",
+src/App.tsx-    "description": "A beautiful stream valley winding through Montgomery County, featuring the rocky, cascading Hawlings River. It offers lush forested banks and peaceful spots to observe the rushing water.",
+--
+src/App.tsx-    "type": "Stream",
+src/App.tsx:    "name": "Muddy Branch",
+src/App.tsx-    "description": "A major tributary of the Potomac River that runs through Gaithersburg. Muddy Branch features diverse aquatic habitats and is flanked by an extensive stream valley park network.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Ingram Creek",
+src/App.tsx-    "description": "A small, lively creek located in the Gaithersburg and Montgomery County area. It trickles through suburban neighborhoods and wooded patches, providing a vital micro-habitat for local amphibians.",
+--
+src/App.tsx-    "type": "Aqueduct",
+src/App.tsx:    "name": "Seneca Creek Aqueduct",
+src/App.tsx-    "description": "A historic sandstone aqueduct where the Chesapeake and Ohio Canal crosses Seneca Creek. The structure allows one body of water to flow directly over another, showcasing 19th-century engineering.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Foxkit Creek",
+src/App.tsx-    "description": "A meandering stream in Gaithersburg, Maryland. Known to locals winding through neighborhood greenways, Foxkit Creek features gentle riffles and is surrounded by dense suburban tree canopy.",
+--
+src/App.tsx-    "type": "Aqueduct",
+src/App.tsx:    "name": "Monocacy Aqueduct",
+src/App.tsx-    "description": "The largest aqueduct on the Chesapeake and Ohio Canal, spanning the Monocacy River right near the Montgomery County border. This magnificent 19th-century stone structure channels water elegantly across the river below.",
+--
+src/App.tsx-    "type": "Historic Lake / Stream",
+src/App.tsx:    "name": "Chevy Chase Lake",
+src/App.tsx-    "description": "Historically a popular man-made lake and trolley destination in Chevy Chase, Maryland. While the original lake was drained, the pristine waters of Coquelin Run still flow through the valley today as a beautiful stream memory.",
+--
+src/App.tsx-    "type": "Quarry Lake",
+src/App.tsx:    "name": "Stone Lake",
+src/App.tsx-    "description": "A strikingly clear and deep lake formed within a historic rock quarry near the Montgomery County footprint. The sheer stone cliffs slope directly into vividly colored, refreshing waters.",
+--
+src/App.tsx-    "type": "Branch",
+src/App.tsx:    "name": "Little Falls Branch",
+src/App.tsx-    "description": "A prominent urban stream (branch) flowing directly through Bethesda and Chevy Chase, Maryland before emptying into the Potomac. Closely paralleled by the popular Capital Crescent Trail.",
+--
+src/App.tsx-    "type": "Scenic Waterside Bench",
+src/App.tsx:    "name": "The Trail Bench",
+src/App.tsx-    "description": "A peaceful resting bench located along the waters of the Capital Crescent Trail in the Bethesda/Chevy Chase area. A perfect tranquil spot to listen to the rushing stream waters of Little Falls Branch.",
+--
+src/App.tsx-    "type": "Branch",
+src/App.tsx:    "name": "Willett Branch",
+src/App.tsx-    "description": "A tributary of Little Falls Branch, Willett Branch flows through the heart of Bethesda, Maryland. It notably passes close to the Norwood Local Park and is subject to local restoration and community park efforts.",
+--
+src/App.tsx-    "type": "Park",
+src/App.tsx:    "name": "Tilden Woods Stream Valley Park",
+src/App.tsx-    "description": "A beautiful stream valley park located in Rockville/Bethesda, Maryland, featuring scenic woodland trails, a gentle stream valley, and neighborhood community spaces, popular for local hiking and nature observation.",
+--
+src/App.tsx-    "type": "Park",
+src/App.tsx:    "name": "Soapstone Valley Park",
+src/App.tsx-    "description": "A heavily wooded park in Washington, DC, that forms a tributary valley extending into Rock Creek Park. It offers rugged trails tracing the Soapstone Creek amid an urban canopy.",
+--
+src/App.tsx-    "type": "Park",
+src/App.tsx:    "name": "Watts Branch Stream Valley Park",
+src/App.tsx-    "description": "A verdant park protecting the Watts Branch tributary located in Montgomery County. It provides expansive greenways, meandering trails, and natural stream conservation right up to the Potomac River.",
+--
+src/App.tsx-    "type": "Park",
+src/App.tsx:    "name": "Little Falls Stream Valley Park",
+src/App.tsx-    "description": "A lush natural area in Bethesda, Maryland, following the course of Little Falls Branch. It runs parallel to the deeply popular Capital Crescent Trail and features cascading waters amidst quiet suburban neighborhoods.",
+--
+src/App.tsx-    "type": "River",
+src/App.tsx:    "name": "Northwest Branch Anacostia River",
+src/App.tsx-    "description": "A major tributary of the Anacostia River, featuring a prominent scenic trail system. The river courses through picturesque, rocky gorge sections and provides extensive recreational greenway access.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Sligo Creek",
+src/App.tsx-    "description": "A free-flowing tributary of the Northwest Branch of the Anacostia River. The surrounding Sligo Creek Stream Valley Park offers heavily used, paved hiker-biker trails connecting communities like Silver Spring and Takoma Park.",
+--
+src/App.tsx-    "type": "Canal",
+src/App.tsx:    "name": "C&O Canal",
+src/App.tsx-    "description": "The historic Chesapeake and Ohio Canal stretches along the Potomac River in Montgomery County. It features numerous historic locks, aqueducts, and the beloved unpaved towpath used heavily by cyclists and hikers.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Little Bennett Creek",
+src/App.tsx-    "description": "A tributary of the Monocacy River flowing gently through Little Bennett Regional Park, known for beautiful forested trails and excellent local nature immersion.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Ten Mile Creek",
+src/App.tsx-    "description": "A vital reference stream serving as the main tributary to Little Seneca Lake, flowing near Clarksburg. It boasts some of the cleanest water quality in the region.",
+--
+src/App.tsx-    "type": "Stream",
+src/App.tsx:    "name": "Paint Branch",
+src/App.tsx-    "description": "A major tributary of the Anacostia River flowing southeastwards through Montgomery County. The Paint Branch Stream Valley Park preserves its lush riparian zone for hikers.",
+--
+src/App.tsx-    "type": "Creek",
+src/App.tsx:    "name": "Cabin John Creek",
+src/App.tsx-    "description": "A significant tributary of the Potomac River that runs through a deeply forested stream valley park, offering long uninterrupted walking and hiking routes through the suburban canopy.",
+--
+src/App.tsx-    "type": "River",
+src/App.tsx:    "name": "Rock Creek",
+src/App.tsx-    "description": "Perhaps the most well-known tributary stream in the region, carving its way from northern Montgomery County all the way down into the heart of Washington D.C.",
+--
+src/App.tsx-    "type": "Stream",
+src/App.tsx:    "name": "Broad Run",
+src/App.tsx-    "description": "A scenic tributary running through Montgomery County’s Agricultural Reserve, finally meeting the Potomac River and passing under the historic C&O Canal aqueduct.",
