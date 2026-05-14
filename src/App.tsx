@@ -350,7 +350,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Bernard Frank",
     "description": "A serene 54-acre reservoir nestled quietly within the sprawling Rock Creek Regional Park near Derwood, Maryland. It is isolated from significant paved developments, providing a pristine habitat for hikers and naturalists.",
-    "image": "https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=800&q=80",
+    "image": "/Lake Bernard Frank.jpg",
     "color": "from-emerald-500/20 to-green-900/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -369,7 +369,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Nirvana",
     "description": "A quaint, quiet community lake tucked away within Gaithersburg, Maryland. Though modest in size, it serves as a peaceful water feature for the surrounding local neighborhoods.",
-    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+    "image": "/Lake Nirvana.jpg",
     "color": "from-teal-400/20 to-cyan-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -388,7 +388,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Maple Lake",
     "description": "A historic small lake nestled inside the tranquil town of Washington Grove, Maryland. Heavily wooded and scenic, it has long been a private gem for the town's residents.",
-    "image": "https://images.unsplash.com/photo-1445857212411-ee359e13df82?auto=format&fit=crop&w=800&q=80",
+    "image": "/Maple Lake.jpg",
     "color": "from-orange-500/20 to-amber-900/40",
     "accent": "text-orange-400",
     "stats": {
@@ -407,7 +407,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Rock Creek Regional Park",
     "description": "A massive 1,800-acre park stretching across Gaithersburg, Derwood, and Rockville. It encompasses both Lake Needwood and Lake Bernard Frank, providing dense forests, an extensive trail network, and boating.",
-    "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80",
+    "image": "/Rock Creek Regional Park.jpg",
     "color": "from-green-600/20 to-emerald-900/40",
     "accent": "text-green-400",
     "stats": {
@@ -426,7 +426,7 @@ const bodiesOfWater = [
     "type": "Reservoir",
     "name": "Triadelphia Lake Recreation",
     "description": "A beautiful 800-acre reservoir created by the Brighton Dam on the Patuxent River. It offers recreational boating, fishing, and scenic picnic areas just outside Gaithersburg, Maryland.",
-    "image": "https://images.unsplash.com/photo-1498611291069-aa2a6fa926a1?auto=format&fit=crop&w=800&q=80",
+    "image": "/Triadelphia Lake Recreation.jpg",
     "color": "from-blue-500/20 to-sky-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -445,7 +445,7 @@ const bodiesOfWater = [
     "type": "Park & Stream",
     "name": "Great Seneca Stream Valley Park",
     "description": "A sprawling linear park tracing the main branch of Great Seneca Creek. The park preserves vital stream habitats and features miles of natural surface trails following the flowing water.",
-    "image": "https://images.unsplash.com/photo-1498064402657-3a137e2cdfc7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Great Seneca Stream Valley Park.jpg",
     "color": "from-teal-500/20 to-green-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -464,7 +464,7 @@ const bodiesOfWater = [
     "type": "Park & Stream",
     "name": "Cabin Branch Stream Valley Park",
     "description": "A dedicated conservation park built to protect the Cabin Branch tributary before it joins the larger Seneca Creek watershed. Thickly forested and secluded, it safeguards a sparkling stream.",
-    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+    "image": "/Cabin Branch Stream Valley Park.jpg",
     "color": "from-emerald-500/20 to-lime-800/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -483,7 +483,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Patuxent River",
     "description": "The longest river entirely within Maryland, passing closely to Montgomery County's borders. It serves as a vital drinking water source via its reservoirs and flows through stunning wooded landscapes.",
-    "image": "https://images.unsplash.com/photo-1465220153027-147b3112bd78?auto=format&fit=crop&w=800&q=80",
+    "image": "/Patuxent River.jpg",
     "color": "from-indigo-500/20 to-blue-900/40",
     "accent": "text-indigo-400",
     "stats": {
