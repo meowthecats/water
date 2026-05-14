@@ -122,7 +122,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Great Seneca Stream",
     "description": "A major stream in Montgomery County, Maryland, flowing through Germantown. It forms the backbone of Seneca Creek State Park and eventually empties into the Potomac River.",
-    "image": "/Great Seneca Stream.jpg",
+    "image": "/Great Seneca Stream-1.jpg",
     "color": "from-green-500/20 to-emerald-900/20",
     "accent": "text-green-400",
     "stats": {
@@ -198,7 +198,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Clopper Lake",
     "description": "A beautiful 90-acre man-made lake situated in Seneca Creek State Park in Gaithersburg, Maryland. It is surrounded by forests and trails, offering excellent opportunities for boating, fishing, and picnicking.",
-    "image": "https://images.unsplash.com/photo-1498611291069-aa2a6fa926a1?auto=format&fit=crop&w=800&q=80",
+    "image": "/Clopper Lake.jpg",
     "color": "from-blue-500/20 to-cyan-900/40",
     "accent": "text-blue-400",
     "stats": {
@@ -217,7 +217,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Churchill",
     "description": "A picturesque man-made lake located in the Churchill Village community of Germantown, Maryland. It features a paved walking path, scenic views, and is a peaceful spot for residents and wildlife.",
-    "image": "https://images.unsplash.com/photo-1506260408121-e353d10b87c7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Lake Churchill.jpg",
     "color": "from-indigo-500/20 to-blue-900/40",
     "accent": "text-indigo-400",
     "stats": {
@@ -236,7 +236,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Potomac River",
     "description": "A major river flowing into the Chesapeake Bay, forming the border between Maryland and Virginia. It is known for its historic significance, scenic beauty like Great Falls, and diverse recreational opportunities.",
-    "image": "https://images.unsplash.com/photo-1490892224095-2601db816ba7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Potomac River.jpg",
     "color": "from-blue-600/20 to-teal-900/40",
     "accent": "text-blue-400",
     "stats": {
@@ -255,7 +255,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Inspiration Lake",
     "description": "A beautiful community lake situated in the Kentlands neighborhood of Gaithersburg, Maryland. It offers a serene environment with walking paths, scenic views, and is a popular spot for local residents to relax and enjoy nature.",
-    "image": "https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=800&q=80",
+    "image": "/Inspiration Lake.jpg",
     "color": "from-emerald-500/20 to-teal-900/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -274,7 +274,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Rio Washingtonian Center Lake",
     "description": "A vibrant man-made lake located at the heart of the Rio Washingtonian Center in Gaithersburg, Maryland. It features a scenic boardwalk, paddleboats, and is surrounded by a bustling shopping and dining district.",
-    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+    "image": "/Rio Washingtonian Center Lake.jpg",
     "color": "from-blue-500/20 to-cyan-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -293,7 +293,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Needwood",
     "description": "A 75-acre man-made reservoir situated in Rock Creek Regional Park near Gaithersburg/Derwood, Maryland. It is a popular destination offering a scenic natural surface trail, boating rentals, and sweeping sunset views.",
-    "image": "https://images.unsplash.com/photo-1445857212411-ee359e13df82?auto=format&fit=crop&w=800&q=80",
+    "image": "/Lake Needwood.jpg",
     "color": "from-teal-500/20 to-emerald-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -312,7 +312,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "North Creek Lake Park",
     "description": "A peaceful park setup featuring a small lake. The park offers walking paths around the water, picnic areas, and serves as an inspiring aesthetic water feature akin to local Inspiration Lake attractions.",
-    "image": "https://images.unsplash.com/photo-1498611291069-aa2a6fa926a1?auto=format&fit=crop&w=800&q=80",
+    "image": "/North Creek Lake Park.jpg",
     "color": "from-sky-500/20 to-blue-800/40",
     "accent": "text-sky-400",
     "stats": {
@@ -331,7 +331,7 @@ const bodiesOfWater = [
     "type": "Lake",
     "name": "Lake Whetstone",
     "description": "A scenic man-made lake serving as a central feature of Montgomery Village, Maryland. It offers boating, fishing, and a paved walking trail right in the heart of the community.",
-    "image": "https://images.unsplash.com/photo-1506260408121-e353d10b87c7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Lake Whetstone.jpg",
     "color": "from-blue-500/20 to-indigo-800/40",
     "accent": "text-blue-400",
     "stats": {

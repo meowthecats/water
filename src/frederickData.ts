@@ -137,7 +137,7 @@ export const frederickBodiesOfWater = [
     "type": "River",
     "name": "Potomac River",
     "description": "Forming the southern border of Frederick County, this major mid-Atlantic river is a hub for kayaking, fishing, and taking in breathtaking scenery.",
-    "image": "https://images.unsplash.com/photo-1490892224095-2601db816ba7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Potomac River.jpg",
     "color": "from-sky-600/20 to-blue-800/20",
     "accent": "text-sky-400",
     "stats": {
