@@ -651,7 +651,7 @@ const bodiesOfWater = [
     "type": "Branch",
     "name": "Little Falls Branch",
     "description": "A prominent urban stream (branch) flowing directly through Bethesda and Chevy Chase, Maryland before emptying into the Potomac. Closely paralleled by the popular Capital Crescent Trail.",
-    "image": "https://images.unsplash.com/photo-1498064402657-3a137e2cdfc7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Little Falls Branch.jpg",
     "color": "from-emerald-500/20 to-teal-800/40",
     "accent": "text-emerald-400",
     "stats": {
@@ -670,7 +670,7 @@ const bodiesOfWater = [
     "type": "Scenic Waterside Bench",
     "name": "The Trail Bench",
     "description": "A peaceful resting bench located along the waters of the Capital Crescent Trail in the Bethesda/Chevy Chase area. A perfect tranquil spot to listen to the rushing stream waters of Little Falls Branch.",
-    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+    "image": "/The Trail Bench.jpg",
     "color": "from-amber-600/20 to-stone-800/40",
     "accent": "text-amber-500",
     "stats": {
@@ -689,7 +689,7 @@ const bodiesOfWater = [
     "type": "Branch",
     "name": "Willett Branch",
     "description": "A tributary of Little Falls Branch, Willett Branch flows through the heart of Bethesda, Maryland. It notably passes close to the Norwood Local Park and is subject to local restoration and community park efforts.",
-    "image": "https://images.unsplash.com/photo-1437482078695-73f5f9227575?auto=format&fit=crop&w=800&q=80",
+    "image": "/Willett Branch.jpg",
     "color": "from-blue-500/20 to-teal-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -708,7 +708,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Tilden Woods Stream Valley Park",
     "description": "A beautiful stream valley park located in Rockville/Bethesda, Maryland, featuring scenic woodland trails, a gentle stream valley, and neighborhood community spaces, popular for local hiking and nature observation.",
-    "image": "https://images.unsplash.com/photo-1542224566-fbb91af75b05?auto=format&fit=crop&w=800&q=80",
+    "image": "/Tilden Woods Stream Valley Park.jpg",
     "color": "from-green-500/20 to-teal-800/40",
     "accent": "text-green-400",
     "stats": {
@@ -727,7 +727,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Soapstone Valley Park",
     "description": "A heavily wooded park in Washington, DC, that forms a tributary valley extending into Rock Creek Park. It offers rugged trails tracing the Soapstone Creek amid an urban canopy.",
-    "image": "https://images.unsplash.com/photo-1505307527633-8201fa5cce51?auto=format&fit=crop&w=800&q=80",
+    "image": "/Soapstone Valley Park.jpg",
     "color": "from-stone-500/20 to-green-900/40",
     "accent": "text-stone-400",
     "stats": {
@@ -746,7 +746,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Watts Branch Stream Valley Park",
     "description": "A verdant park protecting the Watts Branch tributary located in Montgomery County. It provides expansive greenways, meandering trails, and natural stream conservation right up to the Potomac River.",
-    "image": "https://images.unsplash.com/photo-1506501139174-099022df5260?auto=format&fit=crop&w=800&q=80",
+    "image": "/Watts Branch Stream Valley Park.jpg",
     "color": "from-lime-500/20 to-green-800/40",
     "accent": "text-lime-400",
     "stats": {
@@ -765,7 +765,7 @@ const bodiesOfWater = [
     "type": "Park",
     "name": "Little Falls Stream Valley Park",
     "description": "A lush natural area in Bethesda, Maryland, following the course of Little Falls Branch. It runs parallel to the deeply popular Capital Crescent Trail and features cascading waters amidst quiet suburban neighborhoods.",
-    "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80",
+    "image": "/Little Falls Stream Valley Park.jpg",
     "color": "from-cyan-500/20 to-blue-800/40",
     "accent": "text-cyan-400",
     "stats": {
@@ -784,7 +784,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Northwest Branch Anacostia River",
     "description": "A major tributary of the Anacostia River, featuring a prominent scenic trail system. The river courses through picturesque, rocky gorge sections and provides extensive recreational greenway access.",
-    "image": "https://images.unsplash.com/photo-1444158494924-ac7c2e39b7bf?auto=format&fit=crop&w=800&q=80",
+    "image": "/Northwest Branch Anacostia River.jpg",
     "color": "from-blue-500/20 to-indigo-800/40",
     "accent": "text-blue-400",
     "stats": {
