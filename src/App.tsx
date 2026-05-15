@@ -803,7 +803,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Sligo Creek",
     "description": "A free-flowing tributary of the Northwest Branch of the Anacostia River. The surrounding Sligo Creek Stream Valley Park offers heavily used, paved hiker-biker trails connecting communities like Silver Spring and Takoma Park.",
-    "image": "https://images.unsplash.com/photo-1498064402657-3a137e2cdfc7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Sligo Creek.jpg",
     "color": "from-teal-500/20 to-emerald-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -822,7 +822,7 @@ const bodiesOfWater = [
     "type": "Canal",
     "name": "C&O Canal",
     "description": "The historic Chesapeake and Ohio Canal stretches along the Potomac River in Montgomery County. It features numerous historic locks, aqueducts, and the beloved unpaved towpath used heavily by cyclists and hikers.",
-    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+    "image": "/C&O Canal.jpg",
     "color": "from-stone-500/20 to-amber-900/40",
     "accent": "text-stone-400",
     "stats": {
@@ -841,7 +841,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Little Bennett Creek",
     "description": "A tributary of the Monocacy River flowing gently through Little Bennett Regional Park, known for beautiful forested trails and excellent local nature immersion.",
-    "image": "https://images.unsplash.com/photo-1437482078695-73f5f9227575?auto=format&fit=crop&w=800&q=80",
+    "image": "/Little Bennett Creek.jpg",
     "color": "from-green-500/20 to-emerald-800/40",
     "accent": "text-green-400",
     "stats": {
@@ -860,7 +860,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Ten Mile Creek",
     "description": "A vital reference stream serving as the main tributary to Little Seneca Lake, flowing near Clarksburg. It boasts some of the cleanest water quality in the region.",
-    "image": "https://images.unsplash.com/photo-1542224566-fbb91af75b05?auto=format&fit=crop&w=800&q=80",
+    "image": "/Ten Mile Creek.jpg",
     "color": "from-blue-500/20 to-sky-800/40",
     "accent": "text-blue-400",
     "stats": {
@@ -879,7 +879,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Paint Branch",
     "description": "A major tributary of the Anacostia River flowing southeastwards through Montgomery County. The Paint Branch Stream Valley Park preserves its lush riparian zone for hikers.",
-    "image": "https://images.unsplash.com/photo-1505307527633-8201fa5cce51?auto=format&fit=crop&w=800&q=80",
+    "image": "/Paint Branch.jpg",
     "color": "from-amber-600/20 to-stone-800/40",
     "accent": "text-amber-500",
     "stats": {
@@ -898,7 +898,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Cabin John Creek",
     "description": "A significant tributary of the Potomac River that runs through a deeply forested stream valley park, offering long uninterrupted walking and hiking routes through the suburban canopy.",
-    "image": "https://images.unsplash.com/photo-1506501139174-099022df5260?auto=format&fit=crop&w=800&q=80",
+    "image": "/Cabin John Creek.jpg",
     "color": "from-teal-500/20 to-green-800/40",
     "accent": "text-teal-400",
     "stats": {
@@ -917,7 +917,7 @@ const bodiesOfWater = [
     "type": "River",
     "name": "Rock Creek",
     "description": "Perhaps the most well-known tributary stream in the region, carving its way from northern Montgomery County all the way down into the heart of Washington D.C.",
-    "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80",
+    "image": "/Rock Creek.jpg",
     "color": "from-cyan-500/20 to-blue-800/40",
     "accent": "text-cyan-400",
     "stats": {
@@ -936,7 +936,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Broad Run",
     "description": "A scenic tributary running through Montgomery County’s Agricultural Reserve, finally meeting the Potomac River and passing under the historic C&O Canal aqueduct.",
-    "image": "https://images.unsplash.com/photo-1498064402657-3a137e2cdfc7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Broad Run.jpg",
     "color": "from-lime-500/20 to-emerald-800/40",
     "accent": "text-lime-400",
     "stats": {
