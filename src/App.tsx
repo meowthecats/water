@@ -502,7 +502,7 @@ const bodiesOfWater = [
     "type": "Stream Valley",
     "name": "Hawlings River Stream Valley",
     "description": "A beautiful stream valley winding through Montgomery County, featuring the rocky, cascading Hawlings River. It offers lush forested banks and peaceful spots to observe the rushing water.",
-    "image": "https://images.unsplash.com/photo-1517789397686-21a48c41ec35?auto=format&fit=crop&w=800&q=80",
+    "image": "/Hawlings River Stream Valley.jpg",
     "color": "from-cyan-500/20 to-teal-800/40",
     "accent": "text-cyan-400",
     "stats": {
@@ -520,7 +520,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Muddy Branch",
     "description": "A major tributary of the Potomac River that runs through Gaithersburg. Muddy Branch features diverse aquatic habitats and is flanked by an extensive stream valley park network.",
-    "image": "https://images.unsplash.com/photo-1437482078695-73f5f9227575?auto=format&fit=crop&w=800&q=80",
+    "image": "/Muddy Branch.jpg",
     "color": "from-amber-600/20 to-orange-900/40",
     "accent": "text-amber-500",
     "stats": {
@@ -539,7 +539,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Ingram Creek",
     "description": "A small, lively creek located in the Gaithersburg and Montgomery County area. It trickles through suburban neighborhoods and wooded patches, providing a vital micro-habitat for local amphibians.",
-    "image": "https://images.unsplash.com/photo-1542224566-fbb91af75b05?auto=format&fit=crop&w=800&q=80",
+    "image": "/Ingram Creek.jpg",
     "color": "from-emerald-400/20 to-lime-800/40",
     "accent": "text-emerald-300",
     "stats": {
@@ -557,7 +557,7 @@ const bodiesOfWater = [
     "type": "Aqueduct",
     "name": "Seneca Creek Aqueduct",
     "description": "A historic sandstone aqueduct where the Chesapeake and Ohio Canal crosses Seneca Creek. The structure allows one body of water to flow directly over another, showcasing 19th-century engineering.",
-    "image": "https://images.unsplash.com/photo-1505307527633-8201fa5cce51?auto=format&fit=crop&w=800&q=80",
+    "image": "/Seneca Creek Aqueduct.jpg",
     "color": "from-stone-500/20 to-blue-800/40",
     "accent": "text-stone-400",
     "stats": {
@@ -576,7 +576,7 @@ const bodiesOfWater = [
     "type": "Creek",
     "name": "Foxkit Creek",
     "description": "A meandering stream in Gaithersburg, Maryland. Known to locals winding through neighborhood greenways, Foxkit Creek features gentle riffles and is surrounded by dense suburban tree canopy.",
-    "image": "https://images.unsplash.com/photo-1506501139174-099022df5260?auto=format&fit=crop&w=800&q=80",
+    "image": "/Foxkit Creek.jpg",
     "color": "from-orange-500/20 to-red-800/40",
     "accent": "text-orange-400",
     "stats": {
@@ -594,7 +594,7 @@ const bodiesOfWater = [
     "type": "Aqueduct",
     "name": "Monocacy Aqueduct",
     "description": "The largest aqueduct on the Chesapeake and Ohio Canal, spanning the Monocacy River right near the Montgomery County border. This magnificent 19th-century stone structure channels water elegantly across the river below.",
-    "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80",
+    "image": "/Monocacy Aqueduct.jfif",
     "color": "from-slate-500/20 to-blue-800/40",
     "accent": "text-slate-400",
     "stats": {
@@ -613,7 +613,7 @@ const bodiesOfWater = [
     "type": "Historic Lake / Stream",
     "name": "Chevy Chase Lake",
     "description": "Historically a popular man-made lake and trolley destination in Chevy Chase, Maryland. While the original lake was drained, the pristine waters of Coquelin Run still flow through the valley today as a beautiful stream memory.",
-    "image": "https://images.unsplash.com/photo-1506260408121-e353d10b87c7?auto=format&fit=crop&w=800&q=80",
+    "image": "/Chevy Chase Lake.jpg",
     "color": "from-sky-400/20 to-cyan-800/40",
     "accent": "text-sky-400",
     "stats": {
@@ -632,7 +632,7 @@ const bodiesOfWater = [
     "type": "Quarry Lake",
     "name": "Stone Lake",
     "description": "A strikingly clear and deep lake formed within a historic rock quarry near the Montgomery County footprint. The sheer stone cliffs slope directly into vividly colored, refreshing waters.",
-    "image": "https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=800&q=80",
+    "image": "/Stone Lake.jpg",
     "color": "from-blue-600/20 to-indigo-900/40",
     "accent": "text-blue-500",
     "stats": {
