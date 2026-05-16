@@ -38,7 +38,7 @@ export const frederickBodiesOfWaterPart2 = [
     "type": "Lake",
     "name": "Hunting Creek Lake",
     "description": "The official name of the large recreational lake located at Cunningham Falls State Park.",
-    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+    "image": "/Hunting Creek Lake.jpg",
     "color": "from-amber-500/20 to-orange-800/40",
     "accent": "text-amber-400",
     "coordinates": [39.63, -77.4589] as [number, number],
