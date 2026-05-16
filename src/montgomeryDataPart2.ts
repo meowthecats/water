@@ -208,7 +208,7 @@ export const montgomeryBodiesOfWaterPart2 = [
     "type": "Creek",
     "name": "Booze Creek",
     "description": "A scenic creek in Bethesda that flows into the Cabin John watershed.",
-    "image": "https://images.unsplash.com/photo-1542224566-fbb91af75b05?auto=format&fit=crop&w=800&q=80",
+    "image": "/Booze Creek.jpg",
     "color": "from-indigo-500/20 to-sky-800/40",
     "accent": "text-indigo-400",
     "coordinates": [38.9856, -77.1691] as [number, number],
