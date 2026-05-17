@@ -55,7 +55,7 @@ export const frederickBodiesOfWaterPart2 = [
     "type": "Creek",
     "name": "Hollow Creek",
     "description": "A quiet, meandering creek winding through the picturesque Middletown Valley.",
-    "image": "https://images.unsplash.com/photo-1506501139174-099022df5260?auto=format&fit=crop&w=800&q=80",
+    "image": "/Hollow Creek.jpg",
     "color": "from-amber-500/20 to-orange-800/40",
     "accent": "text-amber-400",
     "coordinates": [39.4002, -77.5256] as [number, number],
