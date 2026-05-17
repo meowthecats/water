@@ -106,7 +106,7 @@ export const frederickBodiesOfWaterPart2 = [
     "type": "Springs",
     "name": "Fountain Rock Springs",
     "description": "A natural spring-fed body of water located near historic lime kilns in Walkersville.",
-    "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+    "image": "/Fountain Rock Springs.jpg",
     "color": "from-amber-500/20 to-orange-800/40",
     "accent": "text-amber-400",
     "coordinates": [39.4891, -77.3308] as [number, number],
