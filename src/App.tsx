@@ -11,6 +11,7 @@ import { frederickBodiesOfWater } from './frederickData';
 import { montgomeryBodiesOfWaterPart2 } from './montgomeryDataPart2';
 import { frederickBodiesOfWaterPart2 } from './frederickDataPart2';
 import { baltimoreBodiesOfWater } from './baltimoreData';
+import { baltimoreCountyBodiesOfWater } from './baltimoreCountyData';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -1562,7 +1563,7 @@ function About() {
         >
           <h1 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-6">About the Waterways Gallery</h1>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
-            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties, as well as Baltimore City.
+            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties, as well as Baltimore City and Baltimore County.
           </p>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
             Our goal is to highlight the natural beauty of the area's aquatic ecosystems, encouraging local residents and visitors to explore, appreciate, and conserve these vital natural resources.
@@ -1594,7 +1595,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Gallery title="Montgomery County Waterways" items={[...bodiesOfWater, ...montgomeryBodiesOfWaterPart2]} />} />
         <Route path="/frederick" element={<Gallery title="Frederick County Waterways" items={[...frederickBodiesOfWater, ...frederickBodiesOfWaterPart2]} />} />
-        <Route path="/baltimore" element={<Gallery title="Baltimore City Waterways" items={baltimoreBodiesOfWater} />} />
+        <Route path="/baltimore" element={<Gallery title="Baltimore Waterways" items={[...baltimoreBodiesOfWater, ...baltimoreCountyBodiesOfWater]} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
