@@ -1395,19 +1395,21 @@ function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater 
                     </motion.div>
                   )}
 
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-auto grid grid-cols-2 gap-6 mb-8"
-                  >
-                    {Object.entries(selectedItem.stats).map(([key, value]) => (
-                      <div key={key} className="border-t border-slate-800 pt-4">
-                        <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">{key}</div>
-                        <div className="text-xl font-medium text-slate-200">{value}</div>
-                      </div>
-                    ))}
-                  </motion.div>
+                  {selectedItem.stats && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="mt-auto grid grid-cols-2 gap-6 mb-8"
+                    >
+                      {Object.entries(selectedItem.stats).map(([key, value]) => (
+                        <div key={key} className="border-t border-slate-800 pt-4">
+                          <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">{key}</div>
+                          <div className="text-xl font-medium text-slate-200">{value}</div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  )}
 
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
