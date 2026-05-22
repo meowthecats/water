@@ -82,7 +82,7 @@ export const dorchesterBodiesOfWater = [
     name: "Honga River",
     description:
       "A long, wide tidal strait separating the mainland of Dorchester County from the Hooper Islands chain.",
-    image: "/Honga River.jpg",
+    image: "/Honga River.jfif",
     color: "from-indigo-400/20 to-blue-800/40",
     accent: "text-indigo-400",
     coordinates: [38.283, -76.155] as [number, number],
@@ -117,7 +117,7 @@ export const dorchesterBodiesOfWater = [
     name: "Chicamacomico River",
     description:
       "Flowing parallel to the Transquaking, this predominantly tidal river offers some of Maryland's most remote and pristine kayaking experiences.",
-    image: "/Chicamacomico River.jpg",
+    image: "/Chicamacomico River.jfif",
     color: "from-emerald-400/20 to-green-800/40",
     accent: "text-emerald-400",
     coordinates: [38.371, -76.012] as [number, number],
