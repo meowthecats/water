@@ -143,7 +143,7 @@ export const dorchesterBodiesOfWater = [
     name: "Cambridge Creek",
     description:
       "A bustling, historic tidal creek cutting directly into the heart of downtown Cambridge. A natural harbor for wooden skipjacks and modern boaters alike.",
-    image: "/Cambridge Creek.jpg",
+    image: "/Cambridge Creek.jfif",
     color: "from-blue-400/20 to-indigo-800/40",
     accent: "text-blue-400",
     coordinates: [38.572, -76.074] as [number, number],
@@ -158,7 +158,7 @@ export const dorchesterBodiesOfWater = [
     name: "Church Creek",
     description:
       "A tidal creek extending from the Little Choptank River, sharing its name with the nearby historic town.",
-    image: "/Church Creek.jpg",
+    image: "/Church Creek.jfif",
     color: "from-teal-400/20 to-blue-800/40",
     accent: "text-teal-400",
     coordinates: [38.521, -76.158] as [number, number],
