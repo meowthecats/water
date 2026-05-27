@@ -1103,7 +1103,7 @@ function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater 
           }
         })
         .catch(err => {
-          console.error("Failed to fetch weather data", err);
+          // Fail gracefully if weather API is blocked by adblockers or network
         })
         .finally(() => {
           setWeatherLoading(false);
