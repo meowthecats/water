@@ -43,6 +43,22 @@ function getDistanceFromLatLonInMiles(lat1: number, lon1: number, lat2: number, 
   return d;
 }
 
+export interface Waterway {
+  id: string;
+  type: string;
+  name: string;
+  description: string;
+  image: string;
+  color: string;
+  accent: string;
+  stats?: Record<string, any>;
+  coordinates: number[];
+  details?: {
+    history?: string;
+    ecology?: string;
+  };
+}
+
 const bodiesOfWater = [
   {
     "id": "wildcat_branch",
@@ -1034,7 +1050,7 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
   );
 }
 
-function Gallery({ title, items }: { title: string, items: typeof bodiesOfWater }) {
+function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');

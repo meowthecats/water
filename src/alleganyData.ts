@@ -380,7 +380,7 @@ export const alleganyBodiesOfWater = [
     type: "Canal",
     name: "C&O Canal (Allegany)",
     description: "The historic Chesapeake and Ohio Canal terminus in Cumberland, providing miles of watered canal and towpath.",
-    image: "/C&O Canal Allegany.jpg",
+    image: "/C&O Canal (Allegany).jpg",
     color: "from-stone-400/20 to-amber-800/40",
     accent: "text-stone-400",
     coordinates: [39.649, -78.761],
