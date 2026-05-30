@@ -14,6 +14,8 @@ import { baltimoreBodiesOfWater } from './baltimoreData';
 import { baltimoreCountyBodiesOfWater } from './baltimoreCountyData';
 import { dorchesterBodiesOfWater } from './dorchesterData';
 import { alleganyBodiesOfWater } from './alleganyData';
+import { anneArundelData } from './anneArundelData';
+import { calvertData } from './calvertData';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -1570,6 +1572,28 @@ function Navigation() {
           Allegany
         </Link>
         <Link
+          to="/anne-arundel"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/anne-arundel' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <MapIcon className="w-4 h-4" />
+          Anne Arundel
+        </Link>
+        <Link
+          to="/calvert"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/calvert' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <MapIcon className="w-4 h-4" />
+          Calvert
+        </Link>
+        <Link
           to="/about"
           className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
@@ -1605,7 +1629,7 @@ function About() {
         >
           <h1 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-6">About the Waterways Gallery</h1>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
-            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties, Baltimore City and County, Dorchester County on the Eastern Shore, and Allegany County in Western Maryland.
+            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties, Baltimore City and County, Anne Arundel County, Calvert County, Dorchester County on the Eastern Shore, and Allegany County in Western Maryland.
           </p>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
             Our goal is to highlight the natural beauty of the area's aquatic ecosystems, encouraging local residents and visitors to explore, appreciate, and conserve these vital natural resources.
@@ -1640,6 +1664,8 @@ export default function App() {
         <Route path="/baltimore" element={<Gallery title="Baltimore Waterways" items={[...baltimoreBodiesOfWater, ...baltimoreCountyBodiesOfWater]} />} />
         <Route path="/dorchester" element={<Gallery title="Dorchester County Waterways" items={dorchesterBodiesOfWater} />} />
         <Route path="/allegany" element={<Gallery title="Allegany County Waterways" items={alleganyBodiesOfWater} />} />
+        <Route path="/anne-arundel" element={<Gallery title="Anne Arundel County Waterways" items={anneArundelData} />} />
+        <Route path="/calvert" element={<Gallery title="Calvert County Waterways" items={calvertData} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
