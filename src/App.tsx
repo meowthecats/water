@@ -19,6 +19,9 @@ import { calvertData } from './calvertData';
 import { carolineData } from './carolineData';
 import { carrollData } from './carrollData';
 import { cecilData } from './cecilData';
+import { charlesData } from './charlesData';
+import { garrettData } from './garrettData';
+import { harfordData } from './harfordData';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -1630,6 +1633,39 @@ function Navigation() {
           Cecil
         </Link>
         <Link
+          to="/charles"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/charles' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <MapIcon className="w-4 h-4" />
+          Charles
+        </Link>
+        <Link
+          to="/garrett"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/garrett' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <MapIcon className="w-4 h-4" />
+          Garrett
+        </Link>
+        <Link
+          to="/harford"
+          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/harford' 
+              ? 'bg-blue-500/20 text-blue-400' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          }`}
+        >
+          <MapIcon className="w-4 h-4" />
+          Harford
+        </Link>
+        <Link
           to="/about"
           className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
@@ -1665,7 +1701,7 @@ function About() {
         >
           <h1 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-6">About the Waterways Gallery</h1>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
-            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties, Baltimore City and County, Anne Arundel County, Calvert County, Caroline County, Carroll County, Cecil County, Dorchester County on the Eastern Shore, and Allegany County in Western Maryland.
+            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties, Baltimore City and County, Anne Arundel County, Calvert County, Caroline County, Carroll County, Cecil County, Charles County, Dorchester County on the Eastern Shore, Garrett County, Harford County, and Allegany County in Western Maryland.
           </p>
           <p className="text-slate-300 leading-relaxed mb-4 text-lg">
             Our goal is to highlight the natural beauty of the area's aquatic ecosystems, encouraging local residents and visitors to explore, appreciate, and conserve these vital natural resources.
@@ -1705,6 +1741,9 @@ export default function App() {
         <Route path="/caroline" element={<Gallery title="Caroline County Waterways" items={carolineData} />} />
         <Route path="/carroll" element={<Gallery title="Carroll County Waterways" items={carrollData} />} />
         <Route path="/cecil" element={<Gallery title="Cecil County Waterways" items={cecilData} />} />
+        <Route path="/charles" element={<Gallery title="Charles County Waterways" items={charlesData} />} />
+        <Route path="/garrett" element={<Gallery title="Garrett County Waterways" items={garrettData} />} />
+        <Route path="/harford" element={<Gallery title="Harford County Waterways" items={harfordData} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
