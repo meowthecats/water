@@ -141,7 +141,7 @@ const bodiesOfWater = [
     "type": "Stream",
     "name": "Great Seneca Stream",
     "description": "A major stream in Montgomery County, Maryland, flowing through Germantown. It forms the backbone of Seneca Creek State Park and eventually empties into the Potomac River.",
-    "image": "/Great Seneca Stream-1.jpg",
+    "image": "/Great Seneca Stream.jpg",
     "color": "from-green-500/20 to-emerald-900/20",
     "accent": "text-green-400",
     "stats": {
@@ -613,7 +613,7 @@ const bodiesOfWater = [
     "type": "Aqueduct",
     "name": "Monocacy Aqueduct",
     "description": "The largest aqueduct on the Chesapeake and Ohio Canal, spanning the Monocacy River right near the Montgomery County border. This magnificent 19th-century stone structure channels water elegantly across the river below.",
-    "image": "/Monocacy Aqueduct.jfif",
+    "image": "/Monocacy Aqueduct.jpg",
     "color": "from-slate-500/20 to-blue-800/40",
     "accent": "text-slate-400",
     "stats": {

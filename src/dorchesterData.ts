@@ -82,7 +82,7 @@ export const dorchesterBodiesOfWater = [
     name: "Honga River",
     description:
       "A long, wide tidal strait separating the mainland of Dorchester County from the Hooper Islands chain.",
-    image: "/Honga River.jfif",
+    image: "/Honga River.jpg",
     color: "from-indigo-400/20 to-blue-800/40",
     accent: "text-indigo-400",
     coordinates: [38.283, -76.155] as [number, number],
@@ -117,7 +117,7 @@ export const dorchesterBodiesOfWater = [
     name: "Chicamacomico River",
     description:
       "Flowing parallel to the Transquaking, this predominantly tidal river offers some of Maryland's most remote and pristine kayaking experiences.",
-    image: "/Chicamacomico River.jfif",
+    image: "/Chicamacomico River.jpg",
     color: "from-emerald-400/20 to-green-800/40",
     accent: "text-emerald-400",
     coordinates: [38.371, -76.012] as [number, number],
@@ -143,7 +143,7 @@ export const dorchesterBodiesOfWater = [
     name: "Cambridge Creek",
     description:
       "A bustling, historic tidal creek cutting directly into the heart of downtown Cambridge. A natural harbor for wooden skipjacks and modern boaters alike.",
-    image: "/Cambridge Creek.jfif",
+    image: "/Cambridge Creek.jpg",
     color: "from-blue-400/20 to-indigo-800/40",
     accent: "text-blue-400",
     coordinates: [38.572, -76.074] as [number, number],
@@ -158,7 +158,7 @@ export const dorchesterBodiesOfWater = [
     name: "Church Creek",
     description:
       "A tidal creek extending from the Little Choptank River, sharing its name with the nearby historic town.",
-    image: "/Church Creek.jfif",
+    image: "/Church Creek.jpg",
     color: "from-teal-400/20 to-blue-800/40",
     accent: "text-teal-400",
     coordinates: [38.521, -76.158] as [number, number],
