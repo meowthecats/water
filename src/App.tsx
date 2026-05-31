@@ -981,7 +981,9 @@ const bodiesOfWater = [
 
 function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color, ...props }: any) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [inView, setInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsLoaded(false);
@@ -989,6 +991,26 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
       setIsLoaded(true);
     }
   }, [src]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px', threshold: 0.01 }
+    );
+    
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   if (!src) {
     return (
@@ -1010,7 +1032,7 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
   }
 
   return (
-    <div className={`relative overflow-hidden bg-slate-900 ${containerClassName || ''}`}>
+    <div ref={containerRef} className={`relative overflow-hidden bg-slate-900 ${containerClassName || ''}`}>
       <AnimatePresence>
         {!isLoaded && (
           <motion.div
@@ -1041,19 +1063,21 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
         )}
       </AnimatePresence>
 
-      <motion.img
-        {...props}
-        ref={imgRef}
-        {...(layoutId ? { layoutId } : {})}
-        src={src}
-        alt={alt}
-        loading="lazy"
-        decoding="async"
-        onLoad={() => setIsLoaded(true)}
-        onError={() => setIsLoaded(true)}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName || ''}`}
-        referrerPolicy="no-referrer"
-      />
+      {inView && (
+        <motion.img
+          {...props}
+          ref={imgRef}
+          {...(layoutId ? { layoutId } : {})}
+          src={src}
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setIsLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName || ''}`}
+          referrerPolicy="no-referrer"
+        />
+      )}
     </div>
   );
 }
