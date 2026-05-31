@@ -623,7 +623,7 @@ const bodiesOfWater = [
     "description": "The largest aqueduct on the Chesapeake and Ohio Canal, spanning the Monocacy River right near the Montgomery County border. This magnificent 19th-century stone structure channels water elegantly across the river below.",
     "image": "/Monocacy Aqueduct.jpg",
     "color": "from-slate-500/20 to-blue-800/40",
-    "accent": "text-slate-400",
+    "accent": "text-slate-300",
     "stats": {
       "location": "Dickerson, MD",
       "length": "516 feet",
@@ -1182,7 +1182,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
           alt="Ambient Background"
           containerClassName="absolute inset-0 w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24 min-h-screen flex flex-col">
@@ -1193,10 +1193,10 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
           className="mb-12 md:mb-20 flex flex-col items-center justify-center gap-8 text-center"
         >
           <div>
-            <h1 className="text-4xl md:text-6xl font-serif font-medium tracking-tight mb-4">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold tracking-tight text-white drop-shadow-2xl mb-4">
               {title || "Bodies of Water"}
             </h1>
-            <p className="text-slate-400 max-w-xl text-lg font-light leading-relaxed mx-auto">
+            <p className="text-slate-100 max-w-xl text-lg font-medium leading-relaxed drop-shadow-xl mx-auto">
               Explore the diverse aquatic ecosystems that shape our planet, from the deepest oceans to serene glacial lakes.
             </p>
           </div>
@@ -1250,7 +1250,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                 <motion.div layoutId={`type-${item.id}`} className={`text-xs font-bold tracking-widest uppercase mb-2 ${item.accent}`}>
                   {item.type}
                 </motion.div>
-                <motion.h2 layoutId={`title-${item.id}`} className="text-3xl font-serif font-medium text-slate-50 mb-2">
+                <motion.h2 layoutId={`title-${item.id}`} className="text-3xl font-serif font-bold text-white drop-shadow-lg mb-2">
                   {item.name}
                 </motion.h2>
                 <div className="h-0 overflow-hidden transition-all duration-500 group-hover:h-6 opacity-0 group-hover:opacity-100 flex items-center text-sm text-slate-300">
@@ -1282,7 +1282,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                   className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     currentPage === i + 1 
                       ? 'bg-white text-slate-900 shadow-md border border-slate-500/50' 
-                      : 'bg-slate-900/40 border border-slate-700/50 text-slate-400 hover:bg-slate-900/40'
+                      : 'bg-slate-900/40 border border-slate-700/50 text-slate-300 hover:bg-slate-900/40'
                   }`}
                 >
                   {i + 1}
@@ -1380,7 +1380,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           onClick={() => window.open('https://www.x.com/theheftyheifer', '_blank')}
                           aria-label="Visit Twitter profile"
                           title="Visit Twitter profile"
-                          className="p-2 rounded-full bg-slate-900/40 hover:bg-[#1DA1F2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
+                          className="p-2 rounded-full bg-slate-900/40 hover:bg-[#1DA1F2] text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
                         >
                           <Twitter className="w-5 h-5" />
                         </button>
@@ -1388,7 +1388,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           onClick={() => window.open('https://www.facebook.com/heftytheheifer', '_blank')}
                           aria-label="Visit Facebook profile"
                           title="Visit Facebook profile"
-                          className="p-2 rounded-full bg-slate-900/40 hover:bg-[#4267B2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
+                          className="p-2 rounded-full bg-slate-900/40 hover:bg-[#4267B2] text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
                         >
                           <Facebook className="w-5 h-5" />
                         </button>
@@ -1396,7 +1396,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           onClick={() => navigator.clipboard.writeText(window.location.href)}
                           aria-label="Copy link"
                           title="Copy link"
-                          className="p-2 rounded-full bg-slate-900/40 hover:bg-slate-700 text-slate-400 hover:text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
+                          className="p-2 rounded-full bg-slate-900/40 hover:bg-slate-700 text-slate-300 hover:text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
                         >
                           <LinkIcon className="w-5 h-5" />
                         </button>
@@ -1406,7 +1406,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                         onClick={() => setSelectedId(null)}
                         aria-label="Close details"
                         title="Close"
-                        className="p-2 rounded-full bg-slate-900/40 hover:bg-rose-500/20 text-slate-400 hover:text-rose-600 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                        className="p-2 rounded-full bg-slate-900/40 hover:bg-rose-500/20 text-slate-300 hover:text-rose-600 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-rose-500"
                       >
                         <X className="w-6 h-6" />
                       </button>
@@ -1432,13 +1432,13 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                       {selectedItem.details.history && (
                         <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-700/50">
                           <h4 className="text-sm font-semibold text-slate-200 mb-1">Historical Fact</h4>
-                          <p className="text-sm text-slate-400">{selectedItem.details.history}</p>
+                          <p className="text-sm text-slate-300">{selectedItem.details.history}</p>
                         </div>
                       )}
                       {selectedItem.details.ecology && (
                         <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-700/50">
                           <h4 className="text-sm font-semibold text-slate-200 mb-1">Ecological Significance</h4>
-                          <p className="text-sm text-slate-400">{selectedItem.details.ecology}</p>
+                          <p className="text-sm text-slate-300">{selectedItem.details.ecology}</p>
                         </div>
                       )}
                     </motion.div>
@@ -1468,20 +1468,20 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                   >
                     <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Current Weather</div>
                     {weatherLoading ? (
-                      <div className="text-slate-400">Loading...</div>
+                      <div className="text-slate-300">Loading...</div>
                     ) : weatherData ? (
                       <div className="flex gap-8">
                         <div>
                           <div className="text-3xl font-medium text-slate-200">{weatherData.temperature}°F</div>
-                          <div className="text-sm text-slate-400">Temperature</div>
+                          <div className="text-sm text-slate-300">Temperature</div>
                         </div>
                         <div>
                           <div className="text-3xl font-medium text-slate-200">{weatherData.windspeed} mph</div>
-                          <div className="text-sm text-slate-400">Wind</div>
+                          <div className="text-sm text-slate-300">Wind</div>
                         </div>
                       </div>
                     ) : (
-                      <div className="text-slate-400">Weather data unavailable</div>
+                      <div className="text-slate-300">Weather data unavailable</div>
                     )}
                   </motion.div>
 
@@ -1503,7 +1503,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                             <LazyImage src={item.image} alt={item.name} color={item.color} containerClassName="w-16 h-16 rounded-lg shrink-0" imgClassName="rounded-lg" />
                             <div className="flex-1">
                               <div className="text-sm font-medium text-slate-200 group-hover:text-sky-700 transition-colors">{item.name}</div>
-                              <div className="text-xs text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                              <div className="text-xs text-slate-300 uppercase tracking-wider flex items-center justify-between">
                                 <span>{item.type}</span>
                                 <span>{item.distance?.toFixed(1)} mi</span>
                               </div>
@@ -1551,7 +1551,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <Home className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1562,7 +1562,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/frederick' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1573,7 +1573,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/baltimore' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1584,7 +1584,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/dorchester' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1595,7 +1595,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/allegany' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1606,7 +1606,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/anne-arundel' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1617,7 +1617,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/calvert' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1628,7 +1628,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/caroline' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1639,7 +1639,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/carroll' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1650,7 +1650,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/cecil' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1661,7 +1661,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/charles' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1672,7 +1672,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/garrett' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1683,7 +1683,7 @@ function Navigation() {
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/harford' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1694,7 +1694,7 @@ function Navigation() {
           className={`shrink-0 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
               ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <Info className="w-4 h-4" />
@@ -1720,7 +1720,7 @@ function About() {
           alt="Ambient Background"
           containerClassName="absolute inset-0 w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
       </div>
       
       <div className="relative z-10 max-w-5xl mx-auto space-y-12">
@@ -1729,8 +1729,8 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-serif font-medium tracking-tight text-slate-50 mb-6">About the Waterways Gallery</h1>
-          <p className="text-slate-400 leading-relaxed text-lg lg:text-xl font-light">
+          <h1 className="text-4xl md:text-5xl font-serif font-medium tracking-tight text-white drop-shadow-xl mb-6">About the Waterways Gallery</h1>
+          <p className="text-slate-300 leading-relaxed text-lg lg:text-xl font-light">
             Dedicated to exploring and cataloging the majestic streams, rivers, reservoirs, and coastal bays that define Maryland's diverse ecological landscape.
           </p>
         </motion.div>
@@ -1740,13 +1740,13 @@ function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-slate-900/40 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-md flex flex-col"
+            className="bg-slate-950/70 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-lg flex flex-col shadow-2xl"
           >
             <div className="w-12 h-12 rounded-2xl bg-sky-100 flex items-center justify-center mb-6">
               <Compass className="w-6 h-6 text-sky-700" />
             </div>
             <h2 className="text-2xl font-medium tracking-tight text-slate-50 mb-4">Our Goal</h2>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-slate-300 leading-relaxed">
               We seek to highlight the natural beauty of the area's aquatic ecosystems. By sharing knowledge and visual catalogs of these places, we hope to encourage local residents and visitors to explore, appreciate, and actively conserve these vital natural resources for future generations.
             </p>
           </motion.div>
@@ -1755,7 +1755,7 @@ function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-slate-900/40 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-md flex flex-col"
+            className="bg-slate-950/70 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-lg flex flex-col shadow-2xl"
           >
             <div className="w-12 h-12 rounded-2xl bg-teal-100 flex items-center justify-center mb-6">
               <List className="w-6 h-6 text-teal-700" />
@@ -1764,19 +1764,19 @@ function About() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
-                <span className="text-slate-400">Interactive Gallery view with robust sorting and filtering.</span>
+                <span className="text-slate-300">Interactive Gallery view with robust sorting and filtering.</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
-                <span className="text-slate-400">Map view to visually navigate to different water bodies.</span>
+                <span className="text-slate-300">Map view to visually navigate to different water bodies.</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
-                <span className="text-slate-400">Real-time weather data contextualizing the locations.</span>
+                <span className="text-slate-300">Real-time weather data contextualizing the locations.</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
-                <span className="text-slate-400">Detailed contextual information on ecology and history.</span>
+                <span className="text-slate-300">Detailed contextual information on ecology and history.</span>
               </li>
             </ul>
           </motion.div>
@@ -1794,7 +1794,7 @@ function About() {
             </div>
             <h2 className="text-2xl font-medium tracking-tight text-slate-50">Covered Regions</h2>
           </div>
-          <p className="text-slate-400 leading-relaxed mb-6">
+          <p className="text-slate-300 leading-relaxed mb-6">
             Our catalog currently spans several diverse ecosystems across Maryland, featuring the streams, rivers, lakes, and reservoirs of these counties:
           </p>
           <div className="flex flex-wrap gap-2">
