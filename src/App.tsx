@@ -1016,7 +1016,7 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
     return (
       <div className={`relative overflow-hidden bg-slate-900/40 ${containerClassName || ''}`}>
         <div className={`absolute inset-0 bg-gradient-to-br ${color || 'from-sky-500/20 to-blue-800/40'} flex items-center justify-center`}>
-            <div className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-stone-50/90 to-stone-50"></div>
+            <div className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-black"></div>
             <Droplets className="w-12 h-12 text-sky-700/50 relative z-10" />
             <motion.div
               animate={{ 
@@ -1540,7 +1540,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
       >
         <Droplets className="w-6 h-6 md:w-8 md:h-8 group-hover:text-teal-600 transition-colors" />
         
-        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-stone-200 text-slate-200 text-sm rounded-lg opacity-0 min-w-max group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-700/50 font-medium">
+        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-slate-800 text-slate-200 text-sm rounded-lg opacity-0 min-w-max group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-700/50 font-medium">
           Surprise Me!
         </span>
       </motion.button>
