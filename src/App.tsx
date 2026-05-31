@@ -1520,154 +1520,154 @@ function Navigation() {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-4 flex justify-center pointer-events-none">
-      <div className="bg-slate-900/80 backdrop-blur-md px-2 py-2 rounded-full border border-slate-700/50 flex gap-2 pointer-events-auto shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-40 px-4 py-4 flex justify-center pointer-events-none">
+      <div className="bg-slate-900/90 backdrop-blur-md px-4 py-3 rounded-2xl md:rounded-[2rem] border border-slate-700/50 flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-2 pointer-events-auto shadow-xl max-w-full md:max-w-4xl lg:max-w-5xl overflow-x-auto md:overflow-x-visible scrollbar-none">
         <Link
           to="/"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <Home className="w-4 h-4" />
+          <Home className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Montgomery
         </Link>
         <Link
           to="/frederick"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/frederick' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Frederick
         </Link>
         <Link
           to="/baltimore"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/baltimore' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Baltimore
         </Link>
         <Link
           to="/dorchester"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/dorchester' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Dorchester
         </Link>
         <Link
           to="/allegany"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/allegany' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Allegany
         </Link>
         <Link
           to="/anne-arundel"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/anne-arundel' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Anne Arundel
         </Link>
         <Link
           to="/calvert"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/calvert' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Calvert
         </Link>
         <Link
           to="/caroline"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/caroline' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Caroline
         </Link>
         <Link
           to="/carroll"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/carroll' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Carroll
         </Link>
         <Link
           to="/cecil"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/cecil' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Cecil
         </Link>
         <Link
           to="/charles"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/charles' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Charles
         </Link>
         <Link
           to="/garrett"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/garrett' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Garrett
         </Link>
         <Link
           to="/harford"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/harford' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
           }`}
         >
-          <MapIcon className="w-4 h-4" />
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Harford
         </Link>
         <Link
           to="/about"
-          className={`px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
               ? 'bg-blue-500/20 text-blue-400' 
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
