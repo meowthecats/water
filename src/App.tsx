@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link as LinkIcon, Info, Home, Leaf, ShieldAlert, List, Compass } from 'lucide-react';
+import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Mail, Link as LinkIcon, Info, Home, Leaf, ShieldAlert, List, Compass } from 'lucide-react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { frederickBodiesOfWater } from './frederickData';
 import { montgomeryBodiesOfWaterPart2 } from './montgomeryDataPart2';
@@ -1391,6 +1391,14 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           className="p-2 rounded-full bg-slate-900/40 hover:bg-[#4267B2] text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
                         >
                           <Facebook className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={() => window.location.href = 'mailto:HeftytheHeifer@gmail.com'}
+                          aria-label="Send email"
+                          title="Send email"
+                          className="p-2 rounded-full bg-slate-900/40 hover:bg-emerald-500 text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                        >
+                          <Mail className="w-5 h-5" />
                         </button>
                         <button
                           onClick={() => navigator.clipboard.writeText(window.location.href)}
