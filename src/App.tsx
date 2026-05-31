@@ -75,7 +75,7 @@ const bodiesOfWater = [
     "description": "A scenic stream flowing through Germantown, Maryland. It is a tributary of Great Seneca Creek and runs through the Wildcat Branch Stream Valley Park, providing a natural habitat for local wildlife.",
     "image": "/wildcat-branch-stream-valley.jpg",
     "color": "from-emerald-500/20 to-green-700/20",
-    "accent": "text-emerald-400",
+    "accent": "text-emerald-700",
     "stats": {
       "location": "Germantown, MD",
       "basin": "Great Seneca",
@@ -94,7 +94,7 @@ const bodiesOfWater = [
     "description": "A 27.4-mile-long free-flowing tributary of the Potomac River located in Montgomery County, Maryland. It flows through Seneca Creek State Park in Germantown, offering scenic views, historic mill ruins, and extensive hiking trails.",
     "image": "/Seneca Creek.jpg",
     "color": "from-emerald-500/20 to-teal-700/20",
-    "accent": "text-emerald-400",
+    "accent": "text-emerald-700",
     "stats": {
       "length": "27.4 miles",
       "basin": "129 sq mi",
@@ -113,7 +113,7 @@ const bodiesOfWater = [
     "description": "A 505-acre reservoir located in Black Hill Regional Park in Germantown, Maryland. It was constructed to provide an emergency water supply for the Washington, D.C. metropolitan area and offers excellent recreational boating and fishing.",
     "image": "/Little Seneca Lake.jpg",
     "color": "from-blue-400/20 to-indigo-600/20",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "area": "505 acres",
       "depth": "68 ft",
@@ -132,7 +132,7 @@ const bodiesOfWater = [
     "description": "A scenic man-made lake located in Germantown, Maryland. Surrounded by a paved walking trail, it is a popular local spot for jogging, fishing, and observing waterfowl and wildlife.",
     "image": "/Gunner Lake.jpg",
     "color": "from-teal-400/20 to-emerald-600/20",
-    "accent": "text-teal-400",
+    "accent": "text-teal-700",
     "stats": {
       "area": "~14 acres",
       "trail": "1.5 miles",
@@ -189,7 +189,7 @@ const bodiesOfWater = [
     "description": "A picturesque stream in Germantown, Maryland, that acts as a tributary to Great Seneca Creek. It flows prominently into Clopper Lake within Seneca Creek State Park, offering a serene environment for local wildlife and park visitors.",
     "image": "/Long Draught Creek.jpg",
     "color": "from-emerald-600/20 to-teal-900/40",
-    "accent": "text-emerald-400",
+    "accent": "text-emerald-700",
     "stats": {
       "location": "Germantown, MD",
       "basin": "Great Seneca",
@@ -227,7 +227,7 @@ const bodiesOfWater = [
     "description": "A beautiful 90-acre man-made lake situated in Seneca Creek State Park in Gaithersburg, Maryland. It is surrounded by forests and trails, offering excellent opportunities for boating, fishing, and picnicking.",
     "image": "/Clopper Lake.jpg",
     "color": "from-blue-500/20 to-cyan-900/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "area": "90 acres",
       "location": "Gaithersburg, MD",
@@ -246,7 +246,7 @@ const bodiesOfWater = [
     "description": "A picturesque man-made lake located in the Churchill Village community of Germantown, Maryland. It features a paved walking path, scenic views, and is a peaceful spot for residents and wildlife.",
     "image": "/Lake Churchill.jpg",
     "color": "from-indigo-500/20 to-blue-900/40",
-    "accent": "text-indigo-400",
+    "accent": "text-indigo-700",
     "stats": {
       "location": "Germantown, MD",
       "trail": "1.2 miles",
@@ -265,7 +265,7 @@ const bodiesOfWater = [
     "description": "A major river flowing into the Chesapeake Bay, forming the border between Maryland and Virginia. It is known for its historic significance, scenic beauty like Great Falls, and diverse recreational opportunities.",
     "image": "/Potomac River.jpg",
     "color": "from-blue-600/20 to-teal-900/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "length": "405 miles",
       "basin": "14,670 sq mi",
@@ -284,7 +284,7 @@ const bodiesOfWater = [
     "description": "A beautiful community lake situated in the Kentlands neighborhood of Gaithersburg, Maryland. It offers a serene environment with walking paths, scenic views, and is a popular spot for local residents to relax and enjoy nature.",
     "image": "/Inspiration Lake.jpg",
     "color": "from-emerald-500/20 to-teal-900/40",
-    "accent": "text-emerald-400",
+    "accent": "text-emerald-700",
     "stats": {
       "location": "Gaithersburg, MD",
       "type": "Community Lake",
@@ -303,7 +303,7 @@ const bodiesOfWater = [
     "description": "A vibrant man-made lake located at the heart of the Rio Washingtonian Center in Gaithersburg, Maryland. It features a scenic boardwalk, paddleboats, and is surrounded by a bustling shopping and dining district.",
     "image": "/Rio Washingtonian Center Lake.jpg",
     "color": "from-blue-500/20 to-cyan-800/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "location": "Gaithersburg, MD",
       "features": "Boardwalk, Paddleboats",
@@ -322,7 +322,7 @@ const bodiesOfWater = [
     "description": "A 75-acre man-made reservoir situated in Rock Creek Regional Park near Gaithersburg/Derwood, Maryland. It is a popular destination offering a scenic natural surface trail, boating rentals, and sweeping sunset views.",
     "image": "/Lake Needwood.jpg",
     "color": "from-teal-500/20 to-emerald-800/40",
-    "accent": "text-teal-400",
+    "accent": "text-teal-700",
     "stats": {
       "area": "75 acres",
       "location": "Derwood, MD",
@@ -360,7 +360,7 @@ const bodiesOfWater = [
     "description": "A scenic man-made lake serving as a central feature of Montgomery Village, Maryland. It offers boating, fishing, and a paved walking trail right in the heart of the community.",
     "image": "/Lake Whetstone.jpg",
     "color": "from-blue-500/20 to-indigo-800/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "location": "Montgomery Village, MD",
       "type": "Community Lake",
@@ -379,7 +379,7 @@ const bodiesOfWater = [
     "description": "A serene 54-acre reservoir nestled quietly within the sprawling Rock Creek Regional Park near Derwood, Maryland. It is isolated from significant paved developments, providing a pristine habitat for hikers and naturalists.",
     "image": "/Lake Bernard Frank.jpg",
     "color": "from-emerald-500/20 to-green-900/40",
-    "accent": "text-emerald-400",
+    "accent": "text-emerald-700",
     "stats": {
       "area": "54 acres",
       "location": "Derwood, MD",
@@ -398,7 +398,7 @@ const bodiesOfWater = [
     "description": "A quaint, quiet community lake tucked away within Gaithersburg, Maryland. Though modest in size, it serves as a peaceful water feature for the surrounding local neighborhoods.",
     "image": "/Lake Nirvana.jpg",
     "color": "from-teal-400/20 to-cyan-800/40",
-    "accent": "text-teal-400",
+    "accent": "text-teal-700",
     "stats": {
       "location": "Gaithersburg, MD",
       "type": "Pond",
@@ -455,7 +455,7 @@ const bodiesOfWater = [
     "description": "A beautiful 800-acre reservoir created by the Brighton Dam on the Patuxent River. It offers recreational boating, fishing, and scenic picnic areas just outside Gaithersburg, Maryland.",
     "image": "/Triadelphia Lake Recreation.jpg",
     "color": "from-blue-500/20 to-sky-800/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "area": "800 acres",
       "location": "Montgomery/Howard County",
@@ -474,7 +474,7 @@ const bodiesOfWater = [
     "description": "A sprawling linear park tracing the main branch of Great Seneca Creek. The park preserves vital stream habitats and features miles of natural surface trails following the flowing water.",
     "image": "/Great Seneca Stream Valley Park.jpg",
     "color": "from-teal-500/20 to-green-800/40",
-    "accent": "text-teal-400",
+    "accent": "text-teal-700",
     "stats": {
       "location": "Montgomery County, MD",
       "features": "Stream, Trails",
@@ -493,7 +493,7 @@ const bodiesOfWater = [
     "description": "A dedicated conservation park built to protect the Cabin Branch tributary before it joins the larger Seneca Creek watershed. Thickly forested and secluded, it safeguards a sparkling stream.",
     "image": "/Cabin Branch Stream Valley Park.jpg",
     "color": "from-emerald-500/20 to-lime-800/40",
-    "accent": "text-emerald-400",
+    "accent": "text-emerald-700",
     "stats": {
       "location": "Clarksburg, MD",
       "tributary": "Seneca Creek",
@@ -512,7 +512,7 @@ const bodiesOfWater = [
     "description": "The longest river entirely within Maryland, passing closely to Montgomery County's borders. It serves as a vital drinking water source via its reservoirs and flows through stunning wooded landscapes.",
     "image": "/Patuxent River.jpg",
     "color": "from-indigo-500/20 to-blue-900/40",
-    "accent": "text-indigo-400",
+    "accent": "text-indigo-700",
     "stats": {
       "length": "115 miles",
       "basin": "932 sq mi",
@@ -586,7 +586,7 @@ const bodiesOfWater = [
     "description": "A historic sandstone aqueduct where the Chesapeake and Ohio Canal crosses Seneca Creek. The structure allows one body of water to flow directly over another, showcasing 19th-century engineering.",
     "image": "/Seneca Creek Aqueduct.jpg",
     "color": "from-stone-500/20 to-blue-800/40",
-    "accent": "text-stone-400",
+    "accent": "text-slate-500",
     "stats": {
       "location": "Montgomery County, MD",
       "built": "1832",
@@ -680,7 +680,7 @@ const bodiesOfWater = [
     "description": "A prominent urban stream (branch) flowing directly through Bethesda and Chevy Chase, Maryland before emptying into the Potomac. Closely paralleled by the popular Capital Crescent Trail.",
     "image": "/Little Falls Branch.jpg",
     "color": "from-emerald-500/20 to-teal-800/40",
-    "accent": "text-emerald-400",
+    "accent": "text-emerald-700",
     "stats": {
       "location": "Bethesda/Chevy Chase, MD",
       "type": "Urban Stream",
@@ -718,7 +718,7 @@ const bodiesOfWater = [
     "description": "A tributary of Little Falls Branch, Willett Branch flows through the heart of Bethesda, Maryland. It notably passes close to the Norwood Local Park and is subject to local restoration and community park efforts.",
     "image": "/Willett Branch.jpg",
     "color": "from-blue-500/20 to-teal-800/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "location": "Bethesda, MD",
       "type": "Urban Tributary",
@@ -756,7 +756,7 @@ const bodiesOfWater = [
     "description": "A heavily wooded park in Washington, DC, that forms a tributary valley extending into Rock Creek Park. It offers rugged trails tracing the Soapstone Creek amid an urban canopy.",
     "image": "/Soapstone Valley Park.jpg",
     "color": "from-stone-500/20 to-green-900/40",
-    "accent": "text-stone-400",
+    "accent": "text-slate-500",
     "stats": {
       "location": "Washington, DC",
       "type": "Stream Valley",
@@ -813,7 +813,7 @@ const bodiesOfWater = [
     "description": "A major tributary of the Anacostia River, featuring a prominent scenic trail system. The river courses through picturesque, rocky gorge sections and provides extensive recreational greenway access.",
     "image": "/Northwest Branch Anacostia River.jpg",
     "color": "from-blue-500/20 to-indigo-800/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "location": "Montgomery County, MD",
       "type": "Tributary River",
@@ -832,7 +832,7 @@ const bodiesOfWater = [
     "description": "A free-flowing tributary of the Northwest Branch of the Anacostia River. The surrounding Sligo Creek Stream Valley Park offers heavily used, paved hiker-biker trails connecting communities like Silver Spring and Takoma Park.",
     "image": "/Sligo Creek.jpg",
     "color": "from-teal-500/20 to-emerald-800/40",
-    "accent": "text-teal-400",
+    "accent": "text-teal-700",
     "stats": {
       "location": "Silver Spring, MD",
       "type": "Urban Creek",
@@ -851,7 +851,7 @@ const bodiesOfWater = [
     "description": "The historic Chesapeake and Ohio Canal stretches along the Potomac River in Montgomery County. It features numerous historic locks, aqueducts, and the beloved unpaved towpath used heavily by cyclists and hikers.",
     "image": "/C&O Canal.jpg",
     "color": "from-stone-500/20 to-amber-900/40",
-    "accent": "text-stone-400",
+    "accent": "text-slate-500",
     "stats": {
       "location": "Montgomery County, MD",
       "type": "Historic Canal",
@@ -889,7 +889,7 @@ const bodiesOfWater = [
     "description": "A vital reference stream serving as the main tributary to Little Seneca Lake, flowing near Clarksburg. It boasts some of the cleanest water quality in the region.",
     "image": "/Ten Mile Creek.jpg",
     "color": "from-blue-500/20 to-sky-800/40",
-    "accent": "text-blue-400",
+    "accent": "text-sky-700",
     "stats": {
       "location": "Clarksburg, MD",
       "type": "Tributary Creek",
@@ -927,7 +927,7 @@ const bodiesOfWater = [
     "description": "A significant tributary of the Potomac River that runs through a deeply forested stream valley park, offering long uninterrupted walking and hiking routes through the suburban canopy.",
     "image": "/Cabin John Creek.jpg",
     "color": "from-teal-500/20 to-green-800/40",
-    "accent": "text-teal-400",
+    "accent": "text-teal-700",
     "stats": {
       "location": "Bethesda/Potomac, MD",
       "type": "Tributary Creek",
@@ -1014,17 +1014,17 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
 
   if (!src) {
     return (
-      <div className={`relative overflow-hidden bg-slate-900 ${containerClassName || ''}`}>
+      <div className={`relative overflow-hidden bg-slate-900/40 ${containerClassName || ''}`}>
         <div className={`absolute inset-0 bg-gradient-to-br ${color || 'from-sky-500/20 to-blue-800/40'} flex items-center justify-center`}>
-            <div className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-900/80 to-slate-950"></div>
-            <Droplets className="w-12 h-12 text-blue-400/50 relative z-10" />
+            <div className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-stone-50/90 to-stone-50"></div>
+            <Droplets className="w-12 h-12 text-sky-700/50 relative z-10" />
             <motion.div
               animate={{ 
                 scale: [1, 1.05, 1],
                 opacity: [0.3, 0.5, 0.3] 
               }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute w-40 h-40 rounded-full bg-blue-500/10 blur-2xl z-0"
+              className="absolute w-40 h-40 rounded-full bg-sky-100 blur-2xl z-0"
             />
         </div>
       </div>
@@ -1032,7 +1032,7 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
   }
 
   return (
-    <div ref={containerRef} className={`relative overflow-hidden bg-slate-900 ${containerClassName || ''}`}>
+    <div ref={containerRef} className={`relative overflow-hidden bg-slate-900/40 ${containerClassName || ''}`}>
       <AnimatePresence>
         {!isLoaded && (
           <motion.div
@@ -1174,15 +1174,15 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   }, [sortOrder]);
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-teal-500/30">
       {/* Background image and ambient gradient */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <LazyImage 
           src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
           alt="Ambient Background"
-          containerClassName="absolute inset-0 opacity-40 mix-blend-screen w-full h-full"
+          containerClassName="absolute inset-0 w-full h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-950" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24 min-h-screen flex flex-col">
@@ -1204,7 +1204,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
             <button
               onClick={() => setSortOrder(prev => prev === 'default' ? 'asc' : prev === 'asc' ? 'desc' : 'default')}
               aria-label="Toggle sorting order"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 bg-slate-900/60 hover:bg-slate-800 transition-colors text-slate-300"
             >
               {sortOrder === 'default' && <><ArrowUpDown className="w-4 h-4" /><span className="text-sm">Sort</span></>}
               {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" /><span className="text-sm">A-Z</span></>}
@@ -1250,7 +1250,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                 <motion.div layoutId={`type-${item.id}`} className={`text-xs font-bold tracking-widest uppercase mb-2 ${item.accent}`}>
                   {item.type}
                 </motion.div>
-                <motion.h2 layoutId={`title-${item.id}`} className="text-3xl font-serif font-medium text-white mb-2">
+                <motion.h2 layoutId={`title-${item.id}`} className="text-3xl font-serif font-medium text-slate-50 mb-2">
                   {item.name}
                 </motion.h2>
                 <div className="h-0 overflow-hidden transition-all duration-500 group-hover:h-6 opacity-0 group-hover:opacity-100 flex items-center text-sm text-slate-300">
@@ -1268,7 +1268,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
               aria-label="Previous page"
-              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 rounded-full border border-slate-700/50 bg-slate-900/60 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Previous
             </button>
@@ -1281,8 +1281,8 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                   aria-current={currentPage === i + 1 ? "page" : undefined}
                   className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     currentPage === i + 1 
-                      ? 'bg-blue-500/20 text-blue-400 border border-blue-500/50' 
-                      : 'bg-slate-900/50 border border-slate-800 text-slate-400 hover:bg-slate-800/50'
+                      ? 'bg-white text-slate-900 shadow-md border border-slate-500/50' 
+                      : 'bg-slate-900/40 border border-slate-700/50 text-slate-400 hover:bg-slate-900/40'
                   }`}
                 >
                   {i + 1}
@@ -1293,7 +1293,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
               aria-label="Next page"
-              className="px-4 py-2 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 py-2 rounded-full border border-slate-700/50 bg-slate-900/60 hover:bg-slate-800 transition-colors text-slate-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Next
             </button>
@@ -1309,7 +1309,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedId(null)}
-              className="fixed inset-0 z-40 bg-slate-950/95"
+              className="fixed inset-0 z-40 bg-slate-900/95"
             />
             <div 
               className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
@@ -1319,7 +1319,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
             >
               <motion.div
                 layoutId={`card-${selectedItem.id}`}
-                className="bg-slate-900 w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row pointer-events-auto max-h-[90vh]"
+                className="bg-slate-900/40 w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row pointer-events-auto max-h-[90vh]"
               >
                 <div className="relative w-full md:w-1/2 h-64 md:h-auto shrink-0">
                   <LazyImage
@@ -1348,7 +1348,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     <button 
                       onClick={(e) => { e.stopPropagation(); setViewMode('photo'); }}
                       aria-label="View Photo"
-                      className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
+                      className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/60 text-slate-50 hover:bg-slate-800'}`}
                       title="View Photo"
                     >
                       <ImageIcon className="w-5 h-5" />
@@ -1356,7 +1356,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     <button 
                       onClick={(e) => { e.stopPropagation(); setViewMode('map'); }}
                       aria-label="View Map"
-                      className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/80 text-white hover:bg-slate-800'}`}
+                      className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/60 text-slate-50 hover:bg-slate-800'}`}
                       title="View Map"
                     >
                       <MapIcon className="w-5 h-5" />
@@ -1370,7 +1370,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                       <motion.div layoutId={`type-${selectedItem.id}`} className={`text-sm font-bold tracking-widest uppercase mb-2 ${selectedItem.accent}`}>
                         {selectedItem.type}
                       </motion.div>
-                      <motion.h2 layoutId={`title-${selectedItem.id}`} className="text-4xl md:text-5xl font-serif font-medium text-white">
+                      <motion.h2 layoutId={`title-${selectedItem.id}`} className="text-4xl md:text-5xl font-serif font-medium text-slate-50">
                         {selectedItem.name}
                       </motion.h2>
                     </div>
@@ -1380,7 +1380,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           onClick={() => window.open('https://www.x.com/theheftyheifer', '_blank')}
                           aria-label="Visit Twitter profile"
                           title="Visit Twitter profile"
-                          className="p-2 rounded-full bg-slate-800/50 hover:bg-[#1DA1F2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
+                          className="p-2 rounded-full bg-slate-900/40 hover:bg-[#1DA1F2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
                         >
                           <Twitter className="w-5 h-5" />
                         </button>
@@ -1388,7 +1388,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           onClick={() => window.open('https://www.facebook.com/heftytheheifer', '_blank')}
                           aria-label="Visit Facebook profile"
                           title="Visit Facebook profile"
-                          className="p-2 rounded-full bg-slate-800/50 hover:bg-[#4267B2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
+                          className="p-2 rounded-full bg-slate-900/40 hover:bg-[#4267B2] text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
                         >
                           <Facebook className="w-5 h-5" />
                         </button>
@@ -1396,7 +1396,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           onClick={() => navigator.clipboard.writeText(window.location.href)}
                           aria-label="Copy link"
                           title="Copy link"
-                          className="p-2 rounded-full bg-slate-800/50 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
+                          className="p-2 rounded-full bg-slate-900/40 hover:bg-slate-700 text-slate-400 hover:text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
                         >
                           <LinkIcon className="w-5 h-5" />
                         </button>
@@ -1406,7 +1406,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                         onClick={() => setSelectedId(null)}
                         aria-label="Close details"
                         title="Close"
-                        className="p-2 rounded-full bg-slate-800/50 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                        className="p-2 rounded-full bg-slate-900/40 hover:bg-rose-500/20 text-slate-400 hover:text-rose-600 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-rose-500"
                       >
                         <X className="w-6 h-6" />
                       </button>
@@ -1430,13 +1430,13 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                       className="mb-10 space-y-4"
                     >
                       {selectedItem.details.history && (
-                        <div className="bg-slate-800/40 rounded-xl p-4 border border-slate-700/50">
+                        <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-700/50">
                           <h4 className="text-sm font-semibold text-slate-200 mb-1">Historical Fact</h4>
                           <p className="text-sm text-slate-400">{selectedItem.details.history}</p>
                         </div>
                       )}
                       {selectedItem.details.ecology && (
-                        <div className="bg-slate-800/40 rounded-xl p-4 border border-slate-700/50">
+                        <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-700/50">
                           <h4 className="text-sm font-semibold text-slate-200 mb-1">Ecological Significance</h4>
                           <p className="text-sm text-slate-400">{selectedItem.details.ecology}</p>
                         </div>
@@ -1452,7 +1452,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                       className="mt-auto grid grid-cols-2 gap-6 mb-8"
                     >
                       {Object.entries(selectedItem.stats).map(([key, value]) => (
-                        <div key={key} className="border-t border-slate-800 pt-4">
+                        <div key={key} className="border-t border-slate-700/50 pt-4">
                           <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">{key}</div>
                           <div className="text-xl font-medium text-slate-200">{value}</div>
                         </div>
@@ -1464,7 +1464,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="border-t border-slate-800 pt-6"
+                    className="border-t border-slate-700/50 pt-6"
                   >
                     <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Current Weather</div>
                     {weatherLoading ? (
@@ -1490,7 +1490,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
-                      className="border-t border-slate-800 pt-6 mt-8"
+                      className="border-t border-slate-700/50 pt-6 mt-8"
                     >
                       <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Nearby Waterbodies</div>
                       <div className="grid grid-cols-1 gap-4">
@@ -1498,11 +1498,11 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           <button
                             key={item.id}
                             onClick={() => setSelectedId(item.id)}
-                            className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/20 hover:bg-slate-800/50 border border-slate-700/30 hover:border-slate-600 transition-all text-left group"
+                            className="flex items-center gap-4 p-3 rounded-xl bg-slate-900/40/30 hover:bg-slate-900/40 border border-slate-700/50 hover:border-slate-600 transition-all text-left group"
                           >
                             <LazyImage src={item.image} alt={item.name} color={item.color} containerClassName="w-16 h-16 rounded-lg shrink-0" imgClassName="rounded-lg" />
                             <div className="flex-1">
-                              <div className="text-sm font-medium text-slate-200 group-hover:text-blue-400 transition-colors">{item.name}</div>
+                              <div className="text-sm font-medium text-slate-200 group-hover:text-sky-700 transition-colors">{item.name}</div>
                               <div className="text-xs text-slate-400 uppercase tracking-wider flex items-center justify-between">
                                 <span>{item.type}</span>
                                 <span>{item.distance?.toFixed(1)} mi</span>
@@ -1521,7 +1521,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
       </AnimatePresence>
 
       <motion.button
-        className="fixed right-6 bottom-6 md:right-8 md:bottom-8 z-30 h-14 w-14 md:h-16 md:w-16 rounded-full border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.3)] bg-slate-900/90 flex items-center justify-center text-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-500/50 group"
+        className="fixed right-6 bottom-6 md:right-8 md:bottom-8 z-30 h-14 w-14 md:h-16 md:w-16 rounded-full border border-slate-700/50 shadow-xl bg-slate-800/80 flex items-center justify-center text-slate-200 hover:text-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-500/50 group"
         whileHover={{ scale: 1.1, rotate: 15 }}
         whileTap={{ scale: 0.9, rotate: -15 }}
         onClick={() => {
@@ -1530,9 +1530,9 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         }}
         aria-label="Surprise Me! Pick a random body of water"
       >
-        <Droplets className="w-6 h-6 md:w-8 md:h-8 group-hover:text-blue-300 transition-colors" />
+        <Droplets className="w-6 h-6 md:w-8 md:h-8 group-hover:text-teal-600 transition-colors" />
         
-        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-slate-800 text-slate-200 text-sm rounded-lg opacity-0 min-w-max group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-700 font-medium">
+        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-stone-200 text-slate-200 text-sm rounded-lg opacity-0 min-w-max group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-700/50 font-medium">
           Surprise Me!
         </span>
       </motion.button>
@@ -1545,13 +1545,13 @@ function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 px-4 py-4 flex justify-center pointer-events-none">
-      <div className="bg-slate-900/90 backdrop-blur-md px-4 py-3 rounded-2xl md:rounded-[2rem] border border-slate-700/50 flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-2 pointer-events-auto shadow-xl max-w-full md:max-w-4xl lg:max-w-5xl overflow-x-auto md:overflow-x-visible scrollbar-none">
+      <div className="bg-slate-900/80 backdrop-blur-md px-4 py-3 rounded-2xl md:rounded-[2rem] border border-slate-700/50 flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-2 pointer-events-auto shadow-xl max-w-full md:max-w-4xl lg:max-w-5xl overflow-x-auto md:overflow-x-visible scrollbar-none">
         <Link
           to="/"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <Home className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1561,8 +1561,8 @@ function Navigation() {
           to="/frederick"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/frederick' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1572,8 +1572,8 @@ function Navigation() {
           to="/baltimore"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/baltimore' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1583,8 +1583,8 @@ function Navigation() {
           to="/dorchester"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/dorchester' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1594,8 +1594,8 @@ function Navigation() {
           to="/allegany"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/allegany' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1605,8 +1605,8 @@ function Navigation() {
           to="/anne-arundel"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/anne-arundel' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1616,8 +1616,8 @@ function Navigation() {
           to="/calvert"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/calvert' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1627,8 +1627,8 @@ function Navigation() {
           to="/caroline"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/caroline' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1638,8 +1638,8 @@ function Navigation() {
           to="/carroll"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/carroll' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1649,8 +1649,8 @@ function Navigation() {
           to="/cecil"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/cecil' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1660,8 +1660,8 @@ function Navigation() {
           to="/charles"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/charles' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1671,8 +1671,8 @@ function Navigation() {
           to="/garrett"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/garrett' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1682,8 +1682,8 @@ function Navigation() {
           to="/harford"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/harford' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
@@ -1693,8 +1693,8 @@ function Navigation() {
           to="/about"
           className={`shrink-0 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
-              ? 'bg-blue-500/20 text-blue-400' 
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
           <Info className="w-4 h-4" />
@@ -1713,14 +1713,14 @@ function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-blue-500/30 pt-32 pb-24 px-6">
+    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-teal-500/30 pt-32 pb-24 px-6">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <LazyImage 
           src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
           alt="Ambient Background"
-          containerClassName="absolute inset-0 opacity-30 mix-blend-screen w-full h-full"
+          containerClassName="absolute inset-0 w-full h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/80 to-slate-950" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
       
       <div className="relative z-10 max-w-5xl mx-auto space-y-12">
@@ -1729,7 +1729,7 @@ function About() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-serif font-medium tracking-tight text-white mb-6">About the Waterways Gallery</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-medium tracking-tight text-slate-50 mb-6">About the Waterways Gallery</h1>
           <p className="text-slate-400 leading-relaxed text-lg lg:text-xl font-light">
             Dedicated to exploring and cataloging the majestic streams, rivers, reservoirs, and coastal bays that define Maryland's diverse ecological landscape.
           </p>
@@ -1740,12 +1740,12 @@ function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-slate-900/50 p-8 rounded-3xl border border-slate-800/80 backdrop-blur-md flex flex-col"
+            className="bg-slate-900/40 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-md flex flex-col"
           >
-            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
-              <Compass className="w-6 h-6 text-blue-400" />
+            <div className="w-12 h-12 rounded-2xl bg-sky-100 flex items-center justify-center mb-6">
+              <Compass className="w-6 h-6 text-sky-700" />
             </div>
-            <h2 className="text-2xl font-medium tracking-tight text-white mb-4">Our Goal</h2>
+            <h2 className="text-2xl font-medium tracking-tight text-slate-50 mb-4">Our Goal</h2>
             <p className="text-slate-400 leading-relaxed">
               We seek to highlight the natural beauty of the area's aquatic ecosystems. By sharing knowledge and visual catalogs of these places, we hope to encourage local residents and visitors to explore, appreciate, and actively conserve these vital natural resources for future generations.
             </p>
@@ -1755,12 +1755,12 @@ function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-slate-900/50 p-8 rounded-3xl border border-slate-800/80 backdrop-blur-md flex flex-col"
+            className="bg-slate-900/40 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-md flex flex-col"
           >
-            <div className="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center mb-6">
-              <List className="w-6 h-6 text-teal-400" />
+            <div className="w-12 h-12 rounded-2xl bg-teal-100 flex items-center justify-center mb-6">
+              <List className="w-6 h-6 text-teal-700" />
             </div>
-            <h2 className="text-2xl font-medium tracking-tight text-white mb-4">Platform Features</h2>
+            <h2 className="text-2xl font-medium tracking-tight text-slate-50 mb-4">Platform Features</h2>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
@@ -1786,20 +1786,20 @@ function About() {
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ delay: 0.3 }}
-           className="bg-slate-900/50 p-8 md:p-10 rounded-3xl border border-slate-800/80 backdrop-blur-md"
+           className="bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-slate-700/50 backdrop-blur-md"
         >
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center">
-              <MapIcon className="w-6 h-6 text-indigo-400" />
+            <div className="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center">
+              <MapIcon className="w-6 h-6 text-indigo-700" />
             </div>
-            <h2 className="text-2xl font-medium tracking-tight text-white">Covered Regions</h2>
+            <h2 className="text-2xl font-medium tracking-tight text-slate-50">Covered Regions</h2>
           </div>
           <p className="text-slate-400 leading-relaxed mb-6">
             Our catalog currently spans several diverse ecosystems across Maryland, featuring the streams, rivers, lakes, and reservoirs of these counties:
           </p>
           <div className="flex flex-wrap gap-2">
             {counties.map(county => (
-              <span key={county} className="px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 text-slate-300 text-sm font-medium">
+              <span key={county} className="px-4 py-2 rounded-full bg-slate-900/40 border border-slate-700/50 text-slate-300 text-sm font-medium">
                 {county}
               </span>
             ))}
@@ -1810,13 +1810,13 @@ function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-gradient-to-br from-emerald-900/20 to-teal-900/10 p-8 md:p-10 rounded-3xl border border-emerald-500/20 backdrop-blur-md flex flex-col md:flex-row gap-8 items-center"
+          className="bg-gradient-to-br from-slate-900/60 to-slate-800/40 p-8 md:p-10 rounded-3xl border border-emerald-200 backdrop-blur-md flex flex-col md:flex-row gap-8 items-center"
         >
-          <div className="w-16 h-16 rounded-3xl bg-emerald-500/20 flex flex-shrink-0 items-center justify-center">
-            <Leaf className="w-8 h-8 text-emerald-400" />
+          <div className="w-16 h-16 rounded-3xl bg-emerald-100 flex flex-shrink-0 items-center justify-center">
+            <Leaf className="w-8 h-8 text-emerald-700" />
           </div>
           <div>
-            <h3 className="text-2xl font-medium text-emerald-400 mb-3">Conservation Note</h3>
+            <h3 className="text-2xl font-medium text-emerald-700 mb-3">Conservation Note</h3>
             <p className="text-slate-300 leading-relaxed">
               Please treat all local waterways with the utmost respect. Follow the "Leave No Trace" principles, stay on marked trails, properly dispose of waste, and help protect our area's delicate aquatic ecosystems for all to enjoy.
             </p>
