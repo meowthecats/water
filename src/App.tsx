@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link as LinkIcon, Info, Home } from 'lucide-react';
+import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Link as LinkIcon, Info, Home, Leaf, ShieldAlert, List, Compass } from 'lucide-react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { frederickBodiesOfWater } from './frederickData';
 import { montgomeryBodiesOfWaterPart2 } from './montgomeryDataPart2';
@@ -1180,9 +1180,9 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         <LazyImage 
           src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
           alt="Ambient Background"
-          containerClassName="absolute inset-0 opacity-40 w-full h-full"
+          containerClassName="absolute inset-0 opacity-40 mix-blend-screen w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-950" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24 min-h-screen flex flex-col">
@@ -1706,42 +1706,119 @@ function Navigation() {
 }
 
 function About() {
+  const counties = [
+    "Montgomery", "Frederick", "Baltimore City", "Baltimore", "Anne Arundel", 
+    "Calvert", "Caroline", "Carroll", "Cecil", "Charles", "Dorchester", 
+    "Garrett", "Harford", "Allegany"
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-blue-500/30 pt-32 pb-12 px-6">
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-blue-500/30 pt-32 pb-24 px-6">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <LazyImage 
           src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
           alt="Ambient Background"
-          containerClassName="absolute inset-0 opacity-20 w-full h-full"
+          containerClassName="absolute inset-0 opacity-30 mix-blend-screen w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/80 to-slate-950" />
       </div>
       
-      <div className="relative z-10 max-w-3xl mx-auto space-y-8">
+      <div className="relative z-10 max-w-5xl mx-auto space-y-12">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/50 backdrop-blur-sm"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h1 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-6">About the Waterways Gallery</h1>
-          <p className="text-slate-300 leading-relaxed mb-4 text-lg">
-            This application is designed to be an exploratory visual gallery and map of the beautiful streams, rivers, and lakes found within and around Maryland's Montgomery and Frederick Counties, Baltimore City and County, Anne Arundel County, Calvert County, Caroline County, Carroll County, Cecil County, Charles County, Dorchester County on the Eastern Shore, Garrett County, Harford County, and Allegany County in Western Maryland.
+          <h1 className="text-4xl md:text-5xl font-serif font-medium tracking-tight text-white mb-6">About the Waterways Gallery</h1>
+          <p className="text-slate-400 leading-relaxed text-lg lg:text-xl font-light">
+            Dedicated to exploring and cataloging the majestic streams, rivers, reservoirs, and coastal bays that define Maryland's diverse ecological landscape.
           </p>
-          <p className="text-slate-300 leading-relaxed mb-4 text-lg">
-            Our goal is to highlight the natural beauty of the area's aquatic ecosystems, encouraging local residents and visitors to explore, appreciate, and conserve these vital natural resources.
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-slate-900/50 p-8 rounded-3xl border border-slate-800/80 backdrop-blur-md flex flex-col"
+          >
+            <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
+              <Compass className="w-6 h-6 text-blue-400" />
+            </div>
+            <h2 className="text-2xl font-medium tracking-tight text-white mb-4">Our Goal</h2>
+            <p className="text-slate-400 leading-relaxed">
+              We seek to highlight the natural beauty of the area's aquatic ecosystems. By sharing knowledge and visual catalogs of these places, we hope to encourage local residents and visitors to explore, appreciate, and actively conserve these vital natural resources for future generations.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-slate-900/50 p-8 rounded-3xl border border-slate-800/80 backdrop-blur-md flex flex-col"
+          >
+            <div className="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center mb-6">
+              <List className="w-6 h-6 text-teal-400" />
+            </div>
+            <h2 className="text-2xl font-medium tracking-tight text-white mb-4">Platform Features</h2>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
+                <span className="text-slate-400">Interactive Gallery view with robust sorting and filtering.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
+                <span className="text-slate-400">Map view to visually navigate to different water bodies.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
+                <span className="text-slate-400">Real-time weather data contextualizing the locations.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-400" />
+                <span className="text-slate-400">Detailed contextual information on ecology and history.</span>
+              </li>
+            </ul>
+          </motion.div>
+        </div>
+
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ delay: 0.3 }}
+           className="bg-slate-900/50 p-8 md:p-10 rounded-3xl border border-slate-800/80 backdrop-blur-md"
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center">
+              <MapIcon className="w-6 h-6 text-indigo-400" />
+            </div>
+            <h2 className="text-2xl font-medium tracking-tight text-white">Covered Regions</h2>
+          </div>
+          <p className="text-slate-400 leading-relaxed mb-6">
+            Our catalog currently spans several diverse ecosystems across Maryland, featuring the streams, rivers, lakes, and reservoirs of these counties:
           </p>
-          <h2 className="text-2xl font-light tracking-tight text-white mt-12 mb-4">Features</h2>
-          <ul className="list-disc list-inside text-slate-300 leading-relaxed space-y-2 mb-8">
-            <li>Interactive Gallery view with robust sorting.</li>
-            <li>Map view to visually navigate to different water bodies.</li>
-            <li>Real-time weather data contextualizing the locations.</li>
-            <li>Detailed information on ecology and history.</li>
-          </ul>
-          
-          <div className="bg-blue-900/20 p-6 rounded-2xl border border-blue-500/20 mt-8">
-            <h3 className="text-xl font-medium text-blue-400 mb-2">Conservation Note</h3>
-            <p className="text-slate-300">
-              Please treat all local waterways with respect. Follow the "Leave No Trace" principles, stay on marked trails, and help protect our area's delicate aquatic ecosystems.
+          <div className="flex flex-wrap gap-2">
+            {counties.map(county => (
+              <span key={county} className="px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 text-slate-300 text-sm font-medium">
+                {county}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="bg-gradient-to-br from-emerald-900/20 to-teal-900/10 p-8 md:p-10 rounded-3xl border border-emerald-500/20 backdrop-blur-md flex flex-col md:flex-row gap-8 items-center"
+        >
+          <div className="w-16 h-16 rounded-3xl bg-emerald-500/20 flex flex-shrink-0 items-center justify-center">
+            <Leaf className="w-8 h-8 text-emerald-400" />
+          </div>
+          <div>
+            <h3 className="text-2xl font-medium text-emerald-400 mb-3">Conservation Note</h3>
+            <p className="text-slate-300 leading-relaxed">
+              Please treat all local waterways with the utmost respect. Follow the "Leave No Trace" principles, stay on marked trails, properly dispose of waste, and help protect our area's delicate aquatic ecosystems for all to enjoy.
             </p>
           </div>
         </motion.div>
