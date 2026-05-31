@@ -1185,15 +1185,15 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24 min-h-screen flex flex-col">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-12 md:pt-48 md:pb-24 min-h-screen flex flex-col">
         <motion.header 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-12 md:mb-20 flex flex-col items-center justify-center gap-8 text-center"
         >
-          <div>
-            <h1 className="text-4xl md:text-7xl font-serif font-bold tracking-tight text-white drop-shadow-2xl mb-4">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold tracking-tight text-white drop-shadow-2xl leading-tight">
               {title || "Bodies of Water"}
             </h1>
             <p className="text-slate-100 max-w-xl text-lg font-medium leading-relaxed drop-shadow-xl mx-auto">
@@ -1721,7 +1721,7 @@ function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-teal-500/30 pt-32 pb-24 px-6">
+    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-teal-500/30 pt-32 md:pt-44 pb-24 px-6">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <LazyImage 
           src="https://upload.wikimedia.org/wikipedia/commons/3/32/Triadelphia_lake.jpg"
