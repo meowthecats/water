@@ -16,35 +16,35 @@ export const harfordData = [
     }
   },
   {
-    id: "bush_river",
+    id: "susquehanna_harford",
     type: "River",
-    name: "Bush River",
-    description: "A sizable tidal estuary in Harford County flowing into the Chesapeake Bay. It is flanked by beautiful peninsulas and significant military and residential properties.",
-    image: "/Bush River.jpg",
-    color: "from-slate-600/20 to-indigo-800/40",
+    name: "Susquehanna River",
+    description: "The massive river forming Harford County's eastern boundary, rolling southward out of Pennsylvania into the wide expanse of the Chesapeake Bay.",
+    image: "/Susquehanna River harford.jpg",
+    color: "from-slate-600/20 to-blue-800/40",
     accent: "text-slate-400",
-    coordinates: [39.421, -76.241],
+    coordinates: [39.553, -76.104],
     details: {
-      location: "Abingdon, MD",
+      location: "Havre de Grace, MD",
       basin: "Chesapeake Bay",
-      history: "The surrounding area saw significant colonial settlement in the 1600s, and parts of its eastern shore border the renowned Aberdeen Proving Ground.",
-      ecology: "Primarily brackish, its shallow and highly productive waters harbor large concentrations of waterfowl and blue crabs."
+      history: "As the bay's largest tributary, its mouth at Havre de Grace became a critical junction for rail, canal, and ferry transport in early America.",
+      ecology: "Supplies half of the freshwater entering the Chesapeake, hosting immense spring spawning runs for anadromous species like American Shad."
     }
   },
   {
-    id: "broad_creek_harford",
-    type: "Creek",
-    name: "Broad Creek",
-    description: "Known for the expansive Broad Creek Memorial Scout Reservation that surrounds much of its forested banks, offering pristine natural isolation.",
-    image: "/Broad Creek Harford.jpg",
+    id: "gunpowder_falls_harford",
+    type: "River",
+    name: "Gunpowder Falls",
+    description: "This popular rugged waterway forms much of the southern border with Baltimore County. It flows rapidly over impressive rock formations through dense forests.",
+    image: "/Gunpowder Falls.jpg",
     color: "from-green-700/20 to-emerald-900/40",
     accent: "text-green-400",
-    coordinates: [39.689, -76.265],
+    coordinates: [39.421, -76.381],
     details: {
-      location: "Whiteford, MD",
-      basin: "Susquehanna River",
-      history: "Has long been protected and celebrated as a premier outdoor educational destination for generations of youth since the 1940s.",
-      ecology: "Characterized by rolling forested topography and old growth oak and hickory stands sheltering extensive wildlife."
+      location: "Joppatowne, MD",
+      basin: "Chesapeake Bay",
+      history: "Used during the 18th century as an industrial powerhouse to mill wheat, corn, and manufacture gunpowder, for which the waterway was named.",
+      ecology: "Contains designated catch-and-release trout management areas due to its clear, cold, highly-oxygenated flowing waters."
     }
   }
 ];

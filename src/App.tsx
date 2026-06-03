@@ -22,6 +22,8 @@ import { cecilData } from './cecilData';
 import { charlesData } from './charlesData';
 import { garrettData } from './garrettData';
 import { harfordData } from './harfordData';
+import { howardData } from './howardData';
+import { kentData } from './kentData';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -1698,6 +1700,28 @@ function Navigation() {
           Harford
         </Link>
         <Link
+          to="/howard"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
+            location.pathname === '/howard' 
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
+          }`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Howard
+        </Link>
+        <Link
+          to="/kent"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
+            location.pathname === '/kent' 
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
+          }`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Kent
+        </Link>
+        <Link
           to="/about"
           className={`shrink-0 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
@@ -1717,7 +1741,7 @@ function About() {
   const counties = [
     "Montgomery", "Frederick", "Baltimore City", "Baltimore", "Anne Arundel", 
     "Calvert", "Caroline", "Carroll", "Cecil", "Charles", "Dorchester", 
-    "Garrett", "Harford", "Allegany"
+    "Garrett", "Harford", "Howard", "Kent", "Allegany"
   ];
 
   return (
@@ -1853,6 +1877,8 @@ export default function App() {
         <Route path="/charles" element={<Gallery title="Charles County Waterways" items={charlesData} />} />
         <Route path="/garrett" element={<Gallery title="Garrett County Waterways" items={garrettData} />} />
         <Route path="/harford" element={<Gallery title="Harford County Waterways" items={harfordData} />} />
+        <Route path="/howard" element={<Gallery title="Howard County Waterways" items={howardData} />} />
+        <Route path="/kent" element={<Gallery title="Kent County Waterways" items={kentData} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
