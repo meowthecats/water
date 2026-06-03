@@ -24,6 +24,15 @@ import { garrettData } from './garrettData';
 import { harfordData } from './harfordData';
 import { howardData } from './howardData';
 import { kentData } from './kentData';
+import { princeGeorgesData } from './princeGeorgesData';
+import { queenAnnesData } from './queenAnnesData';
+import { stMarysData } from './stMarysData';
+import { somersetData } from './somersetData';
+import { talbotData } from './talbotData';
+import { washingtonData } from './washingtonData';
+import { wicomicoData } from './wicomicoData';
+import { worcesterData } from './worcesterData';
+
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -1722,6 +1731,62 @@ function Navigation() {
           Kent
         </Link>
         <Link
+          to="/prince-georges"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/prince-georges' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Prince George's
+        </Link>
+        <Link
+          to="/queen-annes"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/queen-annes' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Queen Anne's
+        </Link>
+        <Link
+          to="/st-marys"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/st-marys' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          St. Mary's
+        </Link>
+        <Link
+          to="/somerset"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/somerset' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Somerset
+        </Link>
+        <Link
+          to="/talbot"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/talbot' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Talbot
+        </Link>
+        <Link
+          to="/washington"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/washington' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Washington
+        </Link>
+        <Link
+          to="/wicomico"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/wicomico' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Wicomico
+        </Link>
+        <Link
+          to="/worcester"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/worcester' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Worcester
+        </Link>
+        <Link
           to="/about"
           className={`shrink-0 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
             location.pathname === '/about' 
@@ -1741,7 +1806,7 @@ function About() {
   const counties = [
     "Montgomery", "Frederick", "Baltimore City", "Baltimore", "Anne Arundel", 
     "Calvert", "Caroline", "Carroll", "Cecil", "Charles", "Dorchester", 
-    "Garrett", "Harford", "Howard", "Kent", "Allegany"
+    "Garrett", "Harford", "Howard", "Kent", "Prince George's", "Queen Anne's", "St. Mary's", "Somerset", "Talbot", "Washington", "Wicomico", "Worcester", "Allegany"
   ];
 
   return (
@@ -1879,6 +1944,14 @@ export default function App() {
         <Route path="/harford" element={<Gallery title="Harford County Waterways" items={harfordData} />} />
         <Route path="/howard" element={<Gallery title="Howard County Waterways" items={howardData} />} />
         <Route path="/kent" element={<Gallery title="Kent County Waterways" items={kentData} />} />
+        <Route path="/prince-georges" element={<Gallery title="Prince George's County Waterways" items={princeGeorgesData} />} />
+        <Route path="/queen-annes" element={<Gallery title="Queen Anne's County Waterways" items={queenAnnesData} />} />
+        <Route path="/st-marys" element={<Gallery title="St. Mary's County Waterways" items={stMarysData} />} />
+        <Route path="/somerset" element={<Gallery title="Somerset County Waterways" items={somersetData} />} />
+        <Route path="/talbot" element={<Gallery title="Talbot County Waterways" items={talbotData} />} />
+        <Route path="/washington" element={<Gallery title="Washington County Waterways" items={washingtonData} />} />
+        <Route path="/wicomico" element={<Gallery title="Wicomico County Waterways" items={wicomicoData} />} />
+        <Route path="/worcester" element={<Gallery title="Worcester County Waterways" items={worcesterData} />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
