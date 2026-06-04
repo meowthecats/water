@@ -1225,9 +1225,10 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         </motion.header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0" role="list" aria-label="Bodies of water gallery">
+          <AnimatePresence mode="popLayout">
           {paginatedBodiesOfWater.map((item, index) => (
             <motion.div
-              key={item.id}
+              key={`${item.id}-${currentPage}-${sortOrder}`}
               ref={(el) => {
                 if (el) itemsRef.current[item.id] = el;
               }}
@@ -1241,9 +1242,10 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                 }
               }}
               layoutId={`card-${item.id}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -20 }}
+              transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
               onClick={() => setSelectedId(item.id)}
               className="group relative rounded-3xl overflow-hidden cursor-pointer h-[300px] md:h-[350px] lg:h-[400px] focus:outline-none focus:ring-4 focus:ring-blue-500/50"
             >
@@ -1271,6 +1273,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               </div>
             </motion.div>
           ))}
+          </AnimatePresence>
         </div>
 
         {totalPages > 1 && (
@@ -1562,6 +1565,22 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
 function Navigation() {
   const location = useLocation();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const updateScrollProgress = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const maxScroll = scrollWidth - clientWidth;
+      const progress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
+      setScrollProgress(progress);
+    }
+  };
+
+  useEffect(() => {
+    updateScrollProgress();
+    window.addEventListener('resize', updateScrollProgress);
+    return () => window.removeEventListener('resize', updateScrollProgress);
+  }, []);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -1577,7 +1596,7 @@ function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 px-4 py-4 flex justify-center pointer-events-none">
-      <div className="relative pointer-events-auto flex items-center bg-slate-900/80 backdrop-blur-md px-2 py-3 rounded-2xl md:rounded-[2rem] border border-slate-700/50 shadow-xl max-w-full lg:max-w-6xl group">
+      <div className="relative pointer-events-auto flex items-center bg-slate-900/80 backdrop-blur-md px-2 py-3 rounded-2xl md:rounded-[2rem] border border-slate-700/50 shadow-xl max-w-full lg:max-w-6xl group pb-4">
         <button 
           onClick={scrollLeft}
           className="absolute left-2 z-10 p-1.5 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 shadow-md md:opacity-0 group-hover:opacity-100 transition-opacity"
@@ -1587,6 +1606,7 @@ function Navigation() {
         </button>
         <div 
           ref={scrollRef}
+          onScroll={updateScrollProgress}
           className="flex flex-nowrap items-center justify-start gap-2 overflow-x-auto scrollbar-none px-12 sm:px-14 md:px-12 w-full"
         >
         <Link
@@ -1829,6 +1849,12 @@ function Navigation() {
         >
           <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
         </button>
+        <div className="absolute bottom-1 left-12 right-12 h-1 bg-slate-700/50 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-slate-400 rounded-full transition-all duration-150 ease-out" 
+            style={{ width: `${scrollProgress}%` }}
+          />
+        </div>
       </div>
     </nav>
   );
