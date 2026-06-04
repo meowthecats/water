@@ -1590,48 +1590,15 @@ function Navigation() {
           className="flex flex-nowrap items-center justify-start gap-2 overflow-x-auto scrollbar-none px-12 sm:px-14 md:px-12 w-full"
         >
         <Link
-          to="/"
-          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
-            location.pathname === '/' 
+          to="/about"
+          className={`shrink-0 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
+            location.pathname === '/about' 
               ? 'bg-white text-slate-900 shadow-md' 
               : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
           }`}
         >
-          <Home className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          Montgomery
-        </Link>
-        <Link
-          to="/frederick"
-          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
-            location.pathname === '/frederick' 
-              ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
-          }`}
-        >
-          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          Frederick
-        </Link>
-        <Link
-          to="/baltimore"
-          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
-            location.pathname === '/baltimore' 
-              ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
-          }`}
-        >
-          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          Baltimore
-        </Link>
-        <Link
-          to="/dorchester"
-          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
-            location.pathname === '/dorchester' 
-              ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
-          }`}
-        >
-          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          Dorchester
+          <Info className="w-4 h-4" />
+          About
         </Link>
         <Link
           to="/allegany"
@@ -1654,6 +1621,17 @@ function Navigation() {
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Anne Arundel
+        </Link>
+        <Link
+          to="/baltimore"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
+            location.pathname === '/baltimore' 
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
+          }`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Baltimore
         </Link>
         <Link
           to="/calvert"
@@ -1711,6 +1689,28 @@ function Navigation() {
           Charles
         </Link>
         <Link
+          to="/dorchester"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
+            location.pathname === '/dorchester' 
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
+          }`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Dorchester
+        </Link>
+        <Link
+          to="/frederick"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
+            location.pathname === '/frederick' 
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
+          }`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Frederick
+        </Link>
+        <Link
           to="/garrett"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
             location.pathname === '/garrett' 
@@ -1755,6 +1755,17 @@ function Navigation() {
           Kent
         </Link>
         <Link
+          to="/"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${
+            location.pathname === '/' 
+              ? 'bg-white text-slate-900 shadow-md' 
+              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
+          }`}
+        >
+          <Home className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          Montgomery
+        </Link>
+        <Link
           to="/prince-georges"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/prince-georges' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
         >
@@ -1769,18 +1780,18 @@ function Navigation() {
           Queen Anne's
         </Link>
         <Link
-          to="/st-marys"
-          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/st-marys' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
-        >
-          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          St. Mary's
-        </Link>
-        <Link
           to="/somerset"
           className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/somerset' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Somerset
+        </Link>
+        <Link
+          to="/st-marys"
+          className={`shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-medium transition-colors ${location.pathname === '/st-marys' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'}`}
+        >
+          <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
+          St. Mary's
         </Link>
         <Link
           to="/talbot"
@@ -1809,17 +1820,6 @@ function Navigation() {
         >
           <MapIcon className="w-3.5 h-3.5 md:w-4 md:h-4" />
           Worcester
-        </Link>
-        <Link
-          to="/about"
-          className={`shrink-0 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors ${
-            location.pathname === '/about' 
-              ? 'bg-white text-slate-900 shadow-md' 
-              : 'text-slate-300 hover:text-slate-200 hover:bg-slate-900/40'
-          }`}
-        >
-          <Info className="w-4 h-4" />
-          About
         </Link>
         </div>
         <button 
