@@ -1096,7 +1096,37 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
 function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
-  const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc'>('default');
+  const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc' | 'distance'>('default');
+  const [userLocation, setUserLocation] = useState<{lat: number, lon: number} | null>(null);
+  const [isLocating, setIsLocating] = useState(false);
+
+  const handleSortByDistance = () => {
+    if (sortOrder === 'distance') {
+      setSortOrder('default');
+      return;
+    }
+    
+    setIsLocating(true);
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+          });
+          setSortOrder('distance');
+          setIsLocating(false);
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          setIsLocating(false);
+          // Just fall back to default or alert gently (maybe not alert to avoid iframe weirdness, but it's ok)
+        }
+      );
+    } else {
+      setIsLocating(false);
+    }
+  };
   const [viewMode, setViewMode] = useState<'photo' | 'map'>('photo');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
@@ -1105,6 +1135,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
     windspeed: number;
   } | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(false);
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const itemsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -1113,6 +1144,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
     if (selectedId) {
       setViewMode('photo');
       setLastSelectedId(selectedId);
+      setIsDescriptionExpanded(false);
       // Small delay to ensure the modal is rendered before focusing
       setTimeout(() => closeBtnRef.current?.focus(), 100);
     } else if (lastSelectedId) {
@@ -1173,6 +1205,11 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   const sortedBodiesOfWater = [...items].sort((a, b) => {
     if (sortOrder === 'asc') return a.name.localeCompare(b.name);
     if (sortOrder === 'desc') return b.name.localeCompare(a.name);
+    if (sortOrder === 'distance' && userLocation) {
+      const distA = getDistanceFromLatLonInMiles(userLocation.lat, userLocation.lon, a.coordinates[0], a.coordinates[1]);
+      const distB = getDistanceFromLatLonInMiles(userLocation.lat, userLocation.lon, b.coordinates[0], b.coordinates[1]);
+      return distA - distB;
+    }
     return 0;
   });
 
@@ -1208,10 +1245,20 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               {title || "Bodies of Water"}
             </h1>
             <p className="text-slate-100 max-w-xl text-lg font-medium leading-relaxed drop-shadow-xl mx-auto">
-              Explore the diverse aquatic ecosystems that shape our planet, from the deepest oceans to serene glacial lakes.
+              Explore the scenic rivers, serene streams, and rich coastal bays that define Maryland's diverse natural landscape.
             </p>
           </div>
           <div className="flex items-center gap-4">
+            <button
+              onClick={handleSortByDistance}
+              aria-label="Sort by nearest distance"
+              className={`flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 transition-colors ${
+                sortOrder === 'distance' ? 'bg-teal-600/20 text-teal-400 border-teal-500/50' : 'bg-slate-900/60 hover:bg-slate-800 text-slate-300'
+              }`}
+            >
+              <Compass className={`w-4 h-4 ${isLocating ? 'animate-spin' : ''}`} />
+              <span className="text-sm">{sortOrder === 'distance' ? 'Near Me' : 'Distance'}</span>
+            </button>
             <button
               onClick={() => setSortOrder(prev => prev === 'default' ? 'asc' : prev === 'asc' ? 'desc' : 'default')}
               aria-label="Toggle sorting order"
@@ -1435,14 +1482,24 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     </div>
                   </div>
 
-                  <motion.p 
+                  <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-slate-300 text-lg leading-relaxed mb-6"
+                    className="mb-6"
                   >
-                    {selectedItem.description}
-                  </motion.p>
+                    <p className={`text-slate-300 text-lg leading-relaxed ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
+                      {selectedItem.description}
+                    </p>
+                    {selectedItem.description && selectedItem.description.length > 100 && (
+                      <button 
+                        onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+                        className="text-teal-400 hover:text-teal-300 text-sm font-medium mt-2 transition-colors focus:outline-none focus:underline"
+                      >
+                        {isDescriptionExpanded ? 'Read Less' : 'Read More'}
+                      </button>
+                    )}
+                  </motion.div>
                   
                   {selectedItem.details && (
                     <motion.div
