@@ -1,20 +1,24 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Maryland Waterways Explorer
 
-# Run and deploy your AI Studio app
+Browse Maryland waterways by county, view photos and maps, and sort places by name or distance.
 
-This contains everything you need to run your app locally.
+## Run locally
 
-View your app in AI Studio: https://ai.studio/apps/ef6e4253-a64b-4709-bab7-f3fadba4ba58
+Use Node.js 22 or newer. No API key is required.
 
-## Run Locally
+```sh
+npm ci
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+## Validate and build
 
+```sh
+npm run lint
+npm run build
+npm run preview
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Deploy the `dist` directory to a static host. Relative asset paths support both domain roots and subdirectories such as `/water/`. County links use hash routes (for example, `/water/#/frederick`) so refreshing a county page does not require server rewrite rules.
+
+Maps require access to OpenStreetMap tiles; weather uses Open-Meteo. Distance sorting requires browser location permission and HTTPS (or localhost).
