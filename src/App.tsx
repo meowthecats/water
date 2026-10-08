@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Mail, Link as LinkIcon, Info, Home, Leaf, ShieldAlert, List, Compass, ChevronLeft, ChevronRight } from 'lucide-react';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { frederickBodiesOfWater } from './frederickData';
 import { montgomeryBodiesOfWaterPart2 } from './montgomeryDataPart2';
 import { frederickBodiesOfWaterPart2 } from './frederickDataPart2';
@@ -36,13 +36,16 @@ import { worcesterData } from './worcesterData';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 // Fix for Leaflet default icon issues in React
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+  iconRetinaUrl: markerIconRetina,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
 });
 
 function deg2rad(deg: number) {
@@ -992,13 +995,16 @@ const bodiesOfWater = [
 
 function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color, ...props }: any) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const imageSrc = src?.startsWith('/') ? `${import.meta.env.BASE_URL}${src.slice(1)}` : src;
   const [inView, setInView] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsLoaded(false);
-    if (imgRef.current && imgRef.current.complete) {
+    setHasError(false);
+    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
       setIsLoaded(true);
     }
   }, [src]);
@@ -1023,12 +1029,12 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
     };
   }, []);
 
-  if (!src) {
+  if (!src || hasError) {
     return (
       <div className={`relative overflow-hidden bg-slate-900/40 ${containerClassName || ''}`}>
         <div className={`absolute inset-0 bg-gradient-to-br ${color || 'from-sky-500/20 to-blue-800/40'} flex items-center justify-center`}>
             <div className="absolute w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-black"></div>
-            <Droplets className="w-12 h-12 text-sky-700/50 relative z-10" />
+            <div className="relative z-10 text-center text-slate-400"><Droplets className="w-12 h-12 mx-auto" /><span className="text-sm">Photo unavailable</span></div>
             <motion.div
               animate={{ 
                 scale: [1, 1.05, 1],
@@ -1079,12 +1085,12 @@ function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color
           {...props}
           ref={imgRef}
           {...(layoutId ? { layoutId } : {})}
-          src={src}
+          src={imageSrc}
           alt={alt}
           loading="lazy"
           decoding="async"
           onLoad={() => setIsLoaded(true)}
-          onError={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${imgClassName || ''}`}
           referrerPolicy="no-referrer"
         />
@@ -1099,6 +1105,15 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc' | 'distance'>('default');
   const [userLocation, setUserLocation] = useState<{lat: number, lon: number} | null>(null);
   const [isLocating, setIsLocating] = useState(false);
+  const [locationError, setLocationError] = useState('');
+  const location = useLocation();
+
+  useEffect(() => {
+    setCurrentPage(1);
+    setSelectedId(null);
+    setLastSelectedId(null);
+    setLocationError('');
+  }, [location.pathname]);
 
   const handleSortByDistance = () => {
     if (sortOrder === 'distance') {
@@ -1106,6 +1121,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
       return;
     }
     
+    setLocationError('');
     setIsLocating(true);
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -1120,10 +1136,12 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         (error) => {
           console.error("Error getting location:", error);
           setIsLocating(false);
-          // Just fall back to default or alert gently (maybe not alert to avoid iframe weirdness, but it's ok)
-        }
+          setLocationError(error.code === 1 ? 'Location access was denied. Allow location access to sort by distance.' : 'Could not get your location. Please try again.');
+        },
+        { timeout: 10000, maximumAge: 60000 }
       );
     } else {
+      setLocationError('Location is not supported by this browser.');
       setIsLocating(false);
     }
   };
@@ -1179,14 +1197,18 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
     : [];
 
   useEffect(() => {
+    const controller = new AbortController();
     if (selectedItem) {
       const [lat, lon] = selectedItem.coordinates;
       setWeatherLoading(true);
       setWeatherData(null);
-      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph`)
-        .then(res => res.json())
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph`, { signal: controller.signal })
+        .then(res => {
+          if (!res.ok) throw new Error('Weather unavailable');
+          return res.json();
+        })
         .then(data => {
-          if (data.current_weather) {
+          if (!controller.signal.aborted && data.current_weather) {
             setWeatherData({
               temperature: data.current_weather.temperature,
               windspeed: data.current_weather.windspeed,
@@ -1197,9 +1219,10 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
           // Fail gracefully if weather API is blocked by adblockers or network
         })
         .finally(() => {
-          setWeatherLoading(false);
+          if (!controller.signal.aborted) setWeatherLoading(false);
         });
     }
+    return () => controller.abort();
   }, [selectedItem?.coordinates[0], selectedItem?.coordinates[1]]);
 
   const sortedBodiesOfWater = [...items].sort((a, b) => {
@@ -1252,6 +1275,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
             <button
               onClick={handleSortByDistance}
               aria-label="Sort by nearest distance"
+              disabled={isLocating}
               className={`flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 transition-colors ${
                 sortOrder === 'distance' ? 'bg-teal-600/20 text-teal-400 border-teal-500/50' : 'bg-slate-900/60 hover:bg-slate-800 text-slate-300'
               }`}
@@ -1264,11 +1288,12 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               aria-label="Toggle sorting order"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 bg-slate-900/60 hover:bg-slate-800 transition-colors text-slate-300"
             >
-              {sortOrder === 'default' && <><ArrowUpDown className="w-4 h-4" /><span className="text-sm">Sort</span></>}
+              {(sortOrder === 'default' || sortOrder === 'distance') && <><ArrowUpDown className="w-4 h-4" /><span className="text-sm">Sort</span></>}
               {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" /><span className="text-sm">A-Z</span></>}
               {sortOrder === 'desc' && <><ArrowUpZA className="w-4 h-4" /><span className="text-sm">Z-A</span></>}
             </button>
           </div>
+          {locationError && <p role="status" className="text-sm text-amber-300">{locationError}</p>}
         </motion.header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0" role="list" aria-label="Bodies of water gallery">
@@ -1324,7 +1349,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         </div>
 
         {totalPages > 1 && (
-          <div className="mt-12 flex items-center justify-center gap-2">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
             <button
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
@@ -1333,7 +1358,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
             >
               Previous
             </button>
-            <div className="flex gap-2 mx-4" role="navigation" aria-label="Pagination">
+            <div className="flex flex-wrap justify-center gap-2 mx-4 max-w-full" role="navigation" aria-label="Pagination">
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button
                   key={i}
@@ -2041,7 +2066,7 @@ function About() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navigation />
       <Routes>
         <Route path="/" element={<Gallery title="Montgomery County Waterways" items={[...bodiesOfWater, ...montgomeryBodiesOfWaterPart2]} />} />
@@ -2069,6 +2094,6 @@ export default function App() {
         <Route path="/worcester" element={<Gallery title="Worcester County Waterways" items={worcesterData} />} />
         <Route path="/about" element={<About />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
