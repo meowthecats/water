@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
+import { type ImgHTMLAttributes, useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Mail, Link as LinkIcon, Info, Home, Leaf, ShieldAlert, List, Compass, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Droplets, X, ArrowRight, ArrowDownAZ, ArrowUpZA, ArrowUpDown, Map as MapIcon, Image as ImageIcon, Twitter, Facebook, Mail, Link as LinkIcon, Info, Home, Leaf, List, Compass, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { frederickBodiesOfWater } from './frederickData';
 import { montgomeryBodiesOfWaterPart2 } from './montgomeryDataPart2';
@@ -993,7 +993,47 @@ const bodiesOfWater = [
   }
 ];
 
-function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color, ...props }: any) {
+type LazyImageProps = ImgHTMLAttributes<HTMLImageElement> & {
+  src?: string;
+  alt: string;
+  layoutId?: string;
+  imgClassName?: string;
+  containerClassName?: string;
+  color?: string;
+};
+
+const focusableSelector = [
+  'a[href]',
+  'button:not([disabled])',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',');
+
+function getSearchableText(item: Waterway) {
+  return [
+    item.name,
+    item.type,
+    item.description,
+    item.details?.history,
+    item.details?.ecology,
+    ...Object.values(item.stats || {}),
+  ].join(' ').toLowerCase();
+}
+
+function formatStatKey(key: string) {
+  return key.replace(/_/g, ' ');
+}
+
+function openExternal(url: string) {
+  const openedWindow = window.open(url, '_blank', 'noopener,noreferrer');
+  if (openedWindow) {
+    openedWindow.opener = null;
+  }
+}
+
+function LazyImage({ src, alt, layoutId, imgClassName, containerClassName, color, ...props }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imageSrc = src?.startsWith('/') ? `${import.meta.env.BASE_URL}${src.slice(1)}` : src;
@@ -1103,16 +1143,19 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'default' | 'asc' | 'desc' | 'distance'>('default');
+  const [searchTerm, setSearchTerm] = useState('');
   const [userLocation, setUserLocation] = useState<{lat: number, lon: number} | null>(null);
   const [isLocating, setIsLocating] = useState(false);
   const [locationError, setLocationError] = useState('');
   const location = useLocation();
+  const searchInputId = `waterway-search-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'gallery'}`;
 
   useEffect(() => {
     setCurrentPage(1);
     setSelectedId(null);
     setLastSelectedId(null);
     setLocationError('');
+    setSearchTerm('');
   }, [location.pathname]);
 
   const handleSortByDistance = () => {
@@ -1154,30 +1197,62 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   } | null>(null);
   const [weatherLoading, setWeatherLoading] = useState(false);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  const [copyStatus, setCopyStatus] = useState('');
 
   const closeBtnRef = useRef<HTMLButtonElement>(null);
-  const itemsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const modalRef = useRef<HTMLDivElement>(null);
+  const itemsRef = useRef<{ [key: string]: HTMLButtonElement | null }>({});
 
   useEffect(() => {
+    let focusTimer: number | undefined;
+    const previousOverflow = document.body.style.overflow;
+
     if (selectedId) {
       setViewMode('photo');
       setLastSelectedId(selectedId);
       setIsDescriptionExpanded(false);
-      // Small delay to ensure the modal is rendered before focusing
-      setTimeout(() => closeBtnRef.current?.focus(), 100);
+      setCopyStatus('');
+      document.body.style.overflow = 'hidden';
+      focusTimer = window.setTimeout(() => closeBtnRef.current?.focus(), 0);
     } else if (lastSelectedId) {
-      // Focus back to the card when modal closes
-      setTimeout(() => itemsRef.current[lastSelectedId]?.focus(), 100);
+      focusTimer = window.setTimeout(() => itemsRef.current[lastSelectedId]?.focus(), 0);
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && selectedId) {
         setSelectedId(null);
+        return;
+      }
+
+      if (e.key === 'Tab' && selectedId && modalRef.current) {
+        const focusableElements = (
+          Array.from(modalRef.current.querySelectorAll(focusableSelector)) as HTMLElement[]
+        ).filter(element => element.offsetParent !== null);
+
+        if (!focusableElements.length) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        } else if (!modalRef.current.contains(document.activeElement)) {
+          e.preventDefault();
+          firstElement.focus();
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      if (focusTimer) window.clearTimeout(focusTimer);
+      document.body.style.overflow = previousOverflow;
+    };
   }, [selectedId, lastSelectedId]);
 
   const selectedItem = items.find(item => item.id === selectedId);
@@ -1225,7 +1300,12 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
     return () => controller.abort();
   }, [selectedItem?.coordinates[0], selectedItem?.coordinates[1]]);
 
-  const sortedBodiesOfWater = [...items].sort((a, b) => {
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+  const filteredBodiesOfWater = normalizedSearchTerm
+    ? items.filter(item => getSearchableText(item).includes(normalizedSearchTerm))
+    : items;
+
+  const sortedBodiesOfWater = [...filteredBodiesOfWater].sort((a, b) => {
     if (sortOrder === 'asc') return a.name.localeCompare(b.name);
     if (sortOrder === 'desc') return b.name.localeCompare(a.name);
     if (sortOrder === 'distance' && userLocation) {
@@ -1239,10 +1319,35 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
   const totalPages = Math.ceil(sortedBodiesOfWater.length / itemsPerPage);
   const paginatedBodiesOfWater = sortedBodiesOfWater.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  // Reset to first page when sort order changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [sortOrder]);
+  }, [sortOrder, normalizedSearchTerm]);
+
+  useEffect(() => {
+    document.title = `${selectedItem ? selectedItem.name : title} | Maryland Waterways Explorer`;
+  }, [selectedItem, title]);
+
+  const handleCopyLink = async () => {
+    const url = window.location.href;
+
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopyStatus('Link copied');
+    } catch {
+      const textArea = document.createElement('textarea');
+      textArea.value = url;
+      textArea.setAttribute('readonly', '');
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      const didCopy = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopyStatus(didCopy ? 'Link copied' : 'Copy failed');
+    }
+
+    window.setTimeout(() => setCopyStatus(''), 2400);
+  };
 
   return (
     <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-teal-500/30">
@@ -1256,7 +1361,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-12 md:pt-48 md:pb-24 min-h-screen flex flex-col">
+      <main id="main-content" tabIndex={-1} className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-12 md:pt-48 md:pb-24 min-h-screen flex flex-col focus:outline-none">
         <motion.header 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -1271,86 +1376,110 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               Explore the scenic rivers, serene streams, and rich coastal bays that define Maryland's diverse natural landscape.
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <button
-              onClick={handleSortByDistance}
-              aria-label="Sort by nearest distance"
-              disabled={isLocating}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 transition-colors ${
-                sortOrder === 'distance' ? 'bg-teal-600/20 text-teal-400 border-teal-500/50' : 'bg-slate-900/60 hover:bg-slate-800 text-slate-300'
-              }`}
-            >
-              <Compass className={`w-4 h-4 ${isLocating ? 'animate-spin' : ''}`} />
-              <span className="text-sm">{sortOrder === 'distance' ? 'Near Me' : 'Distance'}</span>
-            </button>
-            <button
-              onClick={() => setSortOrder(prev => prev === 'default' ? 'asc' : prev === 'asc' ? 'desc' : 'default')}
-              aria-label="Toggle sorting order"
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 bg-slate-900/60 hover:bg-slate-800 transition-colors text-slate-300"
-            >
-              {(sortOrder === 'default' || sortOrder === 'distance') && <><ArrowUpDown className="w-4 h-4" /><span className="text-sm">Sort</span></>}
-              {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" /><span className="text-sm">A-Z</span></>}
-              {sortOrder === 'desc' && <><ArrowUpZA className="w-4 h-4" /><span className="text-sm">Z-A</span></>}
-            </button>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-3xl">
+            <label htmlFor={searchInputId} className="sr-only">Search waterways</label>
+            <div className="relative flex-1 min-w-0">
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />
+              <input
+                id={searchInputId}
+                type="search"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                placeholder="Search waterways, towns, or types"
+                className="w-full rounded-full border border-slate-700/50 bg-slate-900/70 py-2 pl-11 pr-4 text-sm text-slate-100 placeholder:text-slate-400 outline-none transition-colors focus:border-teal-400 focus:ring-2 focus:ring-teal-400/40"
+              />
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={handleSortByDistance}
+                aria-label={sortOrder === 'distance' ? 'Stop sorting by nearest distance' : 'Sort by nearest distance'}
+                aria-pressed={sortOrder === 'distance'}
+                disabled={isLocating}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 transition-colors ${
+                  sortOrder === 'distance' ? 'bg-teal-600/20 text-teal-300 border-teal-500/50' : 'bg-slate-900/60 hover:bg-slate-800 text-slate-300'
+                } disabled:cursor-wait disabled:opacity-70 focus:outline-none focus:ring-2 focus:ring-teal-400`}
+              >
+                <Compass className={`w-4 h-4 ${isLocating ? 'animate-spin' : ''}`} aria-hidden="true" />
+                <span className="text-sm">{sortOrder === 'distance' ? 'Near Me' : 'Distance'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setSortOrder(prev => prev === 'default' ? 'asc' : prev === 'asc' ? 'desc' : 'default')}
+                aria-label={sortOrder === 'asc' ? 'Sort waterways Z to A' : sortOrder === 'desc' ? 'Clear alphabetical sorting' : 'Sort waterways A to Z'}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-700/50 bg-slate-900/60 hover:bg-slate-800 transition-colors text-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-400"
+              >
+                {(sortOrder === 'default' || sortOrder === 'distance') && <><ArrowUpDown className="w-4 h-4" aria-hidden="true" /><span className="text-sm">Sort</span></>}
+                {sortOrder === 'asc' && <><ArrowDownAZ className="w-4 h-4" aria-hidden="true" /><span className="text-sm">A-Z</span></>}
+                {sortOrder === 'desc' && <><ArrowUpZA className="w-4 h-4" aria-hidden="true" /><span className="text-sm">Z-A</span></>}
+              </button>
+            </div>
           </div>
+          {normalizedSearchTerm && (
+            <p role="status" aria-live="polite" className="text-sm text-slate-200">
+              Showing {filteredBodiesOfWater.length} {filteredBodiesOfWater.length === 1 ? 'match' : 'matches'}.
+            </p>
+          )}
           {locationError && <p role="status" className="text-sm text-amber-300">{locationError}</p>}
         </motion.header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0" role="list" aria-label="Bodies of water gallery">
-          <AnimatePresence mode="popLayout">
-          {paginatedBodiesOfWater.map((item, index) => (
-            <motion.div
-              key={`${item.id}-${currentPage}-${sortOrder}`}
-              ref={(el) => {
-                if (el) itemsRef.current[item.id] = el;
-              }}
-              role="button"
-              tabIndex={0}
-              aria-label={`View details for ${item.name}`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  setSelectedId(item.id);
-                }
-              }}
-              layoutId={`card-${item.id}`}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
-              onClick={() => setSelectedId(item.id)}
-              className="group relative rounded-3xl overflow-hidden cursor-pointer h-[300px] md:h-[350px] lg:h-[400px] focus:outline-none focus:ring-4 focus:ring-blue-500/50"
-            >
-              <LazyImage
-                layoutId={`image-${item.id}`}
-                src={item.image}
-                alt={item.name}
-                color={item.color}
-                containerClassName="absolute inset-0 w-full h-full"
-                imgClassName="transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent z-20 pointer-events-none" />
-              
-              <div className="absolute inset-0 p-8 flex flex-col justify-end z-30">
-                <motion.div layoutId={`type-${item.id}`} className={`text-xs font-bold tracking-widest uppercase mb-2 ${item.accent}`}>
-                  {item.type}
-                </motion.div>
-                <motion.h2 layoutId={`title-${item.id}`} className="text-3xl font-serif font-bold text-white drop-shadow-lg mb-2">
-                  {item.name}
-                </motion.h2>
-                <div className="h-0 overflow-hidden transition-all duration-500 group-hover:h-6 opacity-0 group-hover:opacity-100 flex items-center text-sm text-slate-300">
-                  <span>Explore</span>
-                  <ArrowRight className="w-4 h-4 ml-2" />
+        {paginatedBodiesOfWater.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 flex-1 min-h-0" role="list" aria-label="Bodies of water gallery">
+            <AnimatePresence mode="popLayout">
+            {paginatedBodiesOfWater.map((item, index) => (
+              <motion.button
+                key={`${item.id}-${currentPage}-${sortOrder}-${normalizedSearchTerm}`}
+                ref={(el) => {
+                  if (el) itemsRef.current[item.id] = el;
+                }}
+                type="button"
+                aria-label={`View details for ${item.name}`}
+                layoutId={`card-${item.id}`}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
+                onClick={() => setSelectedId(item.id)}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer h-[300px] md:h-[350px] lg:h-[400px] text-left focus:outline-none focus:ring-4 focus:ring-blue-500/50"
+              >
+                <LazyImage
+                  layoutId={`image-${item.id}`}
+                  src={item.image}
+                  alt={item.name}
+                  color={item.color}
+                  containerClassName="absolute inset-0 w-full h-full"
+                  imgClassName="transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent z-20 pointer-events-none" />
+
+                <div className="absolute inset-0 p-8 flex flex-col justify-end z-30">
+                  <motion.div layoutId={`type-${item.id}`} className={`text-xs font-bold tracking-widest uppercase mb-2 ${item.accent}`}>
+                    {item.type}
+                  </motion.div>
+                  <motion.h2 layoutId={`title-${item.id}`} className="text-3xl font-serif font-bold text-white drop-shadow-lg mb-2">
+                    {item.name}
+                  </motion.h2>
+                  <div className="h-0 overflow-hidden transition-all duration-500 group-hover:h-6 group-focus-visible:h-6 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 flex items-center text-sm text-slate-300">
+                    <span>Explore</span>
+                    <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-          </AnimatePresence>
-        </div>
+              </motion.button>
+            ))}
+            </AnimatePresence>
+          </div>
+        ) : (
+          <div className="flex min-h-[300px] flex-col items-center justify-center rounded-3xl border border-slate-700/50 bg-slate-900/60 p-8 text-center">
+            <Droplets className="mb-4 h-10 w-10 text-teal-300" aria-hidden="true" />
+            <h2 className="text-2xl font-serif text-slate-50">No matching waterways</h2>
+            <p className="mt-2 max-w-md text-slate-300">Try another waterway name, town, or type.</p>
+          </div>
+        )}
 
         {totalPages > 1 && (
           <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
             <button
+              type="button"
               onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
               disabled={currentPage === 1}
               aria-label="Previous page"
@@ -1361,6 +1490,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
             <div className="flex flex-wrap justify-center gap-2 mx-4 max-w-full" role="navigation" aria-label="Pagination">
               {Array.from({ length: totalPages }).map((_, i) => (
                 <button
+                  type="button"
                   key={i}
                   onClick={() => setCurrentPage(i + 1)}
                   aria-label={`Go to page ${i + 1}`}
@@ -1376,6 +1506,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               ))}
             </div>
             <button
+              type="button"
               onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
               aria-label="Next page"
@@ -1385,7 +1516,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
             </button>
           </div>
         )}
-      </div>
+      </main>
 
       <AnimatePresence>
         {selectedItem && (
@@ -1398,10 +1529,12 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
               className="fixed inset-0 z-40 bg-slate-900/95"
             />
             <div 
+              ref={modalRef}
               className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
               role="dialog"
               aria-modal="true"
               aria-labelledby={`title-${selectedItem.id}`}
+              aria-describedby={`description-${selectedItem.id}`}
             >
               <motion.div
                 layoutId={`card-${selectedItem.id}`}
@@ -1432,16 +1565,20 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
 
                   <div className="absolute bottom-4 left-4 z-40 flex gap-2">
                     <button 
+                      type="button"
                       onClick={(e) => { e.stopPropagation(); setViewMode('photo'); }}
                       aria-label="View Photo"
+                      aria-pressed={viewMode === 'photo'}
                       className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'photo' ? 'bg-white text-slate-900' : 'bg-slate-900/60 text-slate-50 hover:bg-slate-800'}`}
                       title="View Photo"
                     >
                       <ImageIcon className="w-5 h-5" />
                     </button>
                     <button 
+                      type="button"
                       onClick={(e) => { e.stopPropagation(); setViewMode('map'); }}
                       aria-label="View Map"
+                      aria-pressed={viewMode === 'map'}
                       className={`p-2 rounded-full transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white ${viewMode === 'map' ? 'bg-white text-slate-900' : 'bg-slate-900/60 text-slate-50 hover:bg-slate-800'}`}
                       title="View Map"
                     >
@@ -1463,15 +1600,17 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     <div className="flex flex-col md:flex-row items-end md:items-center gap-2 shrink-0 ml-4">
                       <div className="flex items-center gap-2 mb-2 md:mb-0 mr-0 md:mr-2">
                         <button
-                          onClick={() => window.open('https://www.x.com/theheftyheifer', '_blank')}
-                          aria-label="Visit Twitter profile"
-                          title="Visit Twitter profile"
+                          type="button"
+                          onClick={() => openExternal('https://www.x.com/theheftyheifer')}
+                          aria-label="Visit X profile"
+                          title="Visit X profile"
                           className="p-2 rounded-full bg-slate-900/40 hover:bg-[#1DA1F2] text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
                         >
                           <Twitter className="w-5 h-5" />
                         </button>
                         <button
-                          onClick={() => window.open('https://www.facebook.com/heftytheheifer', '_blank')}
+                          type="button"
+                          onClick={() => openExternal('https://www.facebook.com/heftytheheifer')}
                           aria-label="Visit Facebook profile"
                           title="Visit Facebook profile"
                           className="p-2 rounded-full bg-slate-900/40 hover:bg-[#4267B2] text-slate-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#4267B2]"
@@ -1479,6 +1618,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           <Facebook className="w-5 h-5" />
                         </button>
                         <button
+                          type="button"
                           onClick={() => window.location.href = 'mailto:HeftytheHeifer@gmail.com'}
                           aria-label="Send email"
                           title="Send email"
@@ -1487,7 +1627,8 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           <Mail className="w-5 h-5" />
                         </button>
                         <button
-                          onClick={() => navigator.clipboard.writeText(window.location.href)}
+                          type="button"
+                          onClick={handleCopyLink}
                           aria-label="Copy link"
                           title="Copy link"
                           className="p-2 rounded-full bg-slate-900/40 hover:bg-slate-700 text-slate-300 hover:text-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500"
@@ -1495,8 +1636,10 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                           <LinkIcon className="w-5 h-5" />
                         </button>
                       </div>
+                      {copyStatus && <p role="status" className="text-xs text-teal-300">{copyStatus}</p>}
                       <button 
                         ref={closeBtnRef}
+                        type="button"
                         onClick={() => setSelectedId(null)}
                         aria-label="Close details"
                         title="Close"
@@ -1513,12 +1656,15 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     transition={{ delay: 0.2 }}
                     className="mb-6"
                   >
-                    <p className={`text-slate-300 text-lg leading-relaxed ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
+                    <p id={`description-${selectedItem.id}`} className={`text-slate-300 text-lg leading-relaxed ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
                       {selectedItem.description}
                     </p>
                     {selectedItem.description && selectedItem.description.length > 100 && (
                       <button 
+                        type="button"
                         onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+                        aria-expanded={isDescriptionExpanded}
+                        aria-controls={`description-${selectedItem.id}`}
                         className="text-teal-400 hover:text-teal-300 text-sm font-medium mt-2 transition-colors focus:outline-none focus:underline"
                       >
                         {isDescriptionExpanded ? 'Read Less' : 'Read More'}
@@ -1557,7 +1703,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     >
                       {Object.entries(selectedItem.stats).map(([key, value]) => (
                         <div key={key} className="border-t border-slate-700/50 pt-4">
-                          <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">{key}</div>
+                          <div className="text-xs text-slate-400 uppercase tracking-wider mb-1">{formatStatKey(key)}</div>
                           <div className="text-xl font-medium text-slate-200">{value}</div>
                         </div>
                       ))}
@@ -1570,9 +1716,9 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                     transition={{ delay: 0.4 }}
                     className="border-t border-slate-700/50 pt-6"
                   >
-                    <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Current Weather</div>
+                    <div className="text-xs text-slate-400 uppercase tracking-wider mb-4">Current Weather</div>
                     {weatherLoading ? (
-                      <div className="text-slate-300">Loading...</div>
+                      <div role="status" className="text-slate-300">Loading...</div>
                     ) : weatherData ? (
                       <div className="flex gap-8">
                         <div>
@@ -1596,13 +1742,14 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
                       transition={{ delay: 0.5 }}
                       className="border-t border-slate-700/50 pt-6 mt-8"
                     >
-                      <div className="text-xs text-slate-500 uppercase tracking-wider mb-4">Nearby Waterbodies</div>
+                      <div className="text-xs text-slate-400 uppercase tracking-wider mb-4">Nearby Waterbodies</div>
                       <div className="grid grid-cols-1 gap-4">
                         {relatedItems.map(item => (
                           <button
+                            type="button"
                             key={item.id}
                             onClick={() => setSelectedId(item.id)}
-                            className="flex items-center gap-4 p-3 rounded-xl bg-slate-900/40/30 hover:bg-slate-900/40 border border-slate-700/50 hover:border-slate-600 transition-all text-left group"
+                            className="flex items-center gap-4 p-3 rounded-xl bg-slate-900/40 hover:bg-slate-800/70 border border-slate-700/50 hover:border-slate-600 transition-all text-left group focus:outline-none focus:ring-2 focus:ring-teal-400"
                           >
                             <LazyImage src={item.image} alt={item.name} color={item.color} containerClassName="w-16 h-16 rounded-lg shrink-0" imgClassName="rounded-lg" />
                             <div className="flex-1">
@@ -1625,6 +1772,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
       </AnimatePresence>
 
       <motion.button
+        type="button"
         className="fixed right-6 bottom-6 md:right-8 md:bottom-8 z-30 h-14 w-14 md:h-16 md:w-16 rounded-full border border-slate-700/50 shadow-xl bg-slate-800/80 flex items-center justify-center text-slate-200 hover:text-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-500/50 group"
         whileHover={{ scale: 1.1, rotate: 15 }}
         whileTap={{ scale: 0.9, rotate: -15 }}
@@ -1634,7 +1782,7 @@ function Gallery({ title, items }: { title: string, items: Waterway[] }) {
         }}
         aria-label="Surprise Me! Pick a random body of water"
       >
-        <Droplets className="w-6 h-6 md:w-8 md:h-8 group-hover:text-teal-600 transition-colors" />
+        <Droplets className="w-6 h-6 md:w-8 md:h-8 group-hover:text-teal-600 transition-colors" aria-hidden="true" />
         
         <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-slate-800 text-slate-200 text-sm rounded-lg opacity-0 min-w-max group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-700/50 font-medium">
           Surprise Me!
@@ -1677,9 +1825,10 @@ function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 px-4 py-4 flex justify-center pointer-events-none">
+    <nav aria-label="County navigation" className="fixed top-0 left-0 right-0 z-40 px-4 py-4 flex justify-center pointer-events-none">
       <div className="relative pointer-events-auto flex items-center bg-slate-900/80 backdrop-blur-md px-2 py-3 rounded-2xl md:rounded-[2rem] border border-slate-700/50 shadow-xl max-w-full lg:max-w-6xl group pb-4">
         <button 
+          type="button"
           onClick={scrollLeft}
           className="absolute left-2 z-10 p-1.5 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 shadow-md md:opacity-0 group-hover:opacity-100 transition-opacity"
           aria-label="Scroll left"
@@ -1925,13 +2074,14 @@ function Navigation() {
         </Link>
         </div>
         <button 
+          type="button"
           onClick={scrollRight}
           className="absolute right-2 z-10 p-1.5 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 shadow-md md:opacity-0 group-hover:opacity-100 transition-opacity"
           aria-label="Scroll right"
         >
           <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
         </button>
-        <div className="absolute bottom-1 left-12 right-12 h-1 bg-slate-700/50 rounded-full overflow-hidden">
+        <div className="absolute bottom-1 left-12 right-12 h-1 bg-slate-700/50 rounded-full overflow-hidden" aria-hidden="true">
           <div 
             className="h-full bg-slate-400 rounded-full transition-all duration-150 ease-out" 
             style={{ width: `${scrollProgress}%` }}
@@ -1943,6 +2093,10 @@ function Navigation() {
 }
 
 function About() {
+  useEffect(() => {
+    document.title = 'About | Maryland Waterways Explorer';
+  }, []);
+
   const counties = [
     "Montgomery", "Frederick", "Baltimore City", "Baltimore", "Anne Arundel", 
     "Calvert", "Caroline", "Carroll", "Cecil", "Charles", "Dorchester", 
@@ -1960,7 +2114,7 @@ function About() {
         <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
       </div>
       
-      <div className="relative z-10 max-w-5xl mx-auto space-y-12">
+      <main id="main-content" tabIndex={-1} className="relative z-10 max-w-5xl mx-auto space-y-12 focus:outline-none">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -2059,7 +2213,7 @@ function About() {
             </p>
           </div>
         </motion.div>
-      </div>
+      </main>
     </div>
   );
 }
@@ -2067,6 +2221,9 @@ function About() {
 export default function App() {
   return (
     <HashRouter>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-lg">
+        Skip to content
+      </a>
       <Navigation />
       <Routes>
         <Route path="/" element={<Gallery title="Montgomery County Waterways" items={[...bodiesOfWater, ...montgomeryBodiesOfWaterPart2]} />} />
